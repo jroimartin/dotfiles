@@ -1,0 +1,10 @@
+settings = {
+	core = { real_name = "nibble"; user_name = "nibble"; nick = "nibble"; };
+	"fe-text" = { actlist_sort = "refnum"; };
+	"irc/core" = { alternate_nick = "`Nibble"; };
+	"fe-common/core" = {
+		bell_beeps = "yes";
+		beep_msg_level = "MSGS NOTICES INVITES DCC DCCMSGS HILIGHT";
+		term_charset = "utf-8";
+	};
+};
