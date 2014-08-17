@@ -11,7 +11,7 @@ TMUX
 
 IRSSI
 -----
-* ~/.irssi/confi
+* ~/.irssi/config
 
 OSX
 ---
