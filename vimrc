@@ -54,7 +54,7 @@ map \ :nohlsearch<CR>
 "autocmd FileType go autocmd BufWritePre <buffer> Fmt
 
 " Ruby
-autocmd FileType ruby,eruby set ts=2 sw=2
+autocmd FileType ruby,eruby set ts=2 sw=2 expandtab
 
 " Encryption algorithm for vim -x
 set cm=blowfish
