@@ -29,7 +29,7 @@ autocmd QuickFixCmdPost * copen
 map <F12> :sp<cr>:e /tmp/commit.diff<cr>:r !git diff HEAD<cr>
 
 " ctags support
-map <F11> :!ctags -f tags -R .
+map <F11> :!/usr/local/bin/ctags -f tags -R .
 
 " Highlight chars over column 80
 "match ErrorMsg '\%>80v.\+'
