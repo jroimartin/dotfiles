@@ -21,6 +21,7 @@ filetype on
 filetype plugin indent on
 syntax on
 "colorscheme desert
+set background=dark
 
 " Run copen after using :grep or :make
 autocmd QuickFixCmdPost * copen
@@ -50,8 +51,7 @@ map \| :set invlist<CR>
 map \ :nohlsearch<CR>
 
 " Go
-" Auto gofmt when saving
-"autocmd FileType go autocmd BufWritePre <buffer> Fmt
+let g:go_fmt_command = "goimports"
 
 " Ruby
 autocmd FileType ruby,eruby set ts=2 sw=2 expandtab
