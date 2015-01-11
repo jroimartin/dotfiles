@@ -21,7 +21,7 @@ filetype on
 filetype plugin indent on
 syntax on
 "colorscheme desert
-set background=dark
+"set background=dark
 
 " Run copen after using :grep or :make
 autocmd QuickFixCmdPost * copen
@@ -32,8 +32,10 @@ map <F12> :sp<cr>:e /tmp/commit.diff<cr>:r !git diff HEAD<cr>
 " ctags support
 map <F11> :!/usr/local/bin/ctags -f tags -R .
 
-" Highlight chars over column 80
-"match ErrorMsg '\%>80v.\+'
+" Highlight column 81
+set textwidth=80 formatoptions=q wrapmargin=0
+set cc=+1
+hi ColorColumn ctermbg=grey ctermfg=black cterm=bold
 
 " status line
 set laststatus=2 " always show the status bar
