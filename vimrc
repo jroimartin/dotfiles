@@ -16,12 +16,11 @@ set backspace=2
 set shiftwidth=4
 set tabstop=4
 set smarttab
-"set expandtab
 filetype on
 filetype plugin indent on
 syntax on
-"colorscheme desert
-"set background=dark
+colorscheme desert
+set background=dark
 
 " Run copen after using :grep or :make
 autocmd QuickFixCmdPost * copen
