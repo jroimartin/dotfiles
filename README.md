@@ -14,4 +14,7 @@
 
 ## SOLARIZED
 * Main github repository: https://github.com/altercation/solarized
-* Installation in vim: https://github.com/altercation/solarized/tree/master/vim-colors-solarized
+* OSX Terminal.App: https://github.com/tomislav/osx-terminal.app-colors-solarized
+* tmux: https://github.com/seebi/tmux-colors-solarized
+* dircolors: https://github.com/seebi/dircolors-solarized
+* vim: https://github.com/altercation/vim-colors-solarized
