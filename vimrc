@@ -19,8 +19,8 @@ set smarttab
 filetype on
 filetype plugin indent on
 syntax on
-colorscheme desert
 set background=dark
+colorscheme solarized
 
 " Run copen after using :grep or :make
 autocmd QuickFixCmdPost * copen

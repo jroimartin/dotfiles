@@ -13,4 +13,5 @@
 * ~/Library/KeyBindings/DefaultKeyBinding.dict
 
 ## SOLARIZED
-* Configuration files and instructions
+* Main github repository: https://github.com/altercation/solarized
+* Installation in vim: https://github.com/altercation/solarized/tree/master/vim-colors-solarized
