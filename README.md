@@ -1,18 +1,16 @@
-Dot Files
-=========
+# Dot Files
 
-VIM
----
+## VIM
 * ~/.vimrc
 
-TMUX
-----
+## TMUX
 * ~/.tmux.conf
 
-IRSSI
------
+## IRSSI
 * ~/.irssi/config
 
-OSX
----
+## OSX
 * ~/Library/KeyBindings/DefaultKeyBinding.dict
+
+## SOLARIZED
+* Configuration files and instructions
