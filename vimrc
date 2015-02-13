@@ -20,7 +20,7 @@ filetype on
 filetype plugin indent on
 syntax on
 set background=dark
-colorscheme solarized
+colorscheme desert
 
 " Run copen after using :grep or :make
 autocmd QuickFixCmdPost * copen
