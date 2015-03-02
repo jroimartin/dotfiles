@@ -24,7 +24,7 @@ colorscheme desert
 highlight Pmenu ctermfg=white ctermbg=darkgrey
 highlight PmenuSel ctermfg=white ctermbg=darkred
 " Search color
-highlight IncSearch ctermfg=white ctermbg=darkblue
+highlight IncSearch ctermfg=black ctermbg=yellow
 highlight Search ctermfg=white ctermbg=darkred
 
 " Run copen after using :grep or :make
