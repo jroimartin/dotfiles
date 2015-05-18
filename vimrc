@@ -15,7 +15,7 @@ set backspace=2
 set tabstop=8
 set shiftwidth=8
 set autoindent
-syntax off
+syntax on
 filetype plugin indent on
 set background=dark
 colorscheme desert
