@@ -1,2 +1,3 @@
 export CLICOLOR=1
-export PS1="\u@\h:\w\$ "
+export LSCOLORS="Exfxcxdxbxegedabagacad"
+export PS1="\[\e[0;32m\]\u@\h\[\e[m\]:\[\e[1;34m\]\w\[\e[m\]\$ "
