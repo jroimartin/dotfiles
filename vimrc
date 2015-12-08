@@ -31,12 +31,6 @@ highlight Search ctermfg=white ctermbg=darkred
 " Run copen after using :grep or :make
 autocmd QuickFixCmdPost * copen
 
-" show commit diff
-map <F12> :sp<cr>:e /tmp/commit.diff<cr>:r !git diff HEAD<cr>
-
-" ctags support
-map <F11> :!/usr/local/bin/ctags -f tags -R .
-
 " Highlight column 81
 "set textwidth=80 formatoptions=q wrapmargin=0
 "set cc=+1
