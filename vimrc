@@ -31,11 +31,6 @@ highlight Search ctermfg=white ctermbg=darkred
 " Run copen after using :grep or :make
 autocmd QuickFixCmdPost * copen
 
-" Highlight column 81
-"set textwidth=80 formatoptions=q wrapmargin=0
-"set cc=+1
-"hi ColorColumn ctermbg=grey ctermfg=black cterm=bold
-
 " Buffers
 map gb :bn<CR>
 map gB :bp<CR>
