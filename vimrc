@@ -12,9 +12,9 @@ set wildmenu
 set ruler
 set nonumber
 set backspace=2
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=8
+set shiftwidth=8
+set softtabstop=8
 set autoindent
 syntax on
 filetype plugin indent on
