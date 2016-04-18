@@ -16,6 +16,7 @@ set tabstop=8
 set shiftwidth=8
 set softtabstop=8
 set autoindent
+set clipboard=unnamed
 syntax on
 filetype plugin indent on
 set background=dark
