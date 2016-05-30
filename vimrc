@@ -12,11 +12,10 @@ set wildmenu
 set ruler
 set nonumber
 set backspace=2
-set tabstop=8
-set shiftwidth=8
-set softtabstop=8
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
 set autoindent
-set clipboard=unnamed
 syntax on
 filetype plugin indent on
 set background=dark
@@ -43,13 +42,9 @@ map \| :set invlist<CR>
 " Search
 map \ :nohlsearch<CR>
 
-" Go
+" Langs
 let g:go_fmt_command = "goimports"
-
-" Ruby
 autocmd FileType ruby,eruby set ts=2 sw=2 sts=2 expandtab
-
-" Python
 autocmd FileType python set ts=4 sw=4 sts=4 expandtab
 
 " Encryption algorithm for vim -x
