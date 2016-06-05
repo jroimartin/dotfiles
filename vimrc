@@ -27,6 +27,9 @@ highlight PmenuSel ctermfg=white ctermbg=darkred
 " Search color
 highlight IncSearch ctermfg=black ctermbg=yellow
 highlight Search ctermfg=white ctermbg=darkred
+" Trailing spaces
+highlight TrailingWhitespace ctermfg=white ctermbg=red
+match TrailingWhitespace /\s\+$/
 
 " Run copen after using :grep or :make
 autocmd QuickFixCmdPost * copen
