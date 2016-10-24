@@ -1,0 +1,7 @@
+[user]
+	name = Roi Martin
+	email = jroi.martin@gmail.com
+[push]
+	default = nothing
+[alias]
+	lg = log --graph --oneline --decorate --all
