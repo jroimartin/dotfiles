@@ -1,6 +1,9 @@
 " Pathogen
 execute pathogen#infect()
 
+" Set Leader key
+let mapleader=","
+
 " Configuration
 set nocompatible
 set nobackup
@@ -31,24 +34,25 @@ highlight PmenuSel ctermfg=white ctermbg=darkred
 highlight IncSearch ctermfg=black ctermbg=yellow
 highlight Search ctermfg=white ctermbg=darkred
 
-" Run copen after using :grep or :make
-autocmd QuickFixCmdPost * copen
-
 " Buffers
-map gb :bn<CR>
-map gB :bp<CR>
+nmap gb :bn<CR>
+nmap gB :bp<CR>
 
 " Non-printable characters
 set lcs=eol:$,tab:\|-
-map \| :set invlist<CR>
+nmap \| :set invlist<CR>
 
 " Search
-map \ :nohlsearch<CR>
+nmap \ :nohlsearch<CR>
 
 " Langs
 let g:go_fmt_command = "goimports"
 let g:go_template_autocreate = 0
+autocmd FileType go nmap <leader>n <Plug>(go-rename)
+autocmd FileType go nmap <leader>r <Plug>(go-referrers)
+
 autocmd FileType ruby,eruby set ts=2 sw=2 sts=2 expandtab
+
 autocmd FileType python set ts=4 sw=4 sts=4 expandtab
 
 " Encryption algorithm for vim -x
