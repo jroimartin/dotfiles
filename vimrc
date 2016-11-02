@@ -36,7 +36,7 @@ highlight Search ctermfg=white ctermbg=darkred
 " Diff colors
 highlight DiffAdd ctermfg=white ctermbg=darkgreen
 highlight DiffDelete ctermfg=white ctermbg=darkred
-highlight DiffChange ctermfg=white ctermbg=darkblue
+highlight DiffChange ctermfg=white ctermbg=darkyellow
 highlight DiffText ctermfg=white ctermbg=darkmagenta
 
 " Buffers
