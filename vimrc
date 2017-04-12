@@ -15,29 +15,23 @@ set wildmenu
 set ruler
 set nonumber
 set backspace=2
-set tabstop=8
-set shiftwidth=8
-set softtabstop=8
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
 set autoindent
 syntax on
 filetype plugin indent on
-set background=dark
-colorscheme desert
+
+" Solarized + iTerm2
+if $ITERM_PROFILE == "dark"
+	set background=dark
+else
+	set background=light
+endif
+colorscheme solarized
 
 " Enable matchit
 runtime macros/matchit.vim
-
-" Menu color
-highlight Pmenu ctermfg=white ctermbg=darkgrey
-highlight PmenuSel ctermfg=white ctermbg=darkred
-" Search color
-highlight IncSearch ctermfg=black ctermbg=yellow
-highlight Search ctermfg=white ctermbg=darkred
-" Diff colors
-highlight DiffAdd ctermfg=white ctermbg=darkgreen
-highlight DiffDelete ctermfg=white ctermbg=darkred
-highlight DiffChange ctermfg=white ctermbg=darkyellow
-highlight DiffText ctermfg=white ctermbg=darkmagenta
 
 " Buffers
 nmap gb :bn<CR>
@@ -57,8 +51,17 @@ autocmd FileType go nmap <leader>n <Plug>(go-rename)
 autocmd FileType go nmap <leader>r <Plug>(go-referrers)
 
 autocmd FileType ruby,eruby set ts=2 sw=2 sts=2 expandtab
-
 autocmd FileType python set ts=4 sw=4 sts=4 expandtab
+autocmd FileType html,css,javascript set ts=2 sw=2 sts=2 expandtab
+autocmd BufEnter,BufNew *.hbs set ft=html ts=2 sw=2 sts=2 expandtab
+
+" Fix syntax highlighting in markdown files
+autocmd BufEnter markdown :syntax sync fromstart
 
 " Encryption algorithm for vim -x
 set cm=blowfish
+
+" ctrlp.vim
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/](bower_components|node_modules|dist|vendor|tmp)$',
+  \ }
