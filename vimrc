@@ -19,16 +19,25 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set autoindent
+set switchbuf=usetab,newtab
+set cryptmethod=blowfish2
 syntax on
 filetype plugin indent on
 
-" Solarized + iTerm2
-if $ITERM_PROFILE == "dark"
-	set background=dark
-else
-	set background=light
-endif
-colorscheme solarized
+colorscheme desert
+set background=dark
+
+" Menu color
+highlight Pmenu ctermfg=white ctermbg=darkgrey
+highlight PmenuSel ctermfg=white ctermbg=darkred
+" Search color
+highlight IncSearch ctermfg=black ctermbg=yellow
+highlight Search ctermfg=white ctermbg=darkred
+" Diff colors
+highlight DiffAdd ctermfg=white ctermbg=darkgreen
+highlight DiffDelete ctermfg=white ctermbg=darkred
+highlight DiffChange ctermfg=white ctermbg=darkyellow
+highlight DiffText ctermfg=white ctermbg=darkmagenta
 
 " Enable matchit
 runtime macros/matchit.vim
@@ -49,17 +58,10 @@ let g:go_fmt_command = "goimports"
 let g:go_template_autocreate = 0
 autocmd FileType go nmap <leader>n <Plug>(go-rename)
 autocmd FileType go nmap <leader>r <Plug>(go-referrers)
-
 autocmd FileType ruby,eruby set ts=2 sw=2 sts=2 expandtab
 autocmd FileType python set ts=4 sw=4 sts=4 expandtab
 autocmd FileType html,css,javascript set ts=2 sw=2 sts=2 expandtab
 autocmd BufEnter,BufNew *.hbs set ft=html ts=2 sw=2 sts=2 expandtab
-
-" Fix syntax highlighting in markdown files
-autocmd BufEnter markdown :syntax sync fromstart
-
-" Encryption algorithm for vim -x
-set cm=blowfish
 
 " ctrlp.vim
 let g:ctrlp_custom_ignore = {
