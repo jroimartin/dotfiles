@@ -19,7 +19,6 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set autoindent
-set switchbuf=usetab,newtab
 set cryptmethod=blowfish2
 syntax on
 filetype plugin indent on
