@@ -20,10 +20,16 @@ set shiftwidth=4
 set softtabstop=4
 set autoindent
 set cryptmethod=blowfish2
-set background=dark
-colorscheme desert
 syntax on
 filetype plugin indent on
+
+" Solarized + iTerm2
+if $ITERM_PROFILE == "dark"
+	set background=dark
+else
+	set background=light
+endif
+colorscheme solarized
 
 " Enable matchit
 runtime macros/matchit.vim
