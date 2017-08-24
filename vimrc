@@ -57,5 +57,5 @@ autocmd BufEnter,BufNew *.hbs set ft=html ts=2 sw=2 sts=2 expandtab
 
 " ctrlp.vim
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/](bower_components|node_modules|dist|vendor|tmp)$',
+  \ 'dir':  '\v[\/](bower_components|node_modules|vendor)$',
   \ }
