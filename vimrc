@@ -45,11 +45,6 @@ nmap \| :set invlist<CR>
 " Search
 nmap \ :nohlsearch<CR>
 
-if executable('ag')
-    set grepprg=ag\ --nogroup\ --nocolor\ --column
-    set grepformat=%f:%l:%c:%m
-endif
-
 " Langs
 let g:go_fmt_command = "goimports"
 let g:go_template_autocreate = 0
@@ -64,3 +59,11 @@ autocmd BufEnter,BufNew *.hbs set ft=html ts=2 sw=2 sts=2 expandtab
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/](bower_components|node_modules|vendor)$',
   \ }
+
+" ag
+if executable('ag')
+	set grepprg=ag\ --nogroup\ --nocolor\ --column
+	set grepformat=%f:%l:%c:%m
+	let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+	let g:ctrlp_use_caching = 0
+endif
