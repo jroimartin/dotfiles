@@ -45,6 +45,11 @@ nmap \| :set invlist<CR>
 " Search
 nmap \ :nohlsearch<CR>
 
+if executable('ag')
+    set grepprg=ag\ --nogroup\ --nocolor\ --column
+    set grepformat=%f:%l:%c:%m
+endif
+
 " Langs
 let g:go_fmt_command = "goimports"
 let g:go_template_autocreate = 0
