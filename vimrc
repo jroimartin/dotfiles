@@ -1,9 +1,3 @@
-" Pathogen
-execute pathogen#infect()
-
-" Set Leader key
-let mapleader=","
-
 " Configuration
 set nocompatible
 set nobackup
@@ -33,6 +27,9 @@ colorscheme solarized
 
 " Enable matchit
 runtime macros/matchit.vim
+
+" Set Leader key
+let mapleader=","
 
 " Buffers
 nmap gb :bn<CR>
