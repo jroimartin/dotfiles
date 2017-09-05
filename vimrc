@@ -17,13 +17,20 @@ set cryptmethod=blowfish2
 syntax on
 filetype plugin indent on
 
-" Solarized + iTerm2
-if $ITERM_PROFILE == "dark"
-	set background=dark
-else
-	set background=light
-endif
-colorscheme solarized
+" Color scheme
+colorscheme desert
+set background=dark
+" Menu color
+highlight Pmenu ctermfg=white ctermbg=darkgrey
+highlight PmenuSel ctermfg=white ctermbg=darkred
+" Search color
+highlight IncSearch ctermfg=black ctermbg=yellow
+highlight Search ctermfg=white ctermbg=darkred
+" Diff colors
+highlight DiffAdd ctermfg=white ctermbg=darkgreen
+highlight DiffDelete ctermfg=white ctermbg=darkred
+highlight DiffChange ctermfg=white ctermbg=darkyellow
+highlight DiffText ctermfg=white ctermbg=darkmagenta
 
 " Enable matchit
 runtime macros/matchit.vim
