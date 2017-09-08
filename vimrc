@@ -17,20 +17,14 @@ set cryptmethod=blowfish2
 syntax on
 filetype plugin indent on
 
-" Color scheme
-colorscheme desert
-set background=dark
-" Menu color
-highlight Pmenu ctermfg=white ctermbg=darkgrey
-highlight PmenuSel ctermfg=white ctermbg=darkred
-" Search color
-highlight IncSearch ctermfg=black ctermbg=yellow
-highlight Search ctermfg=white ctermbg=darkred
-" Diff colors
-highlight DiffAdd ctermfg=white ctermbg=darkgreen
-highlight DiffDelete ctermfg=white ctermbg=darkred
-highlight DiffChange ctermfg=white ctermbg=darkyellow
-highlight DiffText ctermfg=white ctermbg=darkmagenta
+" Solarized + iTerm2
+if $ITERM_PROFILE == "dark"
+	set background=dark
+else
+	set background=light
+endif
+colorscheme solarized
+
 
 " Enable matchit
 runtime macros/matchit.vim
@@ -61,8 +55,8 @@ autocmd BufEnter,BufNew *.hbs set ft=html ts=2 sw=2 sts=2 expandtab
 
 " ctrlp.vim
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/](bower_components|node_modules|vendor)$',
-  \ }
+	\ 'dir':  '\v[\/](bower_components|node_modules|vendor)$',
+	\ }
 
 " ag
 if executable('ag')
