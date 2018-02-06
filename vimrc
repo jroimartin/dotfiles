@@ -14,21 +14,6 @@ set shiftwidth=8
 set softtabstop=8
 set cryptmethod=blowfish2
 
-" Color scheme
-colorscheme desert
-set background=dark
-" Menu color
-highlight Pmenu ctermfg=white ctermbg=darkgrey
-highlight PmenuSel ctermfg=white ctermbg=darkred
-" Search color
-highlight IncSearch ctermfg=black ctermbg=yellow
-highlight Search ctermfg=white ctermbg=darkred
-" Diff colors
-highlight DiffAdd ctermfg=white ctermbg=darkgreen
-highlight DiffDelete ctermfg=white ctermbg=darkred
-highlight DiffChange ctermfg=white ctermbg=darkyellow
-highlight DiffText ctermfg=white ctermbg=darkmagenta
-
 " Buffers
 nmap gb :bn<CR>
 nmap gB :bp<CR>
