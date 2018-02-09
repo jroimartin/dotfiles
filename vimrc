@@ -48,3 +48,9 @@ autocmd FileType ruby,eruby set ts=2 sw=2 sts=2 expandtab
 autocmd FileType python set ts=4 sw=4 sts=4 expandtab
 autocmd FileType html,css,javascript set ts=2 sw=2 sts=2 expandtab
 autocmd BufEnter,BufNew *.hbs set ft=html ts=2 sw=2 sts=2 expandtab
+
+" ag
+if executable('ag')
+	set grepprg=ag\ --nogroup\ --nocolor\ --column
+	set grepformat=%f:%l:%c:%m
+endif
