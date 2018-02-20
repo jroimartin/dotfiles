@@ -32,10 +32,6 @@ highlight DiffDelete ctermfg=white ctermbg=darkred
 highlight DiffChange ctermfg=white ctermbg=darkyellow
 highlight DiffText ctermfg=white ctermbg=darkmagenta
 
-" Buffers
-nmap gb :bn<CR>
-nmap gB :bp<CR>
-
 " Non-printable characters
 set lcs=eol:$,tab:\|-
 nmap \| :set invlist<CR>
@@ -47,6 +43,7 @@ nmap \ :nohlsearch<CR>
 autocmd FileType ruby,eruby set ts=2 sw=2 sts=2 expandtab
 autocmd FileType python set ts=4 sw=4 sts=4 expandtab
 autocmd FileType html,css,javascript set ts=2 sw=2 sts=2 expandtab
+autocmd FileType yaml set ts=2 sw=2 sts=2 expandtab
 autocmd BufEnter,BufNew *.hbs set ft=html ts=2 sw=2 sts=2 expandtab
 
 " ag
