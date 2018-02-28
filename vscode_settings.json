@@ -3,5 +3,8 @@
     "files.trimTrailingWhitespace": true,
     "files.insertFinalNewline": true,
     "editor.renderWhitespace": "boundary",
-    "workbench.startupEditor": "none"
+    "workbench.startupEditor": "none",
+    "window.zoomLevel": 0,
+    "telemetry.enableCrashReporter": false,
+    "telemetry.enableTelemetry": false
 }
