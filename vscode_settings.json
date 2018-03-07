@@ -6,5 +6,10 @@
     "workbench.startupEditor": "none",
     "window.zoomLevel": 0,
     "telemetry.enableCrashReporter": false,
-    "telemetry.enableTelemetry": false
+    "telemetry.enableTelemetry": false,
+    "workbench.editor.labelFormat": "medium",
+    "[ruby]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+    },
 }
