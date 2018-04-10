@@ -2,14 +2,15 @@
     "editor.fontSize": 14,
     "files.trimTrailingWhitespace": true,
     "files.insertFinalNewline": true,
-    "editor.renderWhitespace": "boundary",
     "workbench.startupEditor": "none",
     "window.zoomLevel": 0,
     "telemetry.enableCrashReporter": false,
     "telemetry.enableTelemetry": false,
     "workbench.editor.labelFormat": "medium",
+    "workbench.statusBar.feedback.visible": false,
     "[ruby]": {
         "editor.insertSpaces": true,
-        "editor.tabSize": 2,
+        "editor.tabSize": 2
     },
+    "solargraph.diagnostics": false
 }
