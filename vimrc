@@ -12,7 +12,6 @@ set backspace=2
 set tabstop=8
 set shiftwidth=8
 set softtabstop=8
-set cryptmethod=blowfish2
 
 filetype on
 syntax on
@@ -44,6 +43,7 @@ autocmd FileType ruby,eruby set ts=2 sw=2 sts=2 expandtab
 autocmd FileType python set ts=4 sw=4 sts=4 expandtab
 autocmd FileType html,css,javascript set ts=2 sw=2 sts=2 expandtab
 autocmd FileType yaml set ts=2 sw=2 sts=2 expandtab
+autocmd FileType markdown set ts=2 sw=2 sts=2 expandtab
 autocmd BufEnter,BufNew *.hbs set ft=html ts=2 sw=2 sts=2 expandtab
 
 " ag
