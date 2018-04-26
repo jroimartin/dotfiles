@@ -14,7 +14,7 @@ set shiftwidth=8
 set softtabstop=8
 set synmaxcol=256
 
-filetype plugin on
+filetype plugin indent on
 syntax on
 
 " Color scheme
