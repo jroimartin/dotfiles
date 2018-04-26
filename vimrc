@@ -13,7 +13,7 @@ set tabstop=8
 set shiftwidth=8
 set softtabstop=8
 
-filetype on
+filetype plugin on
 syntax on
 
 " Color scheme
@@ -45,6 +45,8 @@ autocmd FileType html,css,javascript set ts=2 sw=2 sts=2 expandtab
 autocmd FileType yaml set ts=2 sw=2 sts=2 expandtab
 autocmd FileType markdown set ts=2 sw=2 sts=2 expandtab
 autocmd BufEnter,BufNew *.hbs set ft=html ts=2 sw=2 sts=2 expandtab
+
+packadd matchit
 
 " ag
 if executable('ag')
