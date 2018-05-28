@@ -53,8 +53,8 @@ nmap \| :set invlist<CR>
 nmap \ :nohlsearch<CR>
 
 " Splits
-nmap <C-m> 2<C-w>+
-nmap <C-n> 2<C-w>-
+nmap <C-j> 2<C-w>+
+nmap <C-k> 2<C-w>-
 
 " Langs
 autocmd FileType ruby,eruby set ts=2 sw=2 sts=2 expandtab
