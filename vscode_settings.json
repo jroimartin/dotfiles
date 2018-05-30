@@ -1,8 +1,10 @@
 {
     "editor.fontSize": 14,
     "editor.renderWhitespace": "boundary",
-    "files.trimTrailingWhitespace": true,
+    "extensions.ignoreRecommendations": true,
+    "diffEditor.ignoreTrimWhitespace": false,
     "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
     "telemetry.enableCrashReporter": false,
     "telemetry.enableTelemetry": false,
     "workbench.editor.labelFormat": "medium",
