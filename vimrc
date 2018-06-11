@@ -63,3 +63,6 @@ autocmd FileType html,css,javascript set ts=2 sw=2 sts=2 expandtab
 autocmd FileType yaml set ts=2 sw=2 sts=2 expandtab
 autocmd FileType markdown set ts=2 sw=2 sts=2 expandtab
 autocmd BufEnter,BufNew *.hbs set ft=html ts=2 sw=2 sts=2 expandtab
+
+let g:go_fmt_command = "goimports"
+let g:go_template_autocreate = 0
