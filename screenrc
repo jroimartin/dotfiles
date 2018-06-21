@@ -1,0 +1,5 @@
+startup_message off
+vbell off
+defscrollback 2048
+altscreen on
+term st-256color
