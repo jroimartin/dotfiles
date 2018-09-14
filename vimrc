@@ -62,7 +62,9 @@ autocmd FileType python set ts=4 sw=4 sts=4 expandtab
 autocmd FileType html,css,javascript set ts=2 sw=2 sts=2 expandtab
 autocmd FileType yaml set ts=2 sw=2 sts=2 expandtab
 autocmd FileType markdown set ts=2 sw=2 sts=2 expandtab
-autocmd BufEnter,BufNew *.hbs set ft=html ts=2 sw=2 sts=2 expandtab
+autocmd BufRead,BufNewFile *.hbs set ft=html ts=2 sw=2 sts=2 expandtab
+
+autocmd BufRead,BufNewFile */metasm/* set ts=8 sw=8 sts=8 noexpandtab
 
 let g:go_fmt_command = "goimports"
 let g:go_template_autocreate = 0
