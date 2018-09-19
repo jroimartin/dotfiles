@@ -35,6 +35,9 @@ highlight DiffAdd ctermfg=white ctermbg=darkgreen
 highlight DiffDelete ctermfg=white ctermbg=darkred
 highlight DiffChange ctermfg=white ctermbg=darkyellow
 highlight DiffText ctermfg=white ctermbg=darkmagenta
+" Extra whitespaces
+highlight ExtraWhitespace ctermbg=darkred
+match ExtraWhitespace /\s\+$/
 
 " Extra packages
 packadd matchit
