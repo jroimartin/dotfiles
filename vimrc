@@ -59,6 +59,9 @@ nmap \ :nohlsearch<CR>
 nmap <C-j> 2<C-w>+
 nmap <C-k> 2<C-w>-
 
+" Grep and open results in new tab
+command -nargs=+ Grep grep <args> | tabe | copen
+
 " Langs
 autocmd FileType ruby,eruby set ts=2 sw=2 sts=2 expandtab
 autocmd FileType python set ts=4 sw=4 sts=4 expandtab
