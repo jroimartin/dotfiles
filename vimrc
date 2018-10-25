@@ -73,7 +73,7 @@ autocmd BufRead,BufNewFile *.hbs set ft=html ts=2 sw=2 sts=2 expandtab
 
 " golang.org/x/tools/cmd/goimports
 if executable('goimports')
-	autocmd BufWritePost *.go silent !goimports -w %
+	autocmd BufWritePost *.go !goimports -w %
 endif
 
 " Lang exceptions
