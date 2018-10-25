@@ -15,6 +15,7 @@ set shiftwidth=8
 set softtabstop=8
 set synmaxcol=256
 set autoindent
+set autoread
 
 let mapleader = ","
 
@@ -69,6 +70,11 @@ autocmd FileType html,css,javascript set ts=2 sw=2 sts=2 expandtab
 autocmd FileType yaml set ts=2 sw=2 sts=2 expandtab
 autocmd FileType markdown set ts=2 sw=2 sts=2 expandtab
 autocmd BufRead,BufNewFile *.hbs set ft=html ts=2 sw=2 sts=2 expandtab
+
+" golang.org/x/tools/cmd/goimports
+if executable('goimports')
+	autocmd BufWritePost *.go silent !goimports -w %
+endif
 
 " Lang exceptions
 autocmd BufRead,BufNewFile */metasm/* set ts=8 sw=8 sts=8 noexpandtab
