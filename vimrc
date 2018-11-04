@@ -16,6 +16,7 @@ set softtabstop=8
 set synmaxcol=256
 set autoindent
 set autoread
+set nofoldenable
 
 let mapleader = ","
 
