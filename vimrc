@@ -62,7 +62,7 @@ nmap <C-j> 2<C-w>+
 nmap <C-k> 2<C-w>-
 
 " Grep and open results in new tab
-command -nargs=+ Grep cclose | tabe | silent grep <args> | copen
+command -nargs=+ Grep tabe | silent lgrep <args> | lopen
 
 " Langs
 autocmd FileType ruby,eruby set ts=2 sw=2 sts=2 expandtab
