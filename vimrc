@@ -18,8 +18,6 @@ set autoindent
 set autoread
 set nofoldenable
 
-let mapleader = ","
-
 filetype plugin indent on
 syntax on
 
