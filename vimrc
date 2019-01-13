@@ -21,18 +21,17 @@ set nofoldenable
 filetype plugin indent on
 syntax on
 
-" Color scheme
-colorscheme desert
+" Colors
 set background=dark
 " Menu color
 highlight Pmenu ctermfg=white ctermbg=darkgrey
 highlight PmenuSel ctermfg=white ctermbg=darkred
 " Search color
-highlight IncSearch ctermfg=black ctermbg=yellow
+highlight IncSearch ctermfg=black ctermbg=yellow cterm=NONE
 highlight Search ctermfg=white ctermbg=darkred
 " Diff colors
-highlight DiffAdd ctermfg=white ctermbg=darkgreen
-highlight DiffDelete ctermfg=white ctermbg=darkred
+highlight DiffAdd ctermfg=white ctermbg=28
+highlight DiffDelete ctermfg=white ctermbg=88
 highlight DiffChange ctermfg=white ctermbg=darkyellow
 highlight DiffText ctermfg=white ctermbg=darkmagenta
 " Extra whitespaces
