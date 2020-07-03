@@ -1,7 +1,6 @@
 " Settings
 set nocompatible
 set nobackup
-set incsearch
 set hlsearch
 set showmatch
 set wildmenu
@@ -29,7 +28,6 @@ set background=dark
 highlight Pmenu ctermfg=white ctermbg=darkgrey
 highlight PmenuSel ctermfg=white ctermbg=darkred
 " Search color
-highlight IncSearch ctermfg=black ctermbg=yellow cterm=NONE
 highlight Search ctermfg=white ctermbg=darkred
 " Diff colors
 highlight DiffAdd ctermfg=white ctermbg=28
