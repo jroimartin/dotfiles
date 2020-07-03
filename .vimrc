@@ -1,7 +1,6 @@
 " Settings
 set nocompatible
 set nobackup
-set ignorecase smartcase
 set incsearch
 set hlsearch
 set showmatch
@@ -17,6 +16,9 @@ set synmaxcol=256
 set autoindent
 set autoread
 set nofoldenable
+set mouse=a
+
+let mapleader=','
 
 filetype plugin indent on
 syntax on
@@ -34,32 +36,45 @@ highlight DiffAdd ctermfg=white ctermbg=28
 highlight DiffDelete ctermfg=white ctermbg=88
 highlight DiffChange ctermfg=white ctermbg=darkyellow
 highlight DiffText ctermfg=white ctermbg=darkmagenta
+
 " Extra whitespaces
 highlight ExtraWhitespace ctermbg=darkred
 match ExtraWhitespace /\s\+$/
 
+" Highlight column 80
+highlight ColorColumn ctermbg=darkgray
+set colorcolumn=80
+
 " Extra packages
 packadd matchit
 
-" ag
-if executable('ag')
-	set grepprg=ag\ --nogroup\ --nocolor\ --column
-	set grepformat=%f:%l:%c:%m
-endif
-
 " Non-printable characters
 set lcs=eol:$,tab:\|-
-nmap \| :set invlist<CR>
+nnoremap \| :set invlist<CR>
 
 " Search
-nmap \ :nohlsearch<CR>
+nnoremap \ :nohlsearch<CR>
 
 " Splits
-nmap <C-j> 2<C-w>+
-nmap <C-k> 2<C-w>-
+nnoremap <C-j> 2<C-w>+
+nnoremap <C-k> 2<C-w>-
+
+" X clipboard
+noremap <Leader>y "+y
+
+" ctags
+nnoremap <Leader>] <C-w>g]
 
 " Grep and open results in new tab
 command -nargs=+ Grep tabe | silent lgrep <args> | lopen | redraw!
+
+" Linux kernel development
+inoremap <F12> Signed-off-by: Roi Martin <jroi.martin@gmail.com>
+
+" ripgrep
+if executable('rg')
+	set grepprg=rg\ --vimgrep
+endif
 
 " Langs
 autocmd FileType ruby,eruby set ts=2 sw=2 sts=2 expandtab
@@ -69,7 +84,7 @@ autocmd FileType yaml set ts=2 sw=2 sts=2 expandtab
 autocmd FileType markdown set ts=2 sw=2 sts=2 expandtab
 autocmd BufRead,BufNewFile *.hbs set ft=html ts=2 sw=2 sts=2 expandtab
 
-" golang.org/x/tools/cmd/goimports
+" Go: golang.org/x/tools/cmd/goimports
 if executable('goimports')
 	autocmd BufWritePost *.go !goimports -w %
 endif
