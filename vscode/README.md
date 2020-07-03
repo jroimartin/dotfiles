@@ -1,4 +1,4 @@
-# vscode settings
+# vscode
 
 Depending on the platform, the user settings file is located here:
 
