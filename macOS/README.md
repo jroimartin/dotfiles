@@ -1,5 +1,4 @@
 # macOS
 
-The DefaultKeyBinding.dict file is located here:
-
-- $HOME/Library/KeyBindings/DefaultKeyBinding.dict
+The DefaultKeyBinding.dict file is located in
+$HOME/Library/KeyBindings/DefaultKeyBinding.dict
