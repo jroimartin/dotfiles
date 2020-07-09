@@ -40,7 +40,7 @@ highlight ExtraWhitespace ctermbg=darkred
 match ExtraWhitespace /\s\+$/
 
 " Highlight column 80
-highlight ColorColumn ctermbg=darkgray
+highlight ColorColumn ctermbg=234
 set colorcolumn=80
 
 " Extra packages
