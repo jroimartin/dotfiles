@@ -6,15 +6,16 @@ set showmatch
 set wildmenu
 set ruler
 set nonumber
-set noexpandtab
+set expandtab
 set backspace=2
-set tabstop=8
-set shiftwidth=8
-set softtabstop=8
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
 set synmaxcol=256
 set autoindent
 set autoread
 set nofoldenable
+set nomodeline
 set mouse=a
 
 let mapleader=','
@@ -80,12 +81,10 @@ autocmd FileType python set ts=4 sw=4 sts=4 expandtab
 autocmd FileType html,css,javascript set ts=2 sw=2 sts=2 expandtab
 autocmd FileType yaml set ts=2 sw=2 sts=2 expandtab
 autocmd FileType markdown set ts=2 sw=2 sts=2 expandtab
+autocmd FileType go set ts=8 sw=8 sts=8 noexpandtab
 autocmd BufRead,BufNewFile *.hbs set ft=html ts=2 sw=2 sts=2 expandtab
 
 " Go: golang.org/x/tools/cmd/goimports
 if executable('goimports')
 	autocmd BufWritePost *.go !goimports -w %
 endif
-
-" Lang exceptions
-autocmd BufRead,BufNewFile */metasm/* set ts=8 sw=8 sts=8 noexpandtab
