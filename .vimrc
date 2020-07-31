@@ -76,13 +76,14 @@ if executable('rg')
 endif
 
 " Langs
-autocmd FileType ruby,eruby set ts=2 sw=2 sts=2 expandtab
-autocmd FileType python set ts=4 sw=4 sts=4 expandtab
-autocmd FileType html,css,javascript set ts=2 sw=2 sts=2 expandtab
-autocmd FileType yaml set ts=2 sw=2 sts=2 expandtab
-autocmd FileType markdown set ts=2 sw=2 sts=2 expandtab
-autocmd FileType go set ts=8 sw=8 sts=8 noexpandtab
-autocmd BufRead,BufNewFile *.hbs set ft=html ts=2 sw=2 sts=2 expandtab
+autocmd FileType ruby,eruby setlocal ts=2 sw=2 sts=2 expandtab
+autocmd FileType python setlocal ts=4 sw=4 sts=4 expandtab
+autocmd FileType html,css,javascript setlocal ts=2 sw=2 sts=2 expandtab
+autocmd FileType yaml setlocal ts=2 sw=2 sts=2 expandtab
+autocmd FileType markdown setlocal ts=2 sw=2 sts=2 expandtab
+autocmd FileType go setlocal ts=8 sw=8 sts=8 noexpandtab
+autocmd FileType rust setlocal ts=4 sw=4 sts=4 expandtab textwidth=79
+autocmd BufRead,BufNewFile *.hbs setlocal ft=html ts=2 sw=2 sts=2 expandtab
 
 " Go: golang.org/x/tools/cmd/goimports
 if executable('goimports')
