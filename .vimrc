@@ -79,6 +79,7 @@ endif
 autocmd FileType ruby,eruby setlocal ts=2 sw=2 sts=2 expandtab
 autocmd FileType python setlocal ts=4 sw=4 sts=4 expandtab
 autocmd FileType html,css,javascript setlocal ts=2 sw=2 sts=2 expandtab
+autocmd FileType json setlocal ts=2 sw=2 sts=2 expandtab
 autocmd FileType yaml setlocal ts=2 sw=2 sts=2 expandtab
 autocmd FileType markdown setlocal ts=2 sw=2 sts=2 expandtab
 autocmd FileType go setlocal ts=8 sw=8 sts=8 noexpandtab
