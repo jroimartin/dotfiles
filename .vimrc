@@ -13,7 +13,6 @@ set shiftwidth=8
 set softtabstop=8
 set synmaxcol=256
 set autoindent
-set autoread
 set nofoldenable
 set nomodeline
 set mouse=a
@@ -82,8 +81,3 @@ autocmd FileType markdown setlocal ts=2 sw=2 sts=2 expandtab
 autocmd FileType go setlocal ts=8 sw=8 sts=8 noexpandtab
 autocmd FileType rust setlocal ts=4 sw=4 sts=4 expandtab textwidth=79
 autocmd BufRead,BufNewFile *.hbs setlocal ft=html ts=2 sw=2 sts=2 expandtab
-
-" Go: golang.org/x/tools/cmd/goimports
-if executable('goimports')
-	autocmd BufWritePost *.go !goimports -w %
-endif
