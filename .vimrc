@@ -67,9 +67,6 @@ nnoremap <Leader>] <C-w>g]
 " Grep and open results in new tab
 command -nargs=+ Grep tabe | silent lgrep <args> | lopen | redraw!
 
-" Linux kernel development
-inoremap <F12> Signed-off-by: Roi Martin <jroi.martin@gmail.com>
-
 " ripgrep
 if executable('rg')
 	set grepprg=rg\ --vimgrep
