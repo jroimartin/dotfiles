@@ -9,3 +9,5 @@
 	ff = only
 [sendemail]
 	smtpserver = /usr/bin/msmtp
+[init]
+	defaultBranch = master
