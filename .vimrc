@@ -22,7 +22,9 @@ set ttymouse=xterm2
 
 let mapleader=','
 
-filetype plugin indent on
+filetype on
+filetype plugin off
+filetype indent off
 syntax on
 
 " Colors
