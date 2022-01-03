@@ -15,16 +15,17 @@ set synmaxcol=256
 set autoindent
 set nofoldenable
 set nomodeline
-
-" Enable mouse
 set mouse=a
 set ttymouse=xterm2
 
 let mapleader=','
 
+" Enable filetype detection. Do not load plugin and indent files.
 filetype on
 filetype plugin off
 filetype indent off
+
+" Syntax highlighting
 syntax on
 
 " Colors
@@ -70,6 +71,7 @@ nnoremap <Leader>] <C-w>g]
 
 " Grep and open results in new tab
 command -nargs=+ Grep tabe | silent lgrep <args> | lopen | redraw!
+nnoremap <Leader>g :execute ':Grep '.expand('<cword>')<CR>
 
 " ripgrep
 if executable('rg')
