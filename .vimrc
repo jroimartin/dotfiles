@@ -20,7 +20,7 @@ set ttymouse=xterm2
 
 let mapleader=','
 
-" Enable filetype detection. Do not load plugin and indent files.
+" Enable filetype detection, but do not load plugin and indent files
 filetype on
 filetype plugin off
 filetype indent off
@@ -65,9 +65,6 @@ nnoremap <C-k> 2<C-w>-
 
 " X clipboard
 noremap <Leader>y "+y
-
-" ctags
-nnoremap <Leader>] <C-w>g]
 
 " Grep and open results in new tab
 command -nargs=+ Grep tabe | silent lgrep <args> | lopen | redraw!
