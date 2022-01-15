@@ -1,1 +1,5 @@
+# vim
 *.swp
+
+# git worktree
+/.wt
