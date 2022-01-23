@@ -77,7 +77,7 @@ augroup VimrcLangs
 	autocmd FileType yaml setlocal ts=2 sw=2 sts=2 expandtab
 	autocmd FileType markdown setlocal ts=2 sw=2 sts=2 expandtab
 	autocmd FileType go setlocal ts=8 sw=8 sts=8 noexpandtab
-	autocmd FileType rust setlocal ts=4 sw=4 sts=4 expandtab textwidth=79
+	autocmd FileType rust setlocal ts=4 sw=4 sts=4 expandtab
 	autocmd BufRead,BufNewFile *.toml setlocal ts=4 sw=4 sts=4 expandtab
 	autocmd BufRead,BufNewFile *.hbs setlocal ft=html ts=2 sw=2 sts=2 expandtab
 augroup END
