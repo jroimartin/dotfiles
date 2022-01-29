@@ -78,6 +78,7 @@ augroup VimrcLangs
 	autocmd FileType markdown setlocal ts=2 sw=2 sts=2 expandtab
 	autocmd FileType go setlocal ts=8 sw=8 sts=8 noexpandtab
 	autocmd FileType rust setlocal ts=4 sw=4 sts=4 expandtab
+		\ comments=s0:/*!,m:\ ,ex:*/,s1:/*,mb:*,ex:*/,:///,://!,://
 	autocmd BufRead,BufNewFile *.toml setlocal ts=4 sw=4 sts=4 expandtab
 	autocmd BufRead,BufNewFile *.hbs setlocal ft=html ts=2 sw=2 sts=2 expandtab
 augroup END
