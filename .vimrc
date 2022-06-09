@@ -22,7 +22,7 @@ filetype on
 filetype plugin off
 filetype indent off
 
-let mapleader=' '
+let mapleader=','
 
 " Colors
 set background=dark
@@ -61,7 +61,7 @@ noremap <Leader>y "+y
 
 " Grep
 command -nargs=+ Grep tabe | silent lgrep <args> | lopen | redraw!
-nnoremap <Leader>g :execute ':Grep' expand('<cword>')<CR>
+nnoremap <Leader>g :execute ':Grep' '-w' expand('<cword>')<CR>
 
 if executable('rg')
 	set grepprg=rg\ --vimgrep
