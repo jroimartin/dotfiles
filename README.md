@@ -1,3 +1,3 @@
-# Dot files
+# dotfiles
 
-Configuration files for some common applications.
+My dotfiles.
