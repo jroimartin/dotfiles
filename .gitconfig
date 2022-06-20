@@ -4,7 +4,6 @@
 [alias]
 	lg = log --graph --format=format:'%C(bold blue)%h%C(reset) %C(green)(%ar)%C(reset)%C(auto)%d%C(reset) %C(auto)%s%C(reset) %C(yellow)%ae%C(reset)'
 	wt = worktree
-	wtr = "!f() { git worktree add --track -b \"$2\" \".wt/$2\" \"$1/$2\"; }; f"
 [push]
 	default = nothing
 [pull]

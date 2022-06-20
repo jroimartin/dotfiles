@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [[ $# -ne 2 ]]; then
+	echo 'usage: git wtr <remote> <branch>' >&2
+	exit 2
+fi
+
+exec git worktree add --track -b "$2" ".wt/$2" "$1/$2"
