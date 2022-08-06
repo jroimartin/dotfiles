@@ -1,15 +1,9 @@
 set nocompatible
-set nobackup
 set hlsearch
 set showmatch
-set wildmenu
+set wildmode=list:longest
 set ruler
-set nonumber
 set backspace=2
-set noexpandtab
-set tabstop=8
-set shiftwidth=8
-set softtabstop=8
 set nowrap
 set synmaxcol=256
 set autoindent
@@ -27,15 +21,9 @@ let mapleader=','
 " Colors
 set background=dark
 syntax on
-
-"" Menu
 highlight Pmenu ctermfg=white ctermbg=darkgrey
 highlight PmenuSel ctermfg=white ctermbg=darkred
-
-"" Search
 highlight Search ctermfg=white ctermbg=darkred
-
-"" Diff
 highlight DiffAdd ctermfg=white ctermbg=28
 highlight DiffDelete ctermfg=white ctermbg=88
 highlight DiffChange ctermfg=white ctermbg=darkyellow
@@ -68,6 +56,11 @@ if executable('rg')
 endif
 
 " Langs
+set noexpandtab
+set tabstop=8
+set shiftwidth=8
+set softtabstop=8
+
 augroup VimrcLangs
 	autocmd!
 	autocmd FileType ruby,eruby setlocal ts=2 sw=2 sts=2 expandtab
