@@ -55,6 +55,9 @@ if executable('rg')
 	set grepprg=rg\ --vimgrep
 endif
 
+" netrw messages in one line window
+let g:netrw_use_errorwindow=1
+
 " Langs
 set noexpandtab
 set tabstop=8
