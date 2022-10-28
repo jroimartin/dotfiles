@@ -1,7 +1,6 @@
 set nocompatible
 set hlsearch
 set showmatch
-set wildmode=list:longest
 set ruler
 set backspace=2
 set nowrap
@@ -11,6 +10,8 @@ set nofoldenable
 set nomodeline
 set mouse=a
 set ttymouse=xterm2
+set wildmode=full
+set wildmenu
 
 filetype on
 filetype plugin off
