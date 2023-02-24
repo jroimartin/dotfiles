@@ -1,4 +1,5 @@
 set nocompatible
+set noincsearch
 set hlsearch
 set showmatch
 set ruler
