@@ -6,8 +6,12 @@
 
 ;;; Packages
 
+(require 'package)
+
 ;; Enable MELPA repository
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+
+(package-initialize)
 
 ;; expand-region
 (global-set-key (kbd "C-=") #'er/expand-region)
@@ -18,6 +22,7 @@
 (setq ido-auto-merge-work-directories-length -1)
 
 ;; go-mode
+;; Requires: golang.org/x/tools/gopls@latest
 (add-hook 'go-mode-hook
 	  #'(lambda ()
 	      (eglot-ensure)
