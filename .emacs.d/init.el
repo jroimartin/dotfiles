@@ -60,5 +60,8 @@
 (show-paren-mode t)
 (setq show-paren-delay 0)
 
+;; Set minimum height for splitting windows sensibly
+(setq split-height-threshold 125)
+
 ;;; Keymaps
 (global-set-key (kbd "C-c t") 'ansi-term)
