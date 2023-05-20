@@ -1,0 +1,4 @@
+# emacs
+export ALTERNATE_EDITOR=
+export EDITOR='emacsclient'
+alias ec='emacsclient'
