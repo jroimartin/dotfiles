@@ -18,14 +18,23 @@
 ;; fido-mode
 (fido-mode)
 
+;; flymake
+(require 'flymake)
+(define-key flymake-mode-map (kbd "M-n") #'flymake-goto-next-error)
+(define-key flymake-mode-map (kbd "M-p") #'flymake-goto-prev-error)
+
+;; markdown-mode
+;; Requires: github.com/jroimartin/mess/md
+(setq markdown-command "md -")
+
 ;; go-mode
-;; Requires: golang.org/x/tools/gopls@latest
+;; Requires: golang.org/x/tools/gopls
 (add-hook 'go-mode-hook
 	  #'(lambda ()
 	      (eglot-ensure)
 	      (add-hook 'before-save-hook
 			#'(lambda ()
-			    (call-interactively 'eglot-code-action-organize-imports))
+			    (call-interactively #'eglot-code-action-organize-imports))
 			nil
 			t)
 	      (add-hook 'before-save-hook #'eglot-format-buffer nil t)))
