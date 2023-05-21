@@ -15,10 +15,8 @@
 ;; expand-region
 (global-set-key (kbd "C-=") #'er/expand-region)
 
-;; ido
-(ido-mode t)
-(setq ido-enable-flex-matching t)
-(setq ido-auto-merge-work-directories-length -1)
+;; fido-mode
+(fido-mode)
 
 ;; go-mode
 ;; Requires: golang.org/x/tools/gopls@latest
