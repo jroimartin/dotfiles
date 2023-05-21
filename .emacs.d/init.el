@@ -6,12 +6,11 @@
 
 ;;; Packages
 
+;;;; Repositories
 (require 'package)
-
-;; Enable MELPA repository
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 
-(package-initialize)
+;;;; Configurations
 
 ;; expand-region
 (global-set-key (kbd "C-=") #'er/expand-region)
