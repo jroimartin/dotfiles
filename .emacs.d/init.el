@@ -18,6 +18,9 @@
 ;; fido-mode
 (fido-mode)
 
+;; eglot
+(customize-set-variable 'eglot-ignored-server-capabilities '(:inlayHintProvider))
+
 ;; flymake
 (require 'flymake)
 (define-key flymake-mode-map (kbd "M-n") #'flymake-goto-next-error)
@@ -25,7 +28,7 @@
 
 ;; markdown-mode
 ;; Requires: github.com/jroimartin/mess/md
-(setq markdown-command "md -")
+(customize-set-variable 'markdown-command "md -")
 
 ;; go-mode
 ;; Requires: golang.org/x/tools/gopls
@@ -39,6 +42,10 @@
 			t)
 	      (add-hook 'before-save-hook #'eglot-format-buffer nil t)))
 
+;; rust-mode
+(add-hook 'rust-mode-hook #'eglot-ensure)
+(customize-set-variable 'rust-format-on-save t)
+
 ;;; User interface
 
 ;; Disable tool bar
@@ -51,23 +58,23 @@
 (scroll-bar-mode 0)
 
 ;; Disable startup screen
-(setq inhibit-startup-screen t)
+(customize-set-variable 'inhibit-startup-screen t)
 
 ;; Disable bell
-(setq ring-bell-function 'ignore)
+(customize-set-variable 'ring-bell-function 'ignore)
 
 ;; Show column number
-(setq column-number-mode t)
+(customize-set-variable 'column-number-mode t)
 
 ;; Set a darker region face color
 (set-face-attribute 'region nil :background "#eee")
 
 ;; Enable paren mode
 (show-paren-mode t)
-(setq show-paren-delay 0)
+(customize-set-variable 'show-paren-delay 0)
 
 ;; Set minimum height for splitting windows sensibly
-(setq split-height-threshold 125)
+(customize-set-variable 'split-height-threshold 125)
 
 ;;; Keymaps
 (global-set-key (kbd "C-c t") 'ansi-term)
