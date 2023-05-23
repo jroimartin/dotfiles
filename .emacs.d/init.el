@@ -43,8 +43,10 @@
 	      (add-hook 'before-save-hook #'eglot-format-buffer nil t)))
 
 ;; rust-mode
-(add-hook 'rust-mode-hook #'eglot-ensure)
-(customize-set-variable 'rust-format-on-save t)
+(add-hook 'rust-mode-hook
+	  #'(lambda ()
+	      (eglot-ensure)
+	      (add-hook 'before-save-hook #'eglot-format-buffer nil t)))
 
 ;;; User interface
 
