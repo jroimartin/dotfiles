@@ -1,3 +1,7 @@
+(require 'package)
+(require 'flymake)
+(require 'org)
+
 ;;; Custom file
 
 ;; Set custom file location
@@ -7,7 +11,6 @@
 ;;; Packages
 
 ;; Add melpa repository
-(require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 
 ;;; User interface
@@ -76,12 +79,14 @@
 ;;; Keymaps
 
 ;; ansi-term
-(global-set-key (kbd "C-c t") 'ansi-term)
+(global-set-key (kbd "C-c t") #'ansi-term)
 
 ;; expand-region
 (global-set-key (kbd "C-=") #'er/expand-region)
 
 ;; flymake
-(require 'flymake)
 (define-key flymake-mode-map (kbd "M-n") #'flymake-goto-next-error)
 (define-key flymake-mode-map (kbd "M-p") #'flymake-goto-prev-error)
+
+;; org-mode
+(global-set-key (kbd "C-c a") #'org-agenda)
