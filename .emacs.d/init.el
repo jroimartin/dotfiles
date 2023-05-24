@@ -6,29 +6,47 @@
 
 ;;; Packages
 
-;;;; Repositories
+;; Add melpa repository
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 
-;;;; Configurations
+;;; User interface
 
-;; expand-region
-(global-set-key (kbd "C-=") #'er/expand-region)
+;; Disable tool bar
+(tool-bar-mode 0)
 
-;; fido-mode
+;; Disable menu bar
+(menu-bar-mode 0)
+
+;; Disable scroll bar
+(scroll-bar-mode 0)
+
+;; Disable startup screen
+(customize-set-variable 'inhibit-startup-screen t)
+
+;; Set minimum height for splitting windows sensibly
+(customize-set-variable 'split-height-threshold 125)
+
+;; Disable bell
+(customize-set-variable 'ring-bell-function 'ignore)
+
+;; Show column number
+(customize-set-variable 'column-number-mode t)
+
+;; Set a darker region face color
+(set-face-attribute 'region nil :background "#eee")
+
+;; Enable paren mode
+(show-paren-mode t)
+(customize-set-variable 'show-paren-delay 0)
+
+;; Enable fido-mode
 (fido-mode)
 
 ;; eglot
 (customize-set-variable 'eglot-ignored-server-capabilities '(:inlayHintProvider))
 
-;; flymake
-(require 'flymake)
-(define-key flymake-mode-map (kbd "M-n") #'flymake-goto-next-error)
-(define-key flymake-mode-map (kbd "M-p") #'flymake-goto-prev-error)
-
-;; markdown-mode
-;; Requires: github.com/jroimartin/mess/md
-(customize-set-variable 'markdown-command "md -")
+;;; Programming languages
 
 ;; go-mode
 ;; Requires: golang.org/x/tools/gopls
@@ -48,35 +66,22 @@
 	      (eglot-ensure)
 	      (add-hook 'before-save-hook #'eglot-format-buffer nil t)))
 
-;;; User interface
+;; markdown-mode
+;; Requires: github.com/jroimartin/mess/md
+(customize-set-variable 'markdown-command "md -")
 
-;; Disable tool bar
-(tool-bar-mode 0)
-
-;; Disable menu bar
-(menu-bar-mode 0)
-
-;; Disable scroll bar
-(scroll-bar-mode 0)
-
-;; Disable startup screen
-(customize-set-variable 'inhibit-startup-screen t)
-
-;; Disable bell
-(customize-set-variable 'ring-bell-function 'ignore)
-
-;; Show column number
-(customize-set-variable 'column-number-mode t)
-
-;; Set a darker region face color
-(set-face-attribute 'region nil :background "#eee")
-
-;; Enable paren mode
-(show-paren-mode t)
-(customize-set-variable 'show-paren-delay 0)
-
-;; Set minimum height for splitting windows sensibly
-(customize-set-variable 'split-height-threshold 125)
+;; shell-script
+(customize-set-variable 'sh-basic-offset 8)
 
 ;;; Keymaps
+
+;; ansi-term
 (global-set-key (kbd "C-c t") 'ansi-term)
+
+;; expand-region
+(global-set-key (kbd "C-=") #'er/expand-region)
+
+;; flymake
+(require 'flymake)
+(define-key flymake-mode-map (kbd "M-n") #'flymake-goto-next-error)
+(define-key flymake-mode-map (kbd "M-p") #'flymake-goto-prev-error)
