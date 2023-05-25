@@ -49,6 +49,9 @@
 ;; eglot
 (customize-set-variable 'eglot-ignored-server-capabilities '(:inlayHintProvider))
 
+;; org-mode
+(customize-set-variable 'org-default-notes-file (concat org-directory "/inbox.org"))
+
 ;;; Programming languages
 
 ;; go-mode
@@ -89,4 +92,5 @@
 (define-key flymake-mode-map (kbd "M-p") #'flymake-goto-prev-error)
 
 ;; org-mode
-(global-set-key (kbd "C-c a") #'org-agenda)
+(global-set-key (kbd "C-c o a") #'org-agenda)
+(global-set-key (kbd "C-c o c") #'org-capture)
