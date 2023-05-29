@@ -1,3 +1,3 @@
 #+TODO: TODO(t) NEXT(n) WAITING(w) SOMEDAY(s) IN_PROGRESS(p) | DONE(d)
-#+TAGS: Office(o)
+#+TAGS: @office(o) @home(h)
 
