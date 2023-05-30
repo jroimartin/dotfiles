@@ -8,6 +8,14 @@
 (setq custom-file (concat user-emacs-directory "custom.el"))
 (load custom-file)
 
+;;; Local libraries
+
+;; Add site-lisp directory to load-path
+(add-to-list 'load-path (concat user-emacs-directory "site-lisp/"))
+
+;; Load libraries
+(load-library "jrm-semlf-mode")
+
 ;;; Packages
 
 ;; Add melpa repository
@@ -51,6 +59,11 @@
 
 ;; org-mode
 (customize-set-variable 'org-default-notes-file (concat org-directory "/inbox.org"))
+
+;;; Formatting
+
+;; End sentences with a single space
+(customize-set-variable 'sentence-end-double-space nil)
 
 ;;; Programming languages
 
