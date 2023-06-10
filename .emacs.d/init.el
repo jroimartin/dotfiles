@@ -54,11 +54,10 @@
 ;; Enable fido-mode
 (fido-mode)
 
-;; eglot
-(customize-set-variable 'eglot-ignored-server-capabilities '(:inlayHintProvider))
-
-;; org-mode
-(customize-set-variable 'org-default-notes-file (concat org-directory "/inbox.org"))
+;; If there is a Dired buffer displayed in some window, use its
+;; current directory, instead of this Dired buffer's current
+;; directory.
+(customize-set-variable 'dired-dwim-target t)
 
 ;;; Formatting
 
@@ -67,8 +66,11 @@
 
 ;;; Programming languages
 
+;; eglot
+(customize-set-variable 'eglot-ignored-server-capabilities '(:inlayHintProvider))
+
 ;; go-mode
-;; Requires: golang.org/x/tools/gopls
+;; Requires: go install golang.org/x/tools/gopls@latest
 (add-hook 'go-mode-hook
 	  #'(lambda ()
 	      (eglot-ensure)
@@ -80,17 +82,33 @@
 	      (add-hook 'before-save-hook #'eglot-format-buffer nil t)))
 
 ;; rust-mode
+;; Requires: rustup [+toolchain] component add rust-analyzer
 (add-hook 'rust-mode-hook
 	  #'(lambda ()
 	      (eglot-ensure)
 	      (add-hook 'before-save-hook #'eglot-format-buffer nil t)))
 
+;; python-mode
+;; Requires: https://github.com/microsoft/pyright
+(add-hook 'python-mode-hook #'eglot-ensure)
+
 ;; markdown-mode
-;; Requires: github.com/jroimartin/mess/md
+;; Requires: go install github.com/jroimartin/mess/md@latest
 (customize-set-variable 'markdown-command "md -")
 
 ;; shell-script
 (customize-set-variable 'sh-basic-offset 8)
+
+;;; Org mode
+
+;; Set the default target file for storing notes
+(customize-set-variable 'org-default-notes-file (concat org-directory "/inbox.org"))
+
+;;; Magit
+
+;; Enable forge
+(with-eval-after-load 'magit
+  (require 'forge))
 
 ;;; Keymaps
 
