@@ -56,7 +56,7 @@
 
 ;; If there is a Dired buffer displayed in some window, use its
 ;; current directory, instead of this Dired buffer's current
-;; directory.
+;; directory
 (customize-set-variable 'dired-dwim-target t)
 
 ;;; Formatting
@@ -125,3 +125,11 @@
 ;; org-mode
 (global-set-key (kbd "C-c o a") #'org-agenda)
 (global-set-key (kbd "C-c o c") #'org-capture)
+
+;;; Local settings file
+
+;; If it exists and it is readable, this file is loaded at the very
+;; end of the init file, after all other initializations and settings
+(let ((local-init-file (concat user-emacs-directory "local-init.el")))
+  (when (file-readable-p local-init-file)
+    (load local-init-file)))
