@@ -16,3 +16,5 @@
 	defaultBranch = master
 [core]
 	excludesFile = ~/.gitignore
+[include]
+	path = ~/.local-gitconfig
