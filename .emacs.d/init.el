@@ -8,10 +8,10 @@
 (setq custom-file (concat user-emacs-directory "custom.el"))
 (load custom-file)
 
-;;; Local libraries
+;;; User libraries
 
-;; Add site-lisp directory to load-path
-(add-to-list 'load-path (concat user-emacs-directory "site-lisp/"))
+;; Add user lisp directory to load-path
+(add-to-list 'load-path (concat user-emacs-directory "lisp/"))
 
 ;; Load libraries
 (load-library "jrm-semlf-mode")
