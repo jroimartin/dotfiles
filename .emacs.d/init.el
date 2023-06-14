@@ -15,6 +15,7 @@
 
 ;; Load libraries
 (load-library "jrm-semlf-mode")
+(load-library "jrm-utils")
 
 ;;; Packages
 
@@ -115,8 +116,8 @@
 
 ;;; Keymaps
 
-;; ansi-term
-(global-set-key (kbd "C-c t") #'ansi-term)
+;; shell
+(global-set-key (kbd "C-c s") #'jrm-shell)
 
 ;; expand-region
 (global-set-key (kbd "C-=") #'er/expand-region)
