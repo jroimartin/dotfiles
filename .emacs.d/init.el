@@ -110,6 +110,9 @@
 (with-eval-after-load 'magit
   (require 'forge))
 
+;; Hide closed topics in forge
+(customize-set-variable 'forge-topic-list-limit '(60 . -5))
+
 ;;; Keymaps
 
 ;; ansi-term
