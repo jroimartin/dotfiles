@@ -14,8 +14,9 @@
 (add-to-list 'load-path (concat user-emacs-directory "lisp/"))
 
 ;; Load libraries
-(load-library "jrm-semlf-mode")
 (load-library "jrm-utils")
+(load-library "jrm-select-sexp")
+(load-library "jrm-semlf-mode")
 
 ;;; Packages
 
@@ -119,8 +120,8 @@
 ;; shell
 (global-set-key (kbd "C-c s") #'jrm-shell)
 
-;; expand-region
-(global-set-key (kbd "C-=") #'er/expand-region)
+;; Select sexp
+(global-set-key (kbd "C-c i") #'jrm-select-sexp)
 
 ;; flymake
 (define-key flymake-mode-map (kbd "M-n") #'flymake-goto-next-error)
