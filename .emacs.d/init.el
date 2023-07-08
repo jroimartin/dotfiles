@@ -15,7 +15,6 @@
 
 ;; Load libraries
 (load-library "jrm-utils")
-(load-library "jrm-select-sexp")
 (load-library "jrm-semlf-mode")
 
 ;;; Packages
@@ -117,14 +116,17 @@
 
 ;;; Keymaps
 
-;; shell
+;; Shell
 (global-set-key (kbd "C-c s") #'jrm-shell)
 
 ;; Select sexp
 (global-set-key (kbd "C-c i") #'jrm-select-sexp)
 
-;; Kill all other buffers
-(global-set-key (kbd "C-c k") #'jrm-kill-other-buffers)
+;; Kill other buffers
+(global-set-key (kbd "C-c k") #'(lambda ()
+				  (interactive)
+				  (jrm-kill-other-buffers)
+				  (delete-other-windows)))
 
 ;; flymake
 (define-key flymake-mode-map (kbd "M-n") #'flymake-goto-next-error)
