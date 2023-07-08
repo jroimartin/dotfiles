@@ -123,6 +123,9 @@
 ;; Select sexp
 (global-set-key (kbd "C-c i") #'jrm-select-sexp)
 
+;; Kill all other buffers
+(global-set-key (kbd "C-c k") #'jrm-kill-other-buffers)
+
 ;; flymake
 (define-key flymake-mode-map (kbd "M-n") #'flymake-goto-next-error)
 (define-key flymake-mode-map (kbd "M-p") #'flymake-goto-prev-error)
