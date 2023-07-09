@@ -114,7 +114,7 @@
 ;; Hide closed topics in forge
 (customize-set-variable 'forge-topic-list-limit '(60 . -5))
 
-;;; Keymaps
+;;; Key bindings
 
 ;; Shell
 (global-set-key (kbd "C-c s") #'jrm-shell)
@@ -127,6 +127,9 @@
 				  (interactive)
 				  (jrm-kill-other-buffers)
 				  (delete-other-windows)))
+
+;; Filename completion
+(global-set-key (kbd "C-c f") #'comint-dynamic-complete-filename)
 
 ;; flymake
 (define-key flymake-mode-map (kbd "M-n") #'flymake-goto-next-error)
