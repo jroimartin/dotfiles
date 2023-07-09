@@ -17,4 +17,4 @@
 [core]
 	excludesFile = ~/.gitignore
 [include]
-	path = ~/.local-gitconfig
+	path = ~/.gitconfig-local

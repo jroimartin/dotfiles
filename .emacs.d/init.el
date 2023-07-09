@@ -150,6 +150,6 @@
 
 ;; If it exists and it is readable, this file is loaded at the very
 ;; end of the init file, after all other initializations and settings
-(let ((local-init-file (concat user-emacs-directory "local-init.el")))
+(let ((local-init-file (concat user-emacs-directory "init-local.el")))
   (when (file-readable-p local-init-file)
     (load local-init-file)))
