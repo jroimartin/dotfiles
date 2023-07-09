@@ -114,11 +114,6 @@
 ;; Hide closed topics in forge
 (customize-set-variable 'forge-topic-list-limit '(60 . -5))
 
-;;; Company
-
-;; Toggle Company mode in all buffers
-(global-company-mode)
-
 ;;; Keymaps
 
 ;; Shell
@@ -140,11 +135,6 @@
 ;; org-mode
 (global-set-key (kbd "C-c o a") #'org-agenda)
 (global-set-key (kbd "C-c o c") #'org-capture)
-
-;; company
-(global-set-key (kbd "C-c c c") #'company-complete)
-(global-set-key (kbd "C-c c f") #'company-files)
-(global-set-key (kbd "C-c c d") #'company-dabbrev)
 
 ;;; Local settings file
 
