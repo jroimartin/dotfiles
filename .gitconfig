@@ -6,6 +6,8 @@
 	wt = worktree
 [push]
 	default = nothing
+[pull]
+	ff = only
 [sendemail]
 	smtpServer = /usr/bin/msmtp
 [http]
