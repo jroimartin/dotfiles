@@ -1,14 +1,14 @@
-(require 'package)
-(require 'flymake)
-(require 'org)
+;;; Initial package setup
 
-;;; Custom file
+(require 'package)
+
+;;;; Custom file
 
 ;; Set custom file location
 (setq custom-file (concat user-emacs-directory "custom.el"))
 (load custom-file)
 
-;;; User libraries
+;;;; User libraries
 
 ;; Add user lisp directory to load-path
 (add-to-list 'load-path (concat user-emacs-directory "lisp/"))
@@ -17,12 +17,21 @@
 (load-library "jrm-utils")
 (load-library "jrm-semlf-mode")
 
-;;; Packages
+;;;; Packages
 
 ;; Add melpa repository
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 
-;;; User interface
+;; Install selected packages if any is missing
+(unless (seq-every-p #'package-installed-p package-selected-packages)
+  (package-install-selected-packages))
+
+;;; Emacs setup
+
+(require 'flymake)
+(require 'org)
+
+;;;; User interface
 
 ;; Disable tool bar
 (tool-bar-mode 0)
@@ -60,12 +69,12 @@
 ;; directory
 (customize-set-variable 'dired-dwim-target t)
 
-;;; Formatting
+;;;; Formatting
 
 ;; End sentences with a single space
 (customize-set-variable 'sentence-end-double-space nil)
 
-;;; Programming languages
+;;;; Programming languages
 
 ;; eglot
 (customize-set-variable 'eglot-ignored-server-capabilities '(:inlayHintProvider))
@@ -100,12 +109,12 @@
 ;; shell-script
 (customize-set-variable 'sh-basic-offset 8)
 
-;;; Org mode
+;;;; Org mode
 
 ;; Set the default target file for storing notes
 (customize-set-variable 'org-default-notes-file (concat org-directory "/inbox.org"))
 
-;;; Magit
+;;;; Magit
 
 ;; Enable forge
 (with-eval-after-load 'magit
@@ -114,7 +123,7 @@
 ;; Hide closed topics in forge
 (customize-set-variable 'forge-topic-list-limit '(60 . -5))
 
-;;; Key bindings
+;;;; Key bindings
 
 ;; Shell
 (global-set-key (kbd "C-c s") #'jrm-shell)
@@ -139,7 +148,7 @@
 (global-set-key (kbd "C-c o a") #'org-agenda)
 (global-set-key (kbd "C-c o c") #'org-capture)
 
-;;; Local settings file
+;;;; Local settings file
 
 ;; If it exists and it is readable, this file is loaded at the very
 ;; end of the init file, after all other initializations and settings
