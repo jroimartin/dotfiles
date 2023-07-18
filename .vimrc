@@ -21,7 +21,7 @@ filetype indent off
 let mapleader=','
 
 " Colors
-set background=dark
+set background=light
 syntax on
 highlight Pmenu ctermfg=white ctermbg=darkgrey
 highlight PmenuSel ctermfg=white ctermbg=darkred
