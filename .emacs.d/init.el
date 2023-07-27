@@ -148,6 +148,14 @@
 (global-set-key (kbd "C-c o a") #'org-agenda)
 (global-set-key (kbd "C-c o c") #'org-capture)
 
+;; eglot
+(global-set-key (kbd "C-c e r") #'(lambda ()
+				    (interactive)
+				    (call-interactively #'eglot-rename)))
+(global-set-key (kbd "C-c e e") #'(lambda ()
+				    (interactive)
+				    (call-interactively #'eglot-code-action-extract)))
+
 ;;;; Local settings file
 
 ;; If it exists and it is readable, this file is loaded at the very
