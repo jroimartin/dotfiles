@@ -149,12 +149,9 @@
 (global-set-key (kbd "C-c o c") #'org-capture)
 
 ;; eglot
-(global-set-key (kbd "C-c e r") #'(lambda ()
-				    (interactive)
-				    (call-interactively #'eglot-rename)))
-(global-set-key (kbd "C-c e e") #'(lambda ()
-				    (interactive)
-				    (call-interactively #'eglot-code-action-extract)))
+(global-set-key (kbd "C-c e r") #'eglot-rename)
+(global-set-key (kbd "C-c e e") #'eglot-code-action-extract)
+(global-set-key (kbd "C-c e k") #'eglot-shutdown-all)
 
 ;;;; Local settings file
 
