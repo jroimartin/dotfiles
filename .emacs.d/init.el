@@ -102,12 +102,21 @@
 ;; Requires: https://github.com/microsoft/pyright
 (add-hook 'python-mode-hook #'eglot-ensure)
 
+;; js-mode
+;; Indentation: spaces
+(add-hook 'js-mode-hook
+	  #'(lambda ()
+	      (setq indent-tabs-mode nil)))
+
+;; sh-mode
+;; Indentation: tabs
+(add-hook 'sh-mode-hook
+	  #'(lambda ()
+	      (setq sh-basic-offset tab-width)))
+
 ;; markdown-mode
 ;; Requires: go install github.com/jroimartin/mess/md@latest
 (customize-set-variable 'markdown-command "md -")
-
-;; shell-script
-(customize-set-variable 'sh-basic-offset 8)
 
 ;;;; Org mode
 
