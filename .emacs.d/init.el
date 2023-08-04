@@ -110,9 +110,7 @@
 
 ;; sh-mode
 ;; Indentation: tabs
-(add-hook 'sh-mode-hook
-	  #'(lambda ()
-	      (setq sh-basic-offset tab-width)))
+(customize-set-variable 'sh-basic-offset tab-width)
 
 ;; markdown-mode
 ;; Requires: go install github.com/jroimartin/mess/md@latest
