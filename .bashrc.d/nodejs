@@ -1,0 +1,5 @@
+if ! [[ "$PATH" =~ "$HOME/npm/bin:" ]]
+then
+    PATH="$HOME/npm/bin:$PATH"
+fi
+export PATH
