@@ -132,6 +132,9 @@
 
 ;;;; Key bindings
 
+;; Revert current buffer
+(global-set-key (kbd "C-c r") #'revert-buffer)
+
 ;; Shell
 (global-set-key (kbd "C-c s") #'jrm-shell)
 
