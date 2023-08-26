@@ -91,6 +91,16 @@
 			t)
 	      (add-hook 'before-save-hook #'eglot-format-buffer nil t)))
 
+;; Look for the nearest parent go.mod file as the project root
+(defun jrm-project-find-go-module (dir)
+  (when-let ((root (locate-dominating-file dir "go.mod")))
+    (cons 'go-module root)))
+
+(cl-defmethod project-root ((project (head go-module)))
+  (cdr project))
+
+(add-hook 'project-find-functions #'jrm-project-find-go-module)
+
 ;; rust-mode
 ;; Requires: rustup [+toolchain] component add rust-analyzer
 (add-hook 'rust-mode-hook
