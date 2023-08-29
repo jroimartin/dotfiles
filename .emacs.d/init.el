@@ -74,6 +74,11 @@
 ;; End sentences with a single space
 (customize-set-variable 'sentence-end-double-space nil)
 
+;;;; Dynamic abbreviation
+
+;; Case sensitive search
+(customize-set-variable 'dabbrev-case-fold-search nil)
+
 ;;;; Programming languages
 
 ;; eglot
