@@ -77,7 +77,7 @@
 ;;;; Dynamic abbreviation
 
 ;; Case sensitive search
-(customize-set-variable 'dabbrev-case-fold-search nil)
+(customize-set-variable 'dabbrev-case-replace nil)
 
 ;;;; Programming languages
 
