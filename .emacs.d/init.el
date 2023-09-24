@@ -147,6 +147,14 @@
 
 ;;;; Key bindings
 
+;; Select another window
+(global-set-key (kbd "M-o") #'(lambda ()
+				(interactive)
+				(other-window 1)))
+(global-set-key (kbd "M-O") #'(lambda ()
+				(interactive)
+				(other-window -1)))
+
 ;; Revert current buffer
 (global-set-key (kbd "C-c r") #'revert-buffer)
 
