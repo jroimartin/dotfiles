@@ -138,16 +138,6 @@
 
 ;;;; Magit
 
-;; TODO(rm): remove workaround.
-;;
-;; New versions of magit require seq-2.24. However, GNU Emacs 28.2
-;; comes with seq-2.23 built in and built-in packages are not upgraded
-;; automatically. Thus, we need to install seq-2.24 manually. Also,
-;; the function seq-keep used by magit is not autoloaded and, on top
-;; of that, it seems the seq feature is already provided by the
-;; built-in package by the time it is required here. So, reload seq.
-(load "seq")
-
 ;; Enable forge
 (with-eval-after-load 'magit
   (require 'forge))
