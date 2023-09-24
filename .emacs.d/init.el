@@ -147,11 +147,8 @@
 
 ;;;; Key bindings
 
-;; Select another window
-(global-set-key (kbd "M-o") #'(lambda ()
-				(interactive)
-				(other-window 1)))
-(global-set-key (kbd "M-O") #'(lambda ()
+;; Select previous window
+(global-set-key (kbd "C-c o") #'(lambda ()
 				(interactive)
 				(other-window -1)))
 
@@ -176,10 +173,6 @@
 ;; flymake
 (define-key flymake-mode-map (kbd "M-n") #'flymake-goto-next-error)
 (define-key flymake-mode-map (kbd "M-p") #'flymake-goto-prev-error)
-
-;; org-mode
-(global-set-key (kbd "C-c o a") #'org-agenda)
-(global-set-key (kbd "C-c o c") #'org-capture)
 
 ;; eglot
 (global-set-key (kbd "C-c e r") #'eglot-rename)
