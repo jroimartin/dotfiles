@@ -113,19 +113,36 @@
 	      (eglot-ensure)
 	      (add-hook 'before-save-hook #'eglot-format-buffer nil t)))
 
+;; sh-mode
+;; Indentation: tabs
+(customize-set-variable 'sh-basic-offset tab-width)
+
 ;; python-mode
 ;; Requires: https://github.com/microsoft/pyright
 (add-hook 'python-mode-hook #'eglot-ensure)
 
 ;; js-mode
-;; Indentation: spaces
+;; Indentation: 2 spaces
+(customize-set-variable 'js-indent-level 2)
 (add-hook 'js-mode-hook
 	  #'(lambda ()
 	      (setq indent-tabs-mode nil)))
 
-;; sh-mode
-;; Indentation: tabs
-(customize-set-variable 'sh-basic-offset tab-width)
+;; sgml-mode
+;; SGML standard general markup language, which includes HTML
+;; hypertext markup language
+;; Indentation: 2 spaces
+(customize-set-variable 'sgml-basic-offset 2)
+(add-hook 'sgml-mode-hook
+	  #'(lambda ()
+	      (setq indent-tabs-mode nil)))
+
+;; css-mode
+;; Indentation: 2 spaces
+(customize-set-variable 'css-indent-offset 2)
+(add-hook 'css-mode-hook
+	  #'(lambda ()
+	      (setq indent-tabs-mode nil)))
 
 ;; markdown-mode
 ;; Requires: go install github.com/jroimartin/mess/md@latest
@@ -149,8 +166,8 @@
 
 ;; Select previous window
 (global-set-key (kbd "C-c o") #'(lambda ()
-				(interactive)
-				(other-window -1)))
+				  (interactive)
+				  (other-window -1)))
 
 ;; Revert current buffer
 (global-set-key (kbd "C-c r") #'revert-buffer)
