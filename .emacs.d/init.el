@@ -14,8 +14,8 @@
 (add-to-list 'load-path (concat user-emacs-directory "lisp/"))
 
 ;; Load libraries
-(load-library "jrm-utils")
-(load-library "jrm-semlf-mode")
+(load-library "jroi-utils")
+(load-library "jroi-semlf-mode")
 
 ;;;; Packages
 
@@ -97,14 +97,14 @@
 	      (add-hook 'before-save-hook #'eglot-format-buffer nil t)))
 
 ;; Look for the nearest parent go.mod file as the project root
-(defun jrm-project-find-go-module (dir)
+(defun jroi-project-find-go-module (dir)
   (when-let ((root (locate-dominating-file dir "go.mod")))
     (cons 'go-module root)))
 
 (cl-defmethod project-root ((project (head go-module)))
   (cdr project))
 
-(add-hook 'project-find-functions #'jrm-project-find-go-module)
+(add-hook 'project-find-functions #'jroi-project-find-go-module)
 
 ;; rust-mode
 ;; Requires: rustup [+toolchain] component add rust-analyzer
@@ -173,15 +173,15 @@
 (global-set-key (kbd "C-c r") #'revert-buffer)
 
 ;; Shell
-(global-set-key (kbd "C-c s") #'jrm-shell)
+(global-set-key (kbd "C-c s") #'jroi-shell)
 
 ;; Select sexp
-(global-set-key (kbd "C-c i") #'jrm-select-sexp)
+(global-set-key (kbd "C-c i") #'jroi-select-sexp)
 
 ;; Kill other buffers
 (global-set-key (kbd "C-c k") #'(lambda ()
 				  (interactive)
-				  (jrm-kill-other-buffers)
+				  (jroi-kill-other-buffers)
 				  (delete-other-windows)))
 
 ;; Filename completion

@@ -6,14 +6,14 @@
 ;; This makes fill-paragraph add line breaks at sentence boundaries in
 ;; addition to normal wrapping.
 ;;
-;; It can be enabled with M-x jrm-semlf-mode
+;; It can be enabled with M-x jroi-semlf-mode
 ;;
 ;; This is sensitive to the setting of `sentence-end-double-space',
 ;; which defaults to t. If `sentence-end-double-space' is t, but a
 ;; paragraph has only a single space between sentences, this will not
 ;; insert line breaks where expected.
 
-(defun jrm-fill-semlf (&optional justify)
+(defun jroi-fill-semlf (&optional justify)
   "Fill paragraph at point, breaking lines at sentence boundaries."
   (interactive)
   (save-excursion
@@ -42,13 +42,13 @@
             (fill-region-as-paragraph sbeg (point)))))
       prefix)))
 
-(define-minor-mode jrm-semlf-mode
+(define-minor-mode jroi-semlf-mode
   "Make fill-paragraph add line breaks at sentence boundaries in
 addition to normal wrapping."
   :lighter " SemLF"
   (setq-local fill-paragraph-function
-	      (if jrm-semlf-mode
+	      (if jroi-semlf-mode
 		  (progn
-		    (setq-local jrm-old-fill-paragraph-function fill-paragraph-function)
-		    #'jrm-fill-semlf)
-		jrm-old-fill-paragraph-function)))
+		    (setq-local jroi-old-fill-paragraph-function fill-paragraph-function)
+		    #'jroi-fill-semlf)
+		jroi-old-fill-paragraph-function)))
