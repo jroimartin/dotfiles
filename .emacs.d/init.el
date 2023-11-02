@@ -193,7 +193,7 @@
 
 ;; eglot
 (global-set-key (kbd "C-c e r") #'eglot-rename)
-(global-set-key (kbd "C-c e e") #'eglot-code-action-extract)
+(global-set-key (kbd "C-c e a") #'eglot-code-actions)
 (global-set-key (kbd "C-c e k") #'eglot-shutdown-all)
 
 ;;;; Local settings file
