@@ -33,24 +33,3 @@ point."
     (goto-char jroi-select-sexp-prev-point)))
 
 (advice-add 'keyboard-quit :before #'jroi-select-sexp-restore-point)
-
-;;; Kill other buffers
-
-(defcustom jroi-kill-other-buffers-keep-regexps '("\\` .*" ; internal buffers
-						  "\\`\\*Messages\\*\\'"
-						  "\\`\\*scratch\\*\\'")
-  "List of regexp saying which buffers will not be killed by
-`jroi-kill-other-buffers'."
-  :group 'jroi
-  :type '(repeat (regexp :tag "Regexp matching Buffer Name")))
-
-(defun jroi-kill-other-buffers ()
-  "Kill all other buffers, unless they match any regexp in
-`jroi-kill-other-buffers-keep-regexps'."
-  (interactive)
-  (mapc #'(lambda (buf)
-	    (let ((bufname (buffer-name buf)))
-	      (unless (cl-find bufname jroi-kill-other-buffers-keep-regexps
-			       :test #'(lambda (bn re) (string-match re bn)))
-		(kill-buffer buf))))
-	(delq (current-buffer) (buffer-list))))

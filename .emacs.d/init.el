@@ -183,12 +183,6 @@
 ;; Select sexp
 (global-set-key (kbd "C-c i") #'jroi-select-sexp)
 
-;; Kill other buffers
-(global-set-key (kbd "C-c k") #'(lambda ()
-				  (interactive)
-				  (jroi-kill-other-buffers)
-				  (delete-other-windows)))
-
 ;; Filename completion
 (global-set-key (kbd "C-c f") #'comint-dynamic-complete-filename)
 
@@ -199,7 +193,9 @@
 ;; eglot
 (global-set-key (kbd "C-c e r") #'eglot-rename)
 (global-set-key (kbd "C-c e a") #'eglot-code-actions)
-(global-set-key (kbd "C-c e k") #'eglot-shutdown-all)
+
+;; ibuffer
+(global-set-key (kbd "C-x C-b") #'ibuffer)
 
 ;;;; Local settings file
 
