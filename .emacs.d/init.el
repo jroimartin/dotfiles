@@ -173,6 +173,9 @@
 ;; Hide closed topics in forge
 (customize-set-variable 'forge-topic-list-limit '(60 . -5))
 
+;; Show word-granularity differences within diff hunks
+(customize-set-variable 'magit-diff-refine-hunk t)
+
 ;;;; Key bindings
 
 ;; Select previous window
