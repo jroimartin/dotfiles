@@ -153,6 +153,12 @@
 ;; Requires: go install github.com/jroimartin/mess/md@latest
 (customize-set-variable 'markdown-command "md -")
 
+;;;; Compilation mode
+
+;; Try to translate SGR control sequences into text properties.
+(customize-set-variable 'ansi-color-for-compilation-mode t)
+(add-hook 'compilation-filter-hook #'ansi-color-compilation-filter)
+
 ;;;; Org mode
 
 ;; Set the default target file for storing notes
