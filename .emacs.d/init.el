@@ -81,9 +81,6 @@
 
 ;;;; Programming languages
 
-;; eglot
-(customize-set-variable 'eglot-ignored-server-capabilities '(:inlayHintProvider))
-
 ;; go-mode
 ;; Requires: go install golang.org/x/tools/gopls@latest
 (add-hook 'go-mode-hook
@@ -152,6 +149,16 @@
 ;; markdown-mode
 ;; Requires: go install github.com/jroimartin/mess/md@latest
 (customize-set-variable 'markdown-command "md -")
+
+;;;; Eglot
+
+;; Disable inlay hints.
+(customize-set-variable 'eglot-ignored-server-capabilities '(:inlayHintProvider))
+
+;;;; ElDoc mode
+
+;; Do not allow long ElDoc doc strings to resize echo area display
+(customize-set-variable 'eldoc-echo-area-use-multiline-p nil)
 
 ;;;; Compilation mode
 
