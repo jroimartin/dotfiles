@@ -14,8 +14,8 @@
 (add-to-list 'load-path (concat user-emacs-directory "lisp/"))
 
 ;; Load libraries
-(load-library "jroi-utils")
-(load-library "jroi-semlf-mode")
+(load "jroi-utils")
+(load "jroi-semlf-mode")
 
 ;;;; Packages
 
