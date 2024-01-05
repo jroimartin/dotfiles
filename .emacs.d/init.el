@@ -202,6 +202,7 @@
 ;; Org.
 (global-set-key (kbd "C-c g c") #'org-capture)
 (global-set-key (kbd "C-c g a") #'org-agenda)
+(global-set-key (kbd "C-c g f") #'org-cycle-agenda-files)
 
 ;; Select sexp.
 (global-set-key (kbd "C-c i") #'jroi-select-sexp)
