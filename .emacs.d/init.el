@@ -199,13 +199,13 @@
 ;; Filename completion.
 (global-set-key (kbd "C-c f") #'comint-dynamic-complete-filename)
 
-;; Org.
-(global-set-key (kbd "C-c g c") #'org-capture)
-(global-set-key (kbd "C-c g a") #'org-agenda)
-(global-set-key (kbd "C-c g f") #'org-cycle-agenda-files)
-
 ;; Select sexp.
 (global-set-key (kbd "C-c i") #'jroi-select-sexp)
+
+;; Org.
+(global-set-key (kbd "C-c n c") #'org-capture)
+(global-set-key (kbd "C-c n a") #'org-agenda)
+(global-set-key (kbd "C-c n f") #'org-cycle-agenda-files)
 
 ;; Select previous window.
 (global-set-key (kbd "C-c o") #'(lambda ()
