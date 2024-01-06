@@ -168,8 +168,15 @@
 ;;;; Org.
 
 ;; Set the default target file for storing notes.
-(customize-set-variable 'org-default-notes-file (concat org-directory "/inbox.org"))
+(customize-set-variable 'org-default-notes-file (concat org-directory "/notes.org"))
 (customize-set-variable 'org-agenda-files (concat org-directory "/agenda-files"))
+
+;; Capture templates.
+(customize-set-variable 'org-capture-templates
+			'(("t" "Task" entry (file+headline "" "Tasks")
+			   "* TODO %?\n  %u\n  %a")
+			  ("n" "Note" entry (file+headline "" "Notes")
+			   "* %?\n  %u\n  %a")))
 
 ;;;; Magit.
 
