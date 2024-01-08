@@ -13,7 +13,7 @@
 ;; paragraph has only a single space between sentences, this will not
 ;; insert line breaks where expected.
 
-(defun jroi-fill-semlf (&optional justify)
+(defun jroi-semlf-fill (&optional justify)
   "Fill paragraph at point, breaking lines at sentence boundaries."
   (interactive)
   (save-excursion
@@ -49,6 +49,6 @@ addition to normal wrapping."
   (setq-local fill-paragraph-function
 	      (if jroi-semlf-mode
 		  (progn
-		    (setq-local jroi-old-fill-paragraph-function fill-paragraph-function)
-		    #'jroi-fill-semlf)
-		jroi-old-fill-paragraph-function)))
+		    (setq-local jroi-semlf-old-fill-paragraph-function fill-paragraph-function)
+		    #'jroi-semlf-fill)
+		jroi-semlf-old-fill-paragraph-function)))

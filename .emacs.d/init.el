@@ -15,7 +15,7 @@
 
 ;; Load libraries.
 (load "jroi-utils")
-(load "jroi-semlf-mode")
+(load "jroi-semlf")
 
 ;;;; Packages.
 
