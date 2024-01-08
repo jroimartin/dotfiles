@@ -193,37 +193,37 @@
 ;;;; Key bindings.
 
 ;; Ibuffer.
-(global-set-key (kbd "C-x C-b") #'ibuffer)
+(keymap-global-set "C-x C-b" #'ibuffer)
 
 ;; Flymake.
-(define-key flymake-mode-map (kbd "M-n") #'flymake-goto-next-error)
-(define-key flymake-mode-map (kbd "M-p") #'flymake-goto-prev-error)
+(keymap-set flymake-mode-map "M-n" #'flymake-goto-next-error)
+(keymap-set flymake-mode-map "M-p" #'flymake-goto-prev-error)
 
 ;; Eglot.
-(global-set-key (kbd "C-c e r") #'eglot-rename)
-(global-set-key (kbd "C-c e a") #'eglot-code-actions)
+(keymap-global-set "C-c e r" #'eglot-rename)
+(keymap-global-set "C-c e a" #'eglot-code-actions)
 
 ;; Filename completion.
-(global-set-key (kbd "C-c f") #'comint-dynamic-complete-filename)
+(keymap-global-set "C-c f" #'comint-dynamic-complete-filename)
 
 ;; Select sexp.
-(global-set-key (kbd "C-c i") #'jroi-select-sexp)
+(keymap-global-set "C-c i" #'jroi-select-sexp)
 
 ;; Org.
-(global-set-key (kbd "C-c n c") #'org-capture)
-(global-set-key (kbd "C-c n a") #'org-agenda)
-(global-set-key (kbd "C-c n f") #'org-cycle-agenda-files)
+(keymap-global-set "C-c n c" #'org-capture)
+(keymap-global-set "C-c n a" #'org-agenda)
+(keymap-global-set "C-c n l" #'org-store-link)
 
 ;; Select previous window.
-(global-set-key (kbd "C-c o") #'(lambda ()
+(keymap-global-set "C-c o" #'(lambda ()
 				  (interactive)
 				  (other-window -1)))
 
 ;; Revert current buffer.
-(global-set-key (kbd "C-c r") #'revert-buffer)
+(keymap-global-set "C-c r" #'revert-buffer)
 
 ;; Shell.
-(global-set-key (kbd "C-c s") #'jroi-shell)
+(keymap-global-set "C-c s" #'jroi-shell)
 
 ;;;; Local settings file.
 
