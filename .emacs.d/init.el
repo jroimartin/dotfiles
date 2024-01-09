@@ -168,15 +168,18 @@
 ;;;; Org.
 
 ;; Set the default target file for storing notes.
-(customize-set-variable 'org-default-notes-file (concat org-directory "/notes.org"))
+(customize-set-variable 'org-default-notes-file (concat org-directory "/inbox.org"))
 (customize-set-variable 'org-agenda-files (concat org-directory "/agenda-files"))
 
 ;; Capture templates.
 (customize-set-variable 'org-capture-templates
 			'(("t" "Task" entry (file+headline "" "Tasks")
-			   "* TODO %?\n  %u\n  %a")
-			  ("n" "Note" entry (file+headline "" "Notes")
-			   "* %?\n  %u\n  %a")))
+			   "* TODO %?\n  %u\n  %a")))
+
+;;;; Denote.
+(customize-set-variable 'denote-directory (expand-file-name "~/notes/"))
+(customize-set-variable 'denote-known-keywords nil)
+(add-hook 'dired-mode-hook #'denote-dired-mode)
 
 ;;;; Magit.
 
@@ -214,10 +217,17 @@
 (keymap-global-set "C-c n a" #'org-agenda)
 (keymap-global-set "C-c n l" #'org-store-link)
 
+;; Denote.
+(keymap-global-set "C-c n n" #'denote-region)
+(keymap-global-set "C-c n i" #'denote-link)
+(keymap-global-set "C-c n I" #'denote-add-links)
+(keymap-global-set "C-c n r" #'denote-rename-file)
+(keymap-global-set "C-c n R" #'denote-rename-file-using-front-matter)
+
 ;; Select previous window.
 (keymap-global-set "C-c o" #'(lambda ()
-				  (interactive)
-				  (other-window -1)))
+			       (interactive)
+			       (other-window -1)))
 
 ;; Revert current buffer.
 (keymap-global-set "C-c r" #'revert-buffer)

@@ -2,4 +2,3 @@
 #+TAGS: @office(o) @home(h)
 
 * Tasks
-* Notes
