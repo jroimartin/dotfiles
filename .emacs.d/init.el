@@ -177,8 +177,21 @@
 			   "* TODO %?\n  %u\n  %a")))
 
 ;;;; Denote.
+
+;; Set default notes directory.
 (customize-set-variable 'denote-directory (expand-file-name "~/notes/"))
+
+;; Empty keywords list.
 (customize-set-variable 'denote-known-keywords nil)
+
+;; Add denote template to org-capture.
+(with-eval-after-load 'org-capture
+  (add-to-list 'org-capture-templates
+               '("n" "Note (with Denote)" plain
+                 (file denote-last-path)
+                 #'denote-org-capture)))
+
+;; Fontify all Denote-style file names in dired.
 (add-hook 'dired-mode-hook #'denote-dired-mode)
 
 ;;;; Magit.
