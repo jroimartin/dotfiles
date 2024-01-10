@@ -3,3 +3,7 @@
 ;; Set full name and mail address.
 (customize-set-variable 'user-full-name "Full Name")
 (customize-set-variable 'user-mail-address "user@example.com")
+
+;; Do not add an FCC header. Some mail servers save their own copy of
+;; sent mails.
+(customize-set-variable 'notmuch-fcc-dirs nil)

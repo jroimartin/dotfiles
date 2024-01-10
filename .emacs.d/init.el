@@ -230,8 +230,8 @@
 
 ;; Use msmtp for sending mails.
 (customize-set-variable 'message-send-mail-function #'message-send-mail-with-sendmail)
-(customize-set-variable 'sendmail-program (executable-find "msmtp"))
 (customize-set-variable 'message-sendmail-envelope-from 'header)
+(customize-set-variable 'sendmail-program (executable-find "msmtp"))
 
 ;;;; Key bindings.
 
