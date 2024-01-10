@@ -1,0 +1,5 @@
+;;; Sending mail.
+
+;; Set full name and mail address.
+(customize-set-variable 'user-full-name "Full Name")
+(customize-set-variable 'user-mail-address "user@example.com")

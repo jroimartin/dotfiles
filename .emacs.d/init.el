@@ -30,6 +30,7 @@
 
 (require 'flymake)
 (require 'org)
+(require 'notmuch)
 
 ;;;; User interface.
 
@@ -205,6 +206,32 @@
 
 ;; Show word-granularity differences within diff hunks.
 (customize-set-variable 'magit-diff-refine-hunk t)
+
+;;;; Notmuch.
+;;;; Requires: dnf install notmuch emacs-notmuch
+
+;; Sections for notmuch-hello.
+(customize-set-variable 'notmuch-hello-sections '(notmuch-hello-insert-saved-searches
+						  notmuch-hello-insert-alltags))
+
+;; Show all tags in notmuch-hello.
+(customize-set-variable 'notmuch-show-all-tags-list t)
+
+;; Show the newest mail first when searching.
+(customize-set-variable 'notmuch-search-oldest-first nil)
+
+;;;; Sending mail.
+
+;; Insert CC and BCC headers.
+(customize-set-variable 'message-default-headers "CC: \nBCC: \n")
+
+;; Dot not encode utf-8 as base64.
+(add-to-list 'mm-body-charset-encoding-alist '(utf-8 . 8bit))
+
+;; Use msmtp for sending mails.
+(customize-set-variable 'message-send-mail-function #'message-send-mail-with-sendmail)
+(customize-set-variable 'sendmail-program (executable-find "msmtp"))
+(customize-set-variable 'message-sendmail-envelope-from 'header)
 
 ;;;; Key bindings.
 
