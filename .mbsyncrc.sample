@@ -1,0 +1,24 @@
+IMAPAccount user_example_com
+Host imap.example.com
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+AuthMechs PLAIN
+User user@example.com
+PassCmd "gpg --quiet --for-your-eyes-only --no-tty --decrypt ~/secret.gpg"
+Timeout 300
+
+IMAPStore user_example_com-remote
+Account user_example_com
+
+MaildirStore user_example_com-local
+Path ~/mail/user_example_com/
+Inbox ~/mail/user_example_com/Inbox
+SubFolders Verbatim
+
+Channel user_example_com-default
+Far :user_example_com-remote:
+Near :user_example_com-local:
+Patterns *
+Create Near
+SyncState *
+Expunge Both

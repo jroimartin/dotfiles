@@ -1,0 +1,14 @@
+defaults
+auth on
+tls on
+tls_trust_file /etc/ssl/certs/ca-certificates.crt
+logfile ~/.msmtp.log
+
+account user_example_com
+host smtp.example.com
+port 587
+from user@example.com
+user user@example.com
+passwordeval gpg --quiet --for-your-eyes-only --no-tty --decrypt ~/secret.gpg
+
+account default : user_example_com
