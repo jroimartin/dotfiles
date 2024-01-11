@@ -9,3 +9,12 @@
 ;; Set full name and mail address.
 (customize-set-variable 'user-full-name "Full Name")
 (customize-set-variable 'user-mail-address "user@example.com")
+
+;;; Forge.
+
+;; Add GHE to the list of git forges.
+(with-eval-after-load 'forge
+  (add-to-list 'forge-alist '("corp.example.com"
+			      "corp.example.com/api/v3"
+			      "corp.example.com"
+			      forge-github-repository)))

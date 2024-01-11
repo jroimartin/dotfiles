@@ -1,0 +1,2 @@
+machine api.github.com login username^forge password s3cr3t
+machine corp.example.com/api/v3 login username^forge password s3cr3t

@@ -1,0 +1,4 @@
+[github]
+	user = username
+[github "corp.example.com/api/v3"]
+	user = username
