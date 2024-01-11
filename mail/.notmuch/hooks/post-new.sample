@@ -2,14 +2,14 @@
 
 set -e
 
-# Remove the "inbox" tag from replied, forwarded and draft messages.
-notmuch tag -inbox -- tag:replied or tag:passed or tag:draft
+# Remove the "new" tag from replied, forwarded and draft messages.
+notmuch tag -new -- tag:new and '(tag:replied or tag:passed or tag:draft)'
 
-# Remove the "inbox" tag and tag messages depending on their location.
-notmuch tag -inbox +draft -- folder:/Drafts/
-notmuch tag -inbox +deleted -- folder:/Trash/
-notmuch tag -inbox +sent -- 'folder:"/Sent Mail/"'
-notmuch tag -inbox +foo -- folder:/foo/
+# Tag sent messages.
+notmuch tag -new +sent -- tag:new and from:user@example.com
 
-# Tag messages from mailing lists.
-notmuch tag -inbox +bar -- to:bar@example.com
+# Tag mailing list messages.
+notmuch tag -new +ml -- tag:new and to:ml@example.com
+
+# Tag remaining messages as inbox.
+notmuch tag -new +inbox -- tag:new

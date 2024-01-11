@@ -44,7 +44,7 @@ primary_email=user@example.com
 #		in the mail store.
 #
 [new]
-tags=inbox
+tags=new
 ignore=.mbsyncstate;.uidvalidity
 # Search configuration
 #
