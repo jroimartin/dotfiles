@@ -252,6 +252,9 @@
 ;; Select sexp.
 (keymap-global-set "C-c i" #'jroi-select-sexp)
 
+;; Notmuch.
+(keymap-global-set "C-c m" #'notmuch)
+
 ;; Org.
 (keymap-global-set "C-c n c" #'org-capture)
 (keymap-global-set "C-c n a" #'org-agenda)
