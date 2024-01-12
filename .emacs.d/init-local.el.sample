@@ -1,4 +1,4 @@
-;;; Notmuch
+;;; Notmuch.
 
 ;; Do not add an FCC header. Some mail servers save their own copy of
 ;; sent mails.
