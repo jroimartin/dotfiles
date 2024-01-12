@@ -70,10 +70,10 @@
 ;; directory.
 (customize-set-variable 'dired-dwim-target t)
 
-;;;; Formatting.
+;;;; Faces.
 
-;; End sentences with a single space.
-(customize-set-variable 'sentence-end-double-space nil)
+;; Customize fixed-pitch-serif face.
+(set-face-attribute 'fixed-pitch-serif nil :family "Go Mono")
 
 ;;;; Dynamic abbreviation.
 
