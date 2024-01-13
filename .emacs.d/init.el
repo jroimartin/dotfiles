@@ -233,6 +233,11 @@
 (customize-set-variable 'message-sendmail-envelope-from 'header)
 (customize-set-variable 'sendmail-program (executable-find "msmtp"))
 
+;;;; EWW.
+
+;; Set search engine to DuckDuckGo Lite.
+(customize-set-variable 'eww-search-prefix "https://duckduckgo.com/lite/?q=")
+
 ;;;; Key bindings.
 
 ;; Ibuffer.
