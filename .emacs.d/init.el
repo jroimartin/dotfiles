@@ -263,10 +263,9 @@
 (keymap-global-set "C-x C-b" #'ibuffer)
 
 ;; Flymake.
-(add-hook 'flymake-mode-hook
-	  (lambda ()
-	    (keymap-set flymake-mode-map "M-n" #'flymake-goto-next-error)
-	    (keymap-set flymake-mode-map "M-p" #'flymake-goto-prev-error)))
+(with-eval-after-load 'flymake
+  (keymap-set flymake-mode-map "M-n" #'flymake-goto-next-error)
+  (keymap-set flymake-mode-map "M-p" #'flymake-goto-prev-error))
 
 ;; Eglot.
 (keymap-global-set "C-c e r" #'eglot-rename)
