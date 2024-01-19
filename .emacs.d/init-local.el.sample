@@ -1,16 +1,19 @@
-;;; Notmuch.
+;;; Local setup.
 
-;; Do not add an FCC header. Some mail servers save their own copy of
-;; sent mails.
-(customize-set-variable 'notmuch-fcc-dirs nil)
+;;;; Notmuch.
 
-;;; Sending mail.
+(with-eval-after-load 'notmuch
+  ;; Do not add an FCC header. Some mail servers save their own copy of
+  ;; sent mails.
+  (customize-set-variable 'notmuch-fcc-dirs nil))
+
+;;;; Sending mail.
 
 ;; Set full name and mail address.
 (customize-set-variable 'user-full-name "Full Name")
 (customize-set-variable 'user-mail-address "user@example.com")
 
-;;; Forge.
+;;;; Forge.
 
 ;; Add GHE to the list of git forges.
 (with-eval-after-load 'forge
