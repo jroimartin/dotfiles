@@ -97,47 +97,45 @@
 
 ;;;; Org.
 
-(with-eval-after-load 'org
-  ;; Set the default target file for storing notes.
-  (customize-set-variable 'org-default-notes-file (concat org-directory "/inbox.org"))
-  (customize-set-variable 'org-agenda-files (concat org-directory "/agenda-files")))
+;; Set the default target file for storing notes.
+(customize-set-variable 'org-directory "~/org/")
+(customize-set-variable 'org-default-notes-file (concat org-directory "/inbox.org"))
+(customize-set-variable 'org-agenda-files (concat org-directory "/agenda-files"))
 
-(with-eval-after-load 'org-capture
-  ;; Capture templates.
-  (customize-set-variable 'org-capture-templates
-			  '(("t" "Task" entry (file+headline "" "Tasks")
-			     "* TODO %?\n  %u\n  %a"))))
+;; Capture templates.
+(customize-set-variable 'org-capture-templates
+			'(("t" "Task" entry (file+headline "" "Tasks")
+			   "* TODO %?\n  %u\n  %a")))
 
 ;;;; Denote.
 
-(with-eval-after-load 'denote
-  ;; Set default notes directory.
-  (customize-set-variable 'denote-directory (expand-file-name "~/notes/"))
+;; Set default notes directory.
+(customize-set-variable 'denote-directory (expand-file-name "~/notes/"))
 
-  ;; Empty keywords list.
-  (customize-set-variable 'denote-known-keywords nil)
+;; Empty keywords list.
+(customize-set-variable 'denote-known-keywords nil)
 
-  ;; Add denote template to org-capture.
-  (with-eval-after-load 'org-capture
-    (add-to-list 'org-capture-templates
-		 '("n" "Note (with Denote)" plain
-                   (file denote-last-path)
-                   #'denote-org-capture)))
+;; Add denote template to org-capture.
+(with-eval-after-load 'org-capture
+  (add-to-list 'org-capture-templates
+	       '("n" "Note (with Denote)" plain
+		 (file denote-last-path)
+		 #'denote-org-capture)))
 
-  ;; Fontify all Denote-style file names in dired.
-  (add-hook 'dired-mode-hook #'denote-dired-mode))
+;; Fontify all Denote-style file names in dired.
+(add-hook 'dired-mode-hook #'denote-dired-mode)
 
 ;;;; Magit.
 
+;; Enable forge.
 (with-eval-after-load 'magit
-  ;; Enable forge.
-  (require 'forge)
+  (require 'forge))
 
-  ;; Hide closed topics in forge.
-  (customize-set-variable 'forge-topic-list-limit '(60 . -5))
+;; Hide closed topics in forge.
+(customize-set-variable 'forge-topic-list-limit '(60 . -5))
 
-  ;; Show word-granularity differences within diff hunks.
-  (customize-set-variable 'magit-diff-refine-hunk t))
+;; Show word-granularity differences within diff hunks.
+(customize-set-variable 'magit-diff-refine-hunk t)
 
 ;;;; Notmuch.
 
@@ -146,27 +144,27 @@
 ;; Autoload notmuch.
 (autoload 'notmuch "notmuch" "notmuch mail" t)
 
+;; Enable ol-notmuch.
 (with-eval-after-load 'notmuch
-  ;; Enable ol-notmuch.
-  (require 'ol-notmuch)
+  (require 'ol-notmuch))
 
-  ;; Sections for notmuch-hello.
-  (customize-set-variable 'notmuch-hello-sections '(notmuch-hello-insert-saved-searches
-						    notmuch-hello-insert-alltags))
+;; Sections for notmuch-hello.
+(customize-set-variable 'notmuch-hello-sections '(notmuch-hello-insert-saved-searches
+						  notmuch-hello-insert-alltags))
 
-  ;; Show all tags in notmuch-hello.
-  (customize-set-variable 'notmuch-show-all-tags-list t)
+;; Show all tags in notmuch-hello.
+(customize-set-variable 'notmuch-show-all-tags-list t)
 
-  ;; Show the newest mail first when searching.
-  (customize-set-variable 'notmuch-search-oldest-first nil))
+;; Show the newest mail first when searching.
+(customize-set-variable 'notmuch-search-oldest-first nil)
 
 ;;;; Sending mail.
 
 ;; Insert CC and BCC headers.
 (customize-set-variable 'message-default-headers "CC: \nBCC: \n")
 
+;; Dot not encode utf-8 as base64.
 (with-eval-after-load 'mm-bodies
-  ;; Dot not encode utf-8 as base64.
   (add-to-list 'mm-body-charset-encoding-alist '(utf-8 . 8bit)))
 
 ;; Use msmtp for sending mails.
@@ -188,39 +186,37 @@
 
 ;; Go.
 ;; Requires: go install golang.org/x/tools/gopls@latest
-(with-eval-after-load 'go-mode
-  (add-hook 'go-mode-hook
-	    #'(lambda ()
-		(eglot-ensure)
-		(add-hook 'before-save-hook
-			  #'(lambda ()
-			      (call-interactively #'eglot-code-action-organize-imports))
-			  nil
-			  t)
-		(add-hook 'before-save-hook #'eglot-format-buffer nil t)))
+(add-hook 'go-mode-hook
+	  #'(lambda ()
+	      (eglot-ensure)
+	      (add-hook 'before-save-hook
+			#'(lambda ()
+			    (call-interactively #'eglot-code-action-organize-imports))
+			nil
+			t)
+	      (add-hook 'before-save-hook #'eglot-format-buffer nil t)))
 
-  ;; Look for the nearest parent go.mod file as the project root.
-  (defun jroi-project-find-go-module (dir)
-    (when-let ((root (locate-dominating-file dir "go.mod")))
-      (cons 'go-module root)))
+;; Look for the nearest parent go.mod file as the project root.
+(defun jroi-project-find-go-module (dir)
+  (when-let ((root (locate-dominating-file dir "go.mod")))
+    (cons 'go-module root)))
 
-  (cl-defmethod project-root ((project (head go-module)))
-    (cdr project))
+(cl-defmethod project-root ((project (head go-module)))
+  (cdr project))
 
-  (add-hook 'project-find-functions #'jroi-project-find-go-module))
+(add-hook 'project-find-functions #'jroi-project-find-go-module)
 
 ;; Rust.
 ;; Requires: rustup [+toolchain] component add rust-analyzer
 ;; Indentation: 4 spaces
-(with-eval-after-load 'rust-mode
-  (customize-set-variable 'rust-indent-offset 4)
-  (add-hook 'rust-mode-hook
-	    #'(lambda ()
-		(setq indent-tabs-mode nil)))
-  (add-hook 'rust-mode-hook
-	    #'(lambda ()
-		(eglot-ensure)
-		(add-hook 'before-save-hook #'eglot-format-buffer nil t))))
+(customize-set-variable 'rust-indent-offset 4)
+(add-hook 'rust-mode-hook
+	  #'(lambda ()
+	      (setq indent-tabs-mode nil)))
+(add-hook 'rust-mode-hook
+	  #'(lambda ()
+	      (eglot-ensure)
+	      (add-hook 'before-save-hook #'eglot-format-buffer nil t)))
 
 ;; Shell.
 ;; Indentation: tabs
@@ -254,8 +250,7 @@
 
 ;; Markdown.
 ;; Requires: go install github.com/jroimartin/mess/md@latest
-(with-eval-after-load 'markdown-mode
-  (customize-set-variable 'markdown-command "md -"))
+(customize-set-variable 'markdown-command "md -")
 
 ;;;; Key bindings.
 

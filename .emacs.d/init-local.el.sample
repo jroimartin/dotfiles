@@ -2,10 +2,9 @@
 
 ;;;; Notmuch.
 
-(with-eval-after-load 'notmuch
-  ;; Do not add an FCC header. Some mail servers save their own copy of
-  ;; sent mails.
-  (customize-set-variable 'notmuch-fcc-dirs nil))
+;; Do not add an FCC header. Some mail servers save their own copy of
+;; sent mails.
+(customize-set-variable 'notmuch-fcc-dirs nil)
 
 ;;;; Sending mail.
 
