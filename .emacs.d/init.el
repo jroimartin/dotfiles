@@ -17,11 +17,6 @@
 (load "jroi-utils")
 (load "jroi-semlf")
 
-;;;; Manually installed packages.
-
-;; Add user site-lisp directory to load-path.
-(add-to-list 'load-path (concat user-emacs-directory "site-lisp/"))
-
 ;;;; Packages.
 
 (require 'package)
