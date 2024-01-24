@@ -57,8 +57,8 @@
 (show-paren-mode t)
 (customize-set-variable 'show-paren-delay 0)
 
-;; Enable fido-mode.
-(fido-mode)
+;; Enable Fido vertical mode.
+(fido-vertical-mode)
 
 ;;;; Faces.
 
