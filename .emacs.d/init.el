@@ -60,6 +60,10 @@
 ;; Enable Fido vertical mode.
 (fido-vertical-mode)
 
+;; Switch to the *Completions* window when `completion-at-point' is
+;; called twice.
+(customize-set-variable 'completion-auto-select 'second-tab)
+
 ;;;; Faces.
 
 ;; Set a darker region face color.
