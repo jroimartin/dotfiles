@@ -252,6 +252,10 @@
 ;; Ibuffer.
 (keymap-global-set "C-x C-b" #'ibuffer)
 
+;; Completion.
+(keymap-set completion-in-region-mode-map "M-n" #'minibuffer-next-completion)
+(keymap-set completion-in-region-mode-map "M-p" #'minibuffer-previous-completion)
+
 ;; Flymake.
 (with-eval-after-load 'flymake
   (keymap-set flymake-mode-map "M-n" #'flymake-goto-next-error)
