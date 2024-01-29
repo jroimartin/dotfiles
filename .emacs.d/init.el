@@ -53,17 +53,6 @@
 ;; Show column number.
 (customize-set-variable 'column-number-mode t)
 
-;; Enable paren mode.
-(show-paren-mode t)
-(customize-set-variable 'show-paren-delay 0)
-
-;; Enable Fido vertical mode.
-(fido-vertical-mode)
-
-;; Switch to the *Completions* window when `completion-at-point' is
-;; called twice.
-(customize-set-variable 'completion-auto-select 'second-tab)
-
 ;;;; Faces.
 
 ;; Set a darker region face color.
@@ -72,10 +61,31 @@
 ;; Customize fixed-pitch-serif face.
 (set-face-attribute 'fixed-pitch-serif nil :family "Go Mono")
 
+;;;; Completion.
+
+;; Switch to the *Completions* window when `completion-at-point' is
+;; called twice.
+(customize-set-variable 'completion-auto-select 'second-tab)
+
+;;;; Minibuffer completion.
+
+;; Enable Fido vertical mode.
+(fido-vertical-mode)
+
 ;;;; Dynamic abbreviation.
 
 ;; Case sensitive search.
 (customize-set-variable 'dabbrev-case-replace nil)
+
+;;;; Disabled commands.
+
+;; Convert region to upper and lower case.
+(put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
+
+;; Narrowing.
+(put 'narrow-to-region 'disabled nil)
+(put 'narrow-to-page 'disabled nil)
 
 ;;;; Dired.
 
@@ -182,6 +192,10 @@
 (customize-set-variable 'eglot-ignored-server-capabilities '(:inlayHintProvider))
 
 ;;;; Programming languages.
+
+;; Enable paren mode.
+(show-paren-mode t)
+(customize-set-variable 'show-paren-delay 0)
 
 ;; Go.
 ;; Requires: go install golang.org/x/tools/gopls@latest
