@@ -297,11 +297,10 @@
 (keymap-global-set "C-c n r" #'denote-rename-file)
 (keymap-global-set "C-c n R" #'denote-rename-file-using-front-matter)
 
-;; Select window.
-(keymap-global-set "C-." #'other-window)
-(keymap-global-set "C-," #'(lambda ()
-			     (interactive)
-			     (other-window -1)))
+;; Select previous window.
+(keymap-global-set "C-c o" #'(lambda ()
+			       (interactive)
+			       (other-window -1)))
 
 ;; Revert current buffer.
 (keymap-global-set "C-c r" #'revert-buffer)
