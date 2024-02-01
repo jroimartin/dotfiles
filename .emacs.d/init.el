@@ -44,9 +44,6 @@
 ;; Disable startup screen.
 (customize-set-variable 'inhibit-startup-screen t)
 
-;; Set minimum height for splitting windows sensibly.
-(customize-set-variable 'split-height-threshold 125)
-
 ;; Disable bell.
 (customize-set-variable 'ring-bell-function 'ignore)
 
