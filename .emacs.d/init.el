@@ -183,6 +183,11 @@
 ;; Set search engine to DuckDuckGo Lite.
 (customize-set-variable 'eww-search-prefix "https://duckduckgo.com/lite/?q=")
 
+;;;; Project.
+
+;; Try to use the root of a VCS repository as the root of the project.
+(add-hook 'project-find-functions #'project-try-vc)
+
 ;;;; Eglot.
 
 ;; Disable inlay hints.
