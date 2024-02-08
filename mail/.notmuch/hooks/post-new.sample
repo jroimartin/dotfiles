@@ -2,8 +2,8 @@
 
 set -e
 
-# Remove the "new" tag from replied, forwarded and draft messages.
-notmuch tag -new -- tag:new and '(tag:replied or tag:passed or tag:draft)'
+# Ignore draft messages.
+notmuch tag -new -- tag:new and tag:draft
 
 # Tag sent messages.
 notmuch tag -new +sent -- tag:new and from:user@example.com
@@ -11,5 +11,5 @@ notmuch tag -new +sent -- tag:new and from:user@example.com
 # Tag mailing list messages.
 notmuch tag -new +ml -- tag:new and to:ml@example.com
 
-# Tag remaining messages as inbox.
+# Add inbox tag to remaining messages.
 notmuch tag -new +inbox -- tag:new
