@@ -146,10 +146,6 @@
 ;; Show word-granularity differences within diff hunks.
 (customize-set-variable 'magit-diff-refine-hunk t)
 
-;; Improve the load time of revision buffers disabling information
-;; about related branches.
-(customize-set-variable 'magit-revision-insert-related-refs nil)
-
 ;;;; Notmuch.
 
 ;; Requires: dnf install notmuch emacs-notmuch
