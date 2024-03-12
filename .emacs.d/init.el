@@ -55,6 +55,9 @@
 ;; Show column number.
 (customize-set-variable 'column-number-mode t)
 
+;; Split a window vertically only if it has at least 125 lines.
+(customize-set-variable 'split-height-threshold 125)
+
 ;;;; Faces.
 
 ;; Set a darker region face color.
