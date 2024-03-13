@@ -174,9 +174,6 @@
 
 ;;;; Sending mail.
 
-;; Insert CC and BCC headers.
-(customize-set-variable 'message-default-headers "CC: \nBCC: \n")
-
 ;; Dot not encode utf-8 as base64.
 (with-eval-after-load 'mm-bodies
   (add-to-list 'mm-body-charset-encoding-alist '(utf-8 . 8bit)))
