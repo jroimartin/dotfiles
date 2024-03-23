@@ -196,7 +196,8 @@
 ;;;; Eglot.
 
 ;; Disable inlay hints.
-(customize-set-variable 'eglot-ignored-server-capabilities '(:inlayHintProvider))
+(customize-set-variable 'eglot-ignored-server-capabilities '(:inlayHintProvider
+							     :documentOnTypeFormattingProvider))
 
 ;;;; Programming languages.
 
