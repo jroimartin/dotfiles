@@ -304,7 +304,8 @@
 ;; Org.
 (keymap-global-set "C-c n c" #'org-capture)
 (keymap-global-set "C-c n a" #'org-agenda)
-(keymap-global-set "C-c n l" #'org-store-link)
+(with-eval-after-load 'ol
+  (keymap-global-set "C-c n l" #'org-store-link))
 
 ;; Denote.
 (keymap-global-set "C-c n n" #'denote-region)
