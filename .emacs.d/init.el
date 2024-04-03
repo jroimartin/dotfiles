@@ -278,6 +278,13 @@
 ;; Requires: go install github.com/jroimartin/mess/md@latest
 (customize-set-variable 'markdown-command "md -")
 
+;; WGSL.
+;; Indentation: 4 spaces
+(add-hook 'wgsl-mode-hook
+	  #'(lambda ()
+	      (setq indent-tabs-mode nil)
+	      (setq c-basic-offset 4)))
+
 ;;;; Key bindings.
 
 ;; Ibuffer.
