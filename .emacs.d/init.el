@@ -74,8 +74,8 @@
 
 ;;;; Minibuffer completion.
 
-;; Enable Fido vertical mode.
-(fido-vertical-mode)
+;; Enable Fido mode.
+(fido-mode)
 
 ;;;; Dynamic abbreviation.
 
