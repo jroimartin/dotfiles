@@ -280,10 +280,12 @@
 
 ;; WGSL.
 ;; Indentation: 4 spaces
+(autoload 'wgsl-mode "wgsl-mode" "Major mode for editing WGSL code." t)
+(add-to-list 'auto-mode-alist '("\\.wgsl\\'" . wgsl-mode))
+(customize-set-variable 'wgsl-mode-basic-offset 4)
 (add-hook 'wgsl-mode-hook
 	  #'(lambda ()
-	      (setq indent-tabs-mode nil)
-	      (setq c-basic-offset 4)))
+	      (setq indent-tabs-mode nil)))
 
 ;;;; Key bindings.
 
