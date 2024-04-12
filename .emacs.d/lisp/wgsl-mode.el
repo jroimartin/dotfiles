@@ -194,9 +194,12 @@
   "Major mode for editing WGSL code."
   (font-lock-add-keywords nil wgsl-mode--font-lock-keywords)
   (setq-local indent-line-function #'wgsl-mode--indent-line)
-  (setq-local comment-start "//")
+  (setq-local comment-start "// ")
+  (setq-local comment-end "")
   (setq-local comment-use-syntax t)
-  (setq-local comment-multi-line t))
+  (setq-local comment-multi-line t)
+  (setq-local electric-indent-chars
+	      (append "{}()" electric-indent-chars)))
 
 (provide 'wgsl-mode)
 ;;; wgsl-mode.el ends here
