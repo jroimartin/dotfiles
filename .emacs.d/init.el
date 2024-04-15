@@ -28,6 +28,22 @@
 (unless (seq-every-p #'package-installed-p package-selected-packages)
   (package-install-selected-packages))
 
+;;; Initial tree-sitter setup.
+
+;; Add configuration for downloading and installing tree-sitter
+;; language grammars.
+(setq treesit-language-source-alist
+      '((go . ("https://github.com/tree-sitter/tree-sitter-go.git" "v0.21.0"))
+	(gomod . ("https://github.com/camdencheek/tree-sitter-go-mod.git" "v1.0.2"))
+	(rust . ("https://github.com/tree-sitter/tree-sitter-rust.git" "v0.21.0"))
+	(dockerfile . ("https://github.com/camdencheek/tree-sitter-dockerfile.git" "v0.1.2"))))
+
+;; Install missing grammars.
+(mapc #'(lambda (lang)
+	  (unless (treesit-language-available-p lang)
+	    (treesit-install-language-grammar lang)))
+      (mapcar #'car treesit-language-source-alist))
+
 ;;; Emacs setup.
 
 ;;;; Environment.
@@ -212,7 +228,9 @@
 
 ;; Go.
 ;; Requires: go install golang.org/x/tools/gopls@latest
-(add-hook 'go-mode-hook
+(add-to-list 'auto-mode-alist '("\\.go\\'" . go-ts-mode))
+(add-to-list 'auto-mode-alist '("/go\\.mod\\'" . go-mod-ts-mode))
+(add-hook 'go-ts-mode-hook
 	  #'(lambda ()
 	      (eglot-ensure)
 	      (add-hook 'before-save-hook
@@ -235,11 +253,12 @@
 ;; Rust.
 ;; Requires: rustup [+toolchain] component add rust-analyzer
 ;; Indentation: 4 spaces
+(add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-ts-mode))
 (customize-set-variable 'rust-indent-offset 4)
-(add-hook 'rust-mode-hook
+(add-hook 'rust-ts-mode-hook
 	  #'(lambda ()
 	      (setq indent-tabs-mode nil)))
-(add-hook 'rust-mode-hook
+(add-hook 'rust-ts-mode-hook
 	  #'(lambda ()
 	      (eglot-ensure)
 	      (add-hook 'before-save-hook #'eglot-format-buffer nil t)))
@@ -277,6 +296,11 @@
 ;; Markdown.
 ;; Requires: go install github.com/jroimartin/mess/md@latest
 (customize-set-variable 'markdown-command "md -")
+
+;; Dockerfile.
+(add-to-list 'auto-mode-alist
+             '("\\(?:Dockerfile\\(?:\\..*\\)?\\|\\.[Dd]ockerfile\\)\\'"
+               . dockerfile-ts-mode))
 
 ;; WGSL.
 ;; Indentation: 4 spaces
