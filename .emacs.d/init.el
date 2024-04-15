@@ -36,7 +36,8 @@
       '((go . ("https://github.com/tree-sitter/tree-sitter-go.git" "v0.21.0"))
 	(gomod . ("https://github.com/camdencheek/tree-sitter-go-mod.git" "v1.0.2"))
 	(rust . ("https://github.com/tree-sitter/tree-sitter-rust.git" "v0.21.0"))
-	(dockerfile . ("https://github.com/camdencheek/tree-sitter-dockerfile.git" "v0.1.2"))))
+	(dockerfile . ("https://github.com/camdencheek/tree-sitter-dockerfile.git" "v0.1.2"))
+	(yaml . ("https://github.com/ikatyang/tree-sitter-yaml.git" "v0.5.0"))))
 
 ;; Install missing grammars.
 (mapc #'(lambda (lang)
@@ -299,8 +300,10 @@
 
 ;; Dockerfile.
 (add-to-list 'auto-mode-alist
-             '("\\(?:Dockerfile\\(?:\\..*\\)?\\|\\.[Dd]ockerfile\\)\\'"
-               . dockerfile-ts-mode))
+             '("\\(?:Dockerfile\\(?:\\..*\\)?\\|\\.[Dd]ockerfile\\)\\'" . dockerfile-ts-mode))
+
+;; YAML.
+(add-to-list 'auto-mode-alist '("\\.ya?ml\\'" . yaml-ts-mode))
 
 ;; WGSL.
 ;; Indentation: 4 spaces
