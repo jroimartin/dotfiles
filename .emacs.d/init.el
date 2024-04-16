@@ -229,8 +229,8 @@
 
 ;; Go.
 ;; Requires: go install golang.org/x/tools/gopls@latest
-(add-to-list 'auto-mode-alist '("\\.go\\'" . go-ts-mode))
-(add-to-list 'auto-mode-alist '("/go\\.mod\\'" . go-mod-ts-mode))
+(add-to-list 'auto-mode-alist `(,(rx ".go" string-end) . go-ts-mode))
+(add-to-list 'auto-mode-alist `(,(rx "/go.mod" string-end) . go-mod-ts-mode))
 (add-hook 'go-ts-mode-hook
 	  #'(lambda ()
 	      (eglot-ensure)
@@ -254,7 +254,7 @@
 ;; Rust.
 ;; Requires: rustup [+toolchain] component add rust-analyzer
 ;; Indentation: 4 spaces
-(add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-ts-mode))
+(add-to-list 'auto-mode-alist `(,(rx ".rs" string-end) . rust-ts-mode))
 (customize-set-variable 'rust-indent-offset 4)
 (add-hook 'rust-ts-mode-hook
 	  #'(lambda ()
@@ -300,15 +300,18 @@
 
 ;; Dockerfile.
 (add-to-list 'auto-mode-alist
-             '("\\(?:Dockerfile\\(?:\\..*\\)?\\|\\.[Dd]ockerfile\\)\\'" . dockerfile-ts-mode))
+             `(,(rx (or (seq "Dockerfile" (? "." (* not-newline)))
+			(seq "." (any "Dd") "ockerfile"))
+		    string-end)
+	       . dockerfile-ts-mode))
 
 ;; YAML.
-(add-to-list 'auto-mode-alist '("\\.ya?ml\\'" . yaml-ts-mode))
+(add-to-list 'auto-mode-alist `(,(rx ".y" (? "a") "ml" string-end) . yaml-ts-mode))
 
 ;; WGSL.
 ;; Indentation: 4 spaces
 (autoload 'wgsl-mode "wgsl-mode" "Major mode for editing WGSL code." t)
-(add-to-list 'auto-mode-alist '("\\.wgsl\\'" . wgsl-mode))
+(add-to-list 'auto-mode-alist `(,(rx ".wgsl" string-end) . wgsl-mode))
 (customize-set-variable 'wgsl-mode-basic-offset 4)
 (add-hook 'wgsl-mode-hook
 	  #'(lambda ()
