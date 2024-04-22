@@ -138,9 +138,8 @@
 			'(("t" "Task" entry (file+headline "" "Tasks")
 			   "* TODO %?\n  %u\n  %a")))
 
-;; Enable Markdown export backend.
-(with-eval-after-load 'org
-  (require 'ox-md))
+;; Configure export backends.
+(customize-set-variable 'org-export-backends '(ascii html icalendar latex odt md))
 
 ;;;; Denote.
 
