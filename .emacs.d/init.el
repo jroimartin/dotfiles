@@ -138,6 +138,10 @@
 			'(("t" "Task" entry (file+headline "" "Tasks")
 			   "* TODO %?\n  %u\n  %a")))
 
+;; Enable Markdown export backend.
+(with-eval-after-load 'org
+  (require 'ox-md))
+
 ;;;; Denote.
 
 ;; Set default notes directory.
