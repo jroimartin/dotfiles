@@ -133,7 +133,7 @@
 (customize-set-variable 'org-default-notes-file (concat org-directory "/inbox.org"))
 (customize-set-variable 'org-agenda-files (concat org-directory "/agenda-files"))
 
-;; Capture templates.
+;; Define capture templates.
 (customize-set-variable 'org-capture-templates
 			'(("t" "Task" entry (file+headline "" "Tasks")
 			   "* TODO %?\n  %u\n  %a")))
