@@ -1,11 +1,3 @@
-;;; Shell
-
-(defun jroi-shell ()
-  "Call `shell', but always prompt for buffer."
-  (interactive)
-  (let ((current-prefix-arg '(4)))
-    (call-interactively #'shell)))
-
 ;;; Select sexp
 
 (defvar-local jroi-select-sexp-prev-point nil

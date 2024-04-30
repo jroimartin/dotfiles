@@ -365,7 +365,7 @@
 (keymap-global-set "C-c r" #'revert-buffer)
 
 ;; Shell.
-(keymap-global-set "C-c s" #'jroi-shell)
+(keymap-global-set "C-c s" #'shell)
 
 ;;;; Local settings file.
 
