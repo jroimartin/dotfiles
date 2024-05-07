@@ -297,10 +297,6 @@
 	  #'(lambda ()
 	      (setq indent-tabs-mode nil)))
 
-;; Markdown.
-;; Requires: go install github.com/jroimartin/mess/md@latest
-(customize-set-variable 'markdown-command "md -")
-
 ;; Dockerfile.
 (add-to-list 'auto-mode-alist
              `(,(rx (or (seq "Dockerfile" (? "." (* not-newline)))
