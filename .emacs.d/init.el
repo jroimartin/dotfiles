@@ -230,6 +230,10 @@
 	  #'(lambda ()
 	      (c-set-style "linux")))
 
+;; Guile.
+;; Requires: dnf install guile30
+(customize-set-variable 'geiser-guile-binary "guile3.0")
+
 ;; Go.
 ;; Requires: go install golang.org/x/tools/gopls@latest
 (add-to-list 'auto-mode-alist `(,(rx ".go" string-end) . go-ts-mode))
