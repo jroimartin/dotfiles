@@ -26,6 +26,7 @@
 
 ;; Install selected packages if any is missing.
 (unless (seq-every-p #'package-installed-p package-selected-packages)
+  (package-refresh-contents)
   (package-install-selected-packages))
 
 ;;; Initial tree-sitter setup.
