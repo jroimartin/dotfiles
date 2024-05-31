@@ -24,5 +24,6 @@
 ;;;; Elfeed.
 
 ;; Add RSS feeds.
-(customize-set-variable 'elfeed-feeds
-			'(("https://example.com/feed.atom" example blog)))
+(let ((elfeed-feeds-file (concat user-emacs-directory "elfeed-feeds.el")))
+  (when (file-readable-p elfeed-feeds-file)
+    (load elfeed-feeds-file)))
