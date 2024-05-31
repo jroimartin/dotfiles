@@ -20,3 +20,9 @@
 			      "corp.example.com/api/v3"
 			      "corp.example.com"
 			      forge-github-repository)))
+
+;;;; Elfeed.
+
+;; Add RSS feeds.
+(customize-set-variable 'elfeed-feeds
+			'(("https://example.com/feed.atom" example blog)))
