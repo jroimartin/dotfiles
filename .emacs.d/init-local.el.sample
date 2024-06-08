@@ -20,10 +20,3 @@
 			      "corp.example.com/api/v3"
 			      "corp.example.com"
 			      forge-github-repository)))
-
-;;;; Elfeed.
-
-;; Add RSS feeds.
-(let ((elfeed-feeds-file (concat user-emacs-directory "elfeed-feeds.el")))
-  (when (file-readable-p elfeed-feeds-file)
-    (load elfeed-feeds-file)))
