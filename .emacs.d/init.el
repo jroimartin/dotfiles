@@ -188,6 +188,11 @@
 ;; Show the newest mail first when searching.
 (customize-set-variable 'notmuch-search-oldest-first nil)
 
+;;;; Reading mail.
+
+;; Only inline plain text, HTML and images.
+(customize-set-variable 'mm-inlined-types '("text/plain" "text/html" "image/.*"))
+
 ;;;; Sending mail.
 
 ;; Dot not encode utf-8 as base64.
