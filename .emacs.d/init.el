@@ -132,7 +132,7 @@
 		 1
 		 (2 . 4)
 		 (3 . 5)
-		 1))
+		 2))
   (add-to-list 'compilation-error-regexp-alist 'fileaddr))
 
 ;;;; ElDoc.
