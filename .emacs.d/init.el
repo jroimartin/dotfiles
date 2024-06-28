@@ -121,14 +121,11 @@
 (with-eval-after-load 'compile
   (add-to-list 'compilation-error-regexp-alist-alist
 	       `(fileaddr
-		 ,(rx line-start
-		      (group (+? not-newline))
-		      ":"
-		      (group (+? digit))
-		      (? ":" (group (+? digit)))
-		      (? "," (group (+? digit))
-			 (? ":" (group (+? digit))))
-		      (or ":" line-end))
+		 ,(rx (group (+ (not (any space ":"))))
+		      ":" (group (+ digit))
+		      (? ":" (group (+ digit)))
+		      (? "," (group (+ digit))
+			 (? ":" (group (+ digit)))))
 		 1
 		 (2 . 4)
 		 (3 . 5)
