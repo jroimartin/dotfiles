@@ -90,6 +90,11 @@
 ;; called twice.
 (customize-set-variable 'completion-auto-select 'second-tab)
 
+;;;; Minibuffer completion.
+
+;; Enable Fido mode.
+(fido-mode)
+
 ;;;; Dynamic abbreviation.
 
 ;; Case sensitive search.
