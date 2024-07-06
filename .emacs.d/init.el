@@ -350,6 +350,9 @@
 
 ;;;; Key bindings.
 
+;; Windmove.
+(windmove-default-keybindings)
+
 ;; Ibuffer.
 (keymap-global-set "C-x C-b" #'ibuffer)
 
@@ -383,11 +386,6 @@
 (keymap-global-set "C-c n I" #'denote-add-links)
 (keymap-global-set "C-c n r" #'denote-rename-file)
 (keymap-global-set "C-c n R" #'denote-rename-file-using-front-matter)
-
-;; Select previous window.
-(keymap-global-set "C-c o" #'(lambda ()
-			       (interactive)
-			       (other-window -1)))
 
 ;; Revert current buffer.
 (keymap-global-set "C-c r" #'revert-buffer)
