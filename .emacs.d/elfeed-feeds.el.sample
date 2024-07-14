@@ -1,2 +1,0 @@
-(customize-set-variable 'elfeed-feeds
-			'(("https://example.com/feed.atom" first-tag second-tag)))
