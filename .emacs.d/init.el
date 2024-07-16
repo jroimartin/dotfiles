@@ -14,7 +14,8 @@
 (add-to-list 'load-path (concat user-emacs-directory "lisp/"))
 
 ;; Load libraries.
-(load "jroi-utils")
+(load "jroi-sexp")
+(load "jroi-erc")
 (load "jroi-semlf")
 
 ;;;; Packages.
@@ -235,6 +236,12 @@
 
 ;; Set search engine to DuckDuckGo Lite.
 (customize-set-variable 'eww-search-prefix "https://duckduckgo.com/lite/?q=")
+
+;;;; ERC.
+(customize-set-variable 'erc-modules
+			'(autojoin button completion fill irccontrols list match menu move-to-prompt netsplit networks noncommands readonly ring sasl stamp track))
+(customize-set-variable 'erc-sasl-auth-source-function
+			#'erc-sasl-auth-source-password-as-host)
 
 ;;;; Project.
 

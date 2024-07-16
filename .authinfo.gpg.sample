@@ -1,2 +1,3 @@
 machine api.github.com login username^forge password s3cr3t
 machine corp.example.com/api/v3 login username^forge password s3cr3t
+machine Libera.Chat-nick password s3cr3t

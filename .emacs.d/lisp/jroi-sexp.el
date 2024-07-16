@@ -1,4 +1,4 @@
-;;; Select sexp
+;;; Select sexp.
 
 (defvar-local jroi-select-sexp-prev-point nil
   "Point before calling `jroi-select-sexp-point'.")

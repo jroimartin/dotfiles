@@ -20,3 +20,9 @@
 			      "corp.example.com/api/v3"
 			      "corp.example.com"
 			      forge-github-repository)))
+
+;;;; ERC.
+
+;; Add IRC accounts.
+(customize-set-variable 'jroi-erc-accounts-alist
+			'((lc . (:server "irc.libera.chat" :port 6697 :nick "nick" :user "nick" :auth "Libera.Chat-nick"))))
