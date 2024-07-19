@@ -20,7 +20,9 @@ MACHINE is the machine field of the corresponding entry in the
 account.
 
 ACCOUNT must be an entry of `jroi-erc-accounts-alist'."
-  (interactive "SConnect to account: ")
+  (interactive (list (intern (completing-read "Connect to account: "
+					      (mapcar #'car jroi-erc-accounts-alist)
+					      nil t))))
   (if-let ((acc (alist-get account jroi-erc-accounts-alist))
 	   (server (plist-get acc :server))
 	   (port (plist-get acc :port))
