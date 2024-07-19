@@ -238,10 +238,19 @@
 (customize-set-variable 'eww-search-prefix "https://duckduckgo.com/lite/?q=")
 
 ;;;; ERC.
+
+;; Enable SASL module.
 (customize-set-variable 'erc-modules
 			'(autojoin button completion fill irccontrols list match menu move-to-prompt netsplit networks noncommands readonly ring sasl stamp track))
+
+;; Call `erc-auth-source-search' with `erc-sasl-password' as `:host'.
+;; It allows to use an auth source to store the credentials of
+;; multiple user accounts within the same IRC network.
 (customize-set-variable 'erc-sasl-auth-source-function
 			#'erc-sasl-auth-source-password-as-host)
+
+;; Bury the buffer created when receiving a new private message.
+(customize-set-variable 'erc-auto-query 'bury)
 
 ;;;; Project.
 
@@ -316,7 +325,7 @@
 	  #'(lambda ()
 	      (setq indent-tabs-mode nil)))
 
-;; SGML. SGML standard general markup language, which includes HTML
+;; SGML.  SGML standard general markup language, which includes HTML
 ;; hypertext markup language.
 ;; Indentation: 2 spaces
 (customize-set-variable 'sgml-basic-offset 2)

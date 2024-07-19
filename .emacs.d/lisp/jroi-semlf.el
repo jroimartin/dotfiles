@@ -1,5 +1,5 @@
-;; Copyright 2023 Roi Martin. All rights reserved.
-;; Copyright 2017 The Go Authors. All rights reserved.
+;; Copyright 2023 Roi Martin.  All rights reserved.
+;; Copyright 2017 The Go Authors.  All rights reserved.
 ;; Use of this source code is governed by a BSD-style license that can
 ;; be found in https://github.com/golang/proposal/blob/master/LICENSE
 
@@ -9,7 +9,7 @@
 ;; It can be enabled with M-x jroi-semlf-mode
 ;;
 ;; This is sensitive to the setting of `sentence-end-double-space',
-;; which defaults to t. If `sentence-end-double-space' is t, but a
+;; which defaults to t.  If `sentence-end-double-space' is t, but a
 ;; paragraph has only a single space between sentences, this will not
 ;; insert line breaks where expected.
 

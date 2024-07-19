@@ -2,7 +2,7 @@
 
 ;;;; Notmuch.
 
-;; Do not add an FCC header. Some mail servers save their own copy of
+;; Do not add an FCC header.  Some mail servers save their own copy of
 ;; sent mails.
 (customize-set-variable 'notmuch-fcc-dirs nil)
 
