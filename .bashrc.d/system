@@ -1,11 +1,2 @@
-# Set specific editor variables when inside GNOME Builder.
-if [[ -n $INSIDE_GNOME_BUILDER ]]; then
-	export EDITOR='gnome-text-editor -s'
-	export GIT_EDITOR='flatpak run re.sonny.Commit'
-else
-	export ALTERNATE_EDITOR=
-	export EDITOR='emacsclient'
-fi
-
-# Disable "command not found" handler.
+# Disable "command not found" handler
 unset -f command_not_found_handle
