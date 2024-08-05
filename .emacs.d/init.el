@@ -123,21 +123,6 @@
 (customize-set-variable 'ansi-color-for-compilation-mode t)
 (add-hook 'compilation-filter-hook #'ansi-color-compilation-filter)
 
-;; Parse file address.
-(with-eval-after-load 'compile
-  (add-to-list 'compilation-error-regexp-alist-alist
-	       `(fileaddr
-		 ,(rx (group (+ (not (any space ":"))))
-		      ":" (group (+ digit))
-		      (? ":" (group (+ digit)))
-		      (? "," (group (+ digit))
-			 (? ":" (group (+ digit)))))
-		 1
-		 (2 . 4)
-		 (3 . 5)
-		 2))
-  (add-to-list 'compilation-error-regexp-alist 'fileaddr))
-
 ;;;; ElDoc.
 
 ;; Do not allow long ElDoc doc strings to resize echo area display.
