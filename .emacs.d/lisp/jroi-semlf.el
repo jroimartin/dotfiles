@@ -42,6 +42,10 @@
             (fill-region-as-paragraph sbeg (point)))))
       prefix)))
 
+(defvar-local jroi-semlf--old-fill-paragraph-function nil
+  "The `fill-paragraph-function' in use before enabling
+`jroi-semlf-mode'.")
+
 (define-minor-mode jroi-semlf-mode
   "Make fill-paragraph add line breaks at sentence boundaries in
 addition to normal wrapping."
@@ -49,6 +53,6 @@ addition to normal wrapping."
   (setq-local fill-paragraph-function
 	      (if jroi-semlf-mode
 		  (progn
-		    (setq-local jroi-semlf-old-fill-paragraph-function fill-paragraph-function)
+		    (setq jroi-semlf--old-fill-paragraph-function fill-paragraph-function)
 		    #'jroi-semlf--fill)
-		jroi-semlf-old-fill-paragraph-function)))
+		jroi-semlf--old-fill-paragraph-function)))
