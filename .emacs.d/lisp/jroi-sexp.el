@@ -1,9 +1,9 @@
-;;; Select sexp.
+;;; Utilities to work with s-expression.
 
-(defvar-local jroi-select-sexp-prev-point nil
-  "Point before calling `jroi-select-sexp-point'.")
+(defvar-local jroi-sexp--prev-point nil
+  "Point before calling `jroi-sexp-select'.")
 
-(defun jroi-select-sexp ()
+(defun jroi-sexp-select ()
   "Select the region between the delimiters of the sexp at
 point."
   (interactive)
@@ -14,14 +14,14 @@ point."
 		(goto-char start)
 		(forward-sexp)
 		(point))))
-    (setq jroi-select-sexp-prev-point (point))
+    (setq jroi-sexp--prev-point (point))
     (goto-char (+ start 1))
     (push-mark (- end 1) nil t)))
 
-(defun jroi-select-sexp-restore-point ()
-  "Restore point before calling `jroi-select-sexp`."
-  (when (and (eq last-command 'jroi-select-sexp)
-	     jroi-select-sexp-prev-point)
-    (goto-char jroi-select-sexp-prev-point)))
+(defun jroi-sexp--restore-point ()
+  "Restore point before calling `jroi-sexp-select'."
+  (when (and (eq last-command 'jroi-sexp-select)
+	     jroi-sexp--prev-point)
+    (goto-char jroi-sexp--prev-point)))
 
-(advice-add 'keyboard-quit :before #'jroi-select-sexp-restore-point)
+(advice-add 'keyboard-quit :before #'jroi-sexp--restore-point)

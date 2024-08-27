@@ -365,7 +365,7 @@
 (keymap-global-set "C-c f" #'comint-dynamic-complete-filename)
 
 ;; Select sexp.
-(keymap-global-set "C-c i" #'jroi-select-sexp)
+(keymap-global-set "C-c i" #'jroi-sexp-select)
 
 ;; Notmuch.
 (keymap-global-set "C-c m" #'notmuch)
