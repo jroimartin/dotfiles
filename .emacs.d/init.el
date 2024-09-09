@@ -137,8 +137,10 @@
 
 ;; Define capture templates.
 (customize-set-variable 'org-capture-templates
-			'(("t" "Task" entry (file+headline "" "Tasks")
-			   "* TODO %?\n  %u\n  %a")))
+			'(("t" "Task with annotation" entry (file+headline "" "Tasks")
+			   "* TODO %?\n  %u\n  %a")
+			  ("T" "Task" entry (file+headline "" "Tasks")
+			   "* TODO %?\n  %u")))
 
 ;; Configure export backends.
 (customize-set-variable 'org-export-backends '(ascii html icalendar latex odt md))
