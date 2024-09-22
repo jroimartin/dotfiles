@@ -258,6 +258,11 @@
 (show-paren-mode t)
 (customize-set-variable 'show-paren-delay 0)
 
+;; C.
+(add-hook 'c-mode-hook
+	  #'(lambda ()
+	      (c-set-style "linux")))
+
 ;; Guile.
 ;; Requires: dnf install guile30
 (customize-set-variable 'geiser-guile-binary "guile3.0")
