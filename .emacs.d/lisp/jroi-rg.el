@@ -2,7 +2,7 @@
 
 ;; Requires: dnf install ripgrep
 
-(defun rg (command-args)
+(defun jroi-rg (command-args)
   "Run ripgrep with user-specified COMMAND-ARGS.
 The output from the command goes to the \"*grep*\" buffer."
   (interactive
