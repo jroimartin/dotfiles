@@ -14,9 +14,10 @@
 (add-to-list 'load-path (concat user-emacs-directory "lisp/"))
 
 ;; Load libraries.
-(load "jroi-sexp")
 (load "jroi-erc")
+(load "jroi-rg")
 (load "jroi-semlf")
+(load "jroi-sexp")
 
 ;;;; Packages.
 
