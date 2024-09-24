@@ -259,9 +259,11 @@
 (customize-set-variable 'show-paren-delay 0)
 
 ;; C.
+;; Requires: dnf install clang-tools-extra
 (customize-set-variable 'c-default-style '((java-mode . "java")
 					   (awk-mode . "awk")
 					   (other . "linux")))
+(add-hook 'c-mode-hook #'eglot-ensure)
 
 ;; Go.
 ;; Requires: go install golang.org/x/tools/gopls@latest
