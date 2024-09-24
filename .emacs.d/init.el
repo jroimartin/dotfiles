@@ -259,9 +259,9 @@
 (customize-set-variable 'show-paren-delay 0)
 
 ;; C.
-(add-hook 'c-mode-hook
-	  #'(lambda ()
-	      (c-set-style "linux")))
+(customize-set-variable 'c-default-style '((java-mode . "java")
+					   (awk-mode . "awk")
+					   (other . "linux")))
 
 ;; Go.
 ;; Requires: go install golang.org/x/tools/gopls@latest
@@ -281,9 +281,10 @@
 (cl-defmethod project-root ((project (head go-module)))
   (cdr project))
 
-(add-hook 'project-find-functions #'(lambda (dir)
-				      (when-let ((root (locate-dominating-file dir "go.mod")))
-					(cons 'go-module root))))
+(add-hook 'project-find-functions
+	  #'(lambda (dir)
+	      (when-let ((root (locate-dominating-file dir "go.mod")))
+		(cons 'go-module root))))
 
 ;; Rust.
 ;; Requires: rustup [+toolchain] component add rust-analyzer
@@ -330,7 +331,7 @@
 
 ;; Dockerfile.
 (add-to-list 'auto-mode-alist
-             `(,(rx (or (seq "Dockerfile" (? "." (* not-newline)))
+	     `(,(rx (or (seq "Dockerfile" (? "." (* not-newline)))
 			(seq "." (any "Dd") "ockerfile"))
 		    string-end)
 	       . dockerfile-ts-mode))
