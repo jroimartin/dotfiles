@@ -179,8 +179,14 @@
 ;; Show word-granularity differences within diff hunks.
 (customize-set-variable 'magit-diff-refine-hunk t)
 
+;; Performance tweaks for big repositories.
+
 ;; Do not show related branches in revision buffers.
 (customize-set-variable 'magit-revision-insert-related-refs nil)
+
+;; Do not show tags header in status buffer.
+(with-eval-after-load 'magit
+  (remove-hook 'magit-status-headers-hook 'magit-insert-tags-header))
 
 ;;;; Notmuch.
 
