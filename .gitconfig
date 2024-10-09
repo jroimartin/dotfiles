@@ -1,20 +1,23 @@
-[user]
-	name = Roi Martin
-	email = jroi.martin@gmail.com
-[init]
-	defaultBranch = main
-[push]
-	default = nothing
-[pull]
-	ff = only
 [alias]
 	lg = log --graph --format=format:'%C(bold blue)%h%C(reset) %C(green)(%ar)%C(reset)%C(auto)%d%C(reset) %C(auto)%s%C(reset) %C(yellow)%ae%C(reset)'
 	wt = worktree
-[sendemail]
-	smtpServer = /usr/bin/msmtp
 [core]
 	excludesFile = ~/.gitignore
+	abbrev = 12
 [http]
 	cookieFile = ~/.gitcookies
 [include]
 	path = ~/.gitconfig-local
+[init]
+	defaultBranch = main
+[pretty]
+        fixes = Fixes: %h (\"%s\")
+[pull]
+	ff = only
+[push]
+	default = nothing
+[sendemail]
+	smtpServer = /usr/bin/msmtp
+[user]
+	name = Roi Martin
+	email = jroi.martin@gmail.com
