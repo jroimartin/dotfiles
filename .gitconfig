@@ -11,6 +11,7 @@
 [init]
 	defaultBranch = main
 [pretty]
+        ref = %h (\"%s\")
         fixes = Fixes: %h (\"%s\")
 [pull]
 	ff = only
