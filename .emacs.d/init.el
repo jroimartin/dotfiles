@@ -121,6 +121,9 @@
 ;; current directory, instead of Dired buffer's current directory.
 (customize-set-variable 'dired-dwim-target t)
 
+;; Show hidden files and human-readable sizes.
+(customize-set-variable 'dired-listing-switches "-lah")
+
 ;;;; Compilation.
 
 ;; Try to translate SGR control sequences into text properties.
