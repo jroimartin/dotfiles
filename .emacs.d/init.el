@@ -385,9 +385,6 @@
 (keymap-global-set "C-c e r" #'eglot-rename)
 (keymap-global-set "C-c e a" #'eglot-code-actions)
 
-;; Filename completion.
-(keymap-global-set "C-c f" #'comint-dynamic-complete-filename)
-
 ;; Select sexp.
 (keymap-global-set "C-c i" #'jroi-sexp-select)
 
