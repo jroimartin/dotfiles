@@ -152,6 +152,10 @@
 ;; Configure export backends.
 (customize-set-variable 'org-export-backends '(ascii html icalendar latex odt md))
 
+;; Enable Babel languages.
+(customize-set-variable 'org-babel-load-languages '((emacs-lisp . t)
+						    (scheme . t)))
+
 ;;;; Denote.
 
 ;; Set default notes directory.
