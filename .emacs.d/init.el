@@ -83,9 +83,6 @@
 
 ;;;; Faces.
 
-;; Set a darker region face color.
-(set-face-attribute 'region nil :background "#eee")
-
 ;; Customize fixed-pitch-serif face.
 (set-face-attribute 'fixed-pitch-serif nil :family "Go Mono")
 
