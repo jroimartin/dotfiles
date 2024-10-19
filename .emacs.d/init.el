@@ -270,6 +270,16 @@
 (customize-set-variable 'eglot-ignored-server-capabilities '(:inlayHintProvider
 							     :documentOnTypeFormattingProvider))
 
+;;;; Geiser.
+
+;; Requires: dnf install chez-scheme racket guile30
+
+;; Set default scheme implementation.
+(customize-set-variable 'geiser-default-implementation 'chez)
+
+;; Set Guile executable name.
+(customize-set-variable 'geiser-guile-binary "guile3.0")
+
 ;;;; Programming languages.
 
 ;; Enable paren mode.
@@ -358,10 +368,6 @@
 
 ;; YAML.
 (add-to-list 'auto-mode-alist `(,(rx ".y" (? "a") "ml" string-end) . yaml-ts-mode))
-
-;; Guile.
-;; Requires: dnf install guile30
-(customize-set-variable 'geiser-guile-binary "guile3.0")
 
 ;; WGSL.
 ;; Indentation: 4 spaces
