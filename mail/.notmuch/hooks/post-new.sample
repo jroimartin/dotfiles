@@ -3,13 +3,16 @@
 set -e
 
 # Ignore draft messages.
-notmuch tag -new -- tag:new and tag:draft
+notmuch tag -new -- 'tag:new and tag:draft'
 
-# Tag sent messages.
-notmuch tag -new +sent -- tag:new and from:user@example.com
+# Add "sent" tag to sent messages.
+notmuch tag +sent -- 'tag:new and from:user@example.com'
+
+# Add "me" and "inbox" tags to direct messages.
+notmuch tag +me +inbox -- 'tag:new and to:user@example.com'
 
 # Tag mailing list messages.
-notmuch tag -new +ml -- tag:new and to:ml@example.com
+notmuch tag +ml -- 'tag:new and to:ml@example.com'
 
-# Add inbox tag to remaining messages.
-notmuch tag -new +inbox -- tag:new
+# Remove "new" tag.
+notmuch tag -new -- 'tag:new'
