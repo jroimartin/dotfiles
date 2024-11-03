@@ -229,13 +229,6 @@
 (customize-set-variable 'message-sendmail-envelope-from 'header)
 (customize-set-variable 'sendmail-program (executable-find "msmtp"))
 
-;;;; Elfeed.
-
-;; Add RSS feeds.
-(let ((elfeed-feeds-file (concat user-emacs-directory "elfeed-feeds.el")))
-  (when (file-readable-p elfeed-feeds-file)
-    (load elfeed-feeds-file)))
-
 ;;;; EWW.
 
 ;; Open URLs in EWW by default.
