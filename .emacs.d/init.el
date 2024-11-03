@@ -238,6 +238,9 @@
 
 ;;;; EWW.
 
+;; Open URLs in EWW by default.
+(customize-set-variable 'browse-url-browser-function #'eww-browse-url)
+
 ;; Set search engine to DuckDuckGo Lite.
 (customize-set-variable 'eww-search-prefix "https://duckduckgo.com/lite/?q=")
 
