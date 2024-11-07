@@ -153,6 +153,9 @@
 (customize-set-variable 'org-babel-load-languages '((emacs-lisp . t)
 						    (scheme . t)))
 
+;; Do not show repeated entries in the future part of the agenda.
+(customize-set-variable 'org-agenda-show-future-repeats nil)
+
 ;;;; Denote.
 
 ;; Set default notes directory.
