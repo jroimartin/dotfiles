@@ -1,4 +1,4 @@
 #+TODO: TODO(t) | DONE(d)
-#+FILETAGS: someday
+#+FILETAGS: :someday:
 
 * Someday
