@@ -156,6 +156,13 @@
 ;; Do not show repeated entries in the future part of the agenda.
 (customize-set-variable 'org-agenda-show-future-repeats nil)
 
+;; Filter out "someday" and "habit" entries in "Agenda and TODOs"
+;; view.
+(customize-set-variable 'org-agenda-custom-commands
+			'(("n" "Agenda and TODOs"
+			   ((agenda "")
+			    (tags-todo "-someday-habit")))))
+
 ;;;; Denote.
 
 ;; Set default notes directory.
