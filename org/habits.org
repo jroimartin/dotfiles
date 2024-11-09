@@ -2,3 +2,8 @@
 #+FILETAGS: :habit:
 
 * Habits
+** TODO Example
+SCHEDULED: <2024-11-09 Sun ++1d>
+:PROPERTIES:
+:STYLE: habit
+:END:

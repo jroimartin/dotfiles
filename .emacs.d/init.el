@@ -139,15 +139,18 @@
 (customize-set-variable 'org-default-notes-file (concat org-directory "/inbox.org"))
 (customize-set-variable 'org-agenda-files (concat org-directory "/agenda-files"))
 
-;; Define capture templates.
-(customize-set-variable 'org-capture-templates
-			'(("t" "Task with annotation" entry (file+headline "" "Tasks")
-			   "* TODO %?\n  %u\n  %a")
-			  ("T" "Task" entry (file+headline "" "Tasks")
-			   "* TODO %?\n  %u")))
+;; Add capture templates.
+(with-eval-after-load 'org-capture
+  (add-to-list 'org-capture-templates
+	       '("t" "Task with annotation" entry (file+headline "" "Tasks")
+		 "* TODO %?\n  %u\n  %a"))
+  (add-to-list 'org-capture-templates
+	       '("T" "Task" entry (file+headline "" "Tasks")
+		 "* TODO %?\n  %u")))
 
 ;; Configure export backends.
-(customize-set-variable 'org-export-backends '(ascii html icalendar latex odt md))
+(with-eval-after-load 'org
+  (add-to-list 'org-export-backends 'md))
 
 ;; Enable Babel languages.
 (customize-set-variable 'org-babel-load-languages '((emacs-lisp . t)
@@ -158,10 +161,15 @@
 
 ;; Filter out "someday" and "habit" entries in "Agenda and TODOs"
 ;; view.
-(customize-set-variable 'org-agenda-custom-commands
-			'(("n" "Agenda and TODOs"
-			   ((agenda "")
-			    (tags-todo "-someday-habit")))))
+(with-eval-after-load 'org-agenda
+  (add-to-list 'org-agenda-custom-commands
+	       '("N" "Agenda and TODOs"
+		 ((agenda "")
+		  (tags-todo "-someday-habit")))))
+
+;; Enable habits module.
+(with-eval-after-load 'org
+  (add-to-list 'org-modules 'org-habit))
 
 ;;;; Denote.
 
@@ -250,8 +258,8 @@
 ;;;; ERC.
 
 ;; Enable SASL module.
-(customize-set-variable 'erc-modules
-			'(autojoin button completion fill irccontrols list match menu move-to-prompt netsplit networks noncommands readonly ring sasl stamp track))
+(with-eval-after-load 'erc
+  (add-to-list 'erc-modules 'sasl))
 
 ;; Call `erc-auth-source-search' with `erc-sasl-password' as `:host'.
 ;; It allows to use an auth source to store the credentials of
