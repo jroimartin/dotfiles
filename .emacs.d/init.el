@@ -281,16 +281,6 @@
 (customize-set-variable 'eglot-ignored-server-capabilities '(:inlayHintProvider
 							     :documentOnTypeFormattingProvider))
 
-;;;; Geiser.
-
-;; Requires: dnf install chez-scheme racket guile30
-
-;; Set default scheme implementation.
-(customize-set-variable 'geiser-default-implementation 'chez)
-
-;; Set Guile executable name.
-(customize-set-variable 'geiser-guile-binary "guile3.0")
-
 ;;;; Programming languages.
 
 ;; Enable paren mode.
@@ -340,9 +330,16 @@
 	      (eglot-ensure)
 	      (add-hook 'before-save-hook #'eglot-format-buffer nil t)))
 
-;; Shell.
-;; Indentation: tabs
-(customize-set-variable 'sh-basic-offset tab-width)
+;; Scheme.
+;; Requires: dnf install chez-scheme guile30
+(customize-set-variable 'geiser-default-implementation 'chez)
+(customize-set-variable 'geiser-guile-binary "guile3.0")
+
+;; Racket.
+;; Requires: dnf install racket
+(with-eval-after-load 'racket-custom
+  (set-face-attribute 'racket-xp-unused-face nil :strike-through nil))
+(add-hook 'racket-mode-hook #'racket-xp-mode)
 
 ;; Python.
 ;; Requires: https://github.com/microsoft/pyright
@@ -354,6 +351,10 @@
 (add-hook 'js-mode-hook
 	  #'(lambda ()
 	      (setq indent-tabs-mode nil)))
+
+;; Shell.
+;; Indentation: tabs
+(customize-set-variable 'sh-basic-offset tab-width)
 
 ;; SGML.  SGML standard general markup language, which includes HTML
 ;; hypertext markup language.
