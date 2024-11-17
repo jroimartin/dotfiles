@@ -2,18 +2,19 @@
 
 ;; Copyright (C) 2010-2011 Matthieu Lemerre
 ;; Copyright (C) 2010-2021 The Org Contributors
-;; Copyright (C) 2021-2023 Jonas Bernoulli
+;; Copyright (C) 2021-2024 Jonas Bernoulli
 
 ;; Author: Matthieu Lemerre <racin@free.fr>
-;; Maintainer: Jonas Bernoulli <jonas@bernoul.li>
+;; Maintainer: Jonas Bernoulli <emacs.ol-notmuch@jonas.bernoulli.dev>
 ;; Homepage: https://git.sr.ht/~tarsius/ol-notmuch
 ;; Keywords: hypermedia mail
 
+;; Package-Version: 2.0.3
 ;; Package-Requires: (
-;;     (emacs "25.1")
-;;     (compat "29.1.4.1")
-;;     (notmuch "0.37")
-;;     (org "9.6.5"))
+;;     (emacs "26.1")
+;;     (compat "30.0.0.0")
+;;     (notmuch "0.38")
+;;     (org "9.7.4"))
 
 ;; SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -37,12 +38,12 @@
 ;; to folders in other mail clients.  Similarly, mails are referred to
 ;; by a query, so both a link can refer to several mails.
 
-;; Links have one the following forms
+;; Links have one of the following forms:
 ;; - notmuch:<search terms>
 ;; - notmuch-search:<search terms>.
 
-;; The first form open the queries in `notmuch-show-mode', whereas the
-;; second link open it in `notmuch-search-mode'.  Note that queries are
+;; The first form opens the queries in `notmuch-show-mode', whereas the
+;; second link opens it in `notmuch-search-mode'.  Note that queries are
 ;; performed at the time the link is opened, and the result may be
 ;; different from when the link was stored.
 

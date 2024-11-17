@@ -1,2 +1,2 @@
-Version: 2.0.1
-Website: https://git.sr.ht/~tarsius/ol-notmuch
+Version: 2.0.3
+Website: https://github.com/tarsius/ol-notmuch
