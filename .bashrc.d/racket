@@ -1,0 +1,5 @@
+if ! [[ "$PATH" =~ "$HOME/racket/bin:" ]]
+then
+    PATH="$HOME/racket/bin:$PATH"
+fi
+export PATH
