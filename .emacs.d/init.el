@@ -426,9 +426,6 @@
 (keymap-global-set "C-c n r" #'denote-rename-file)
 (keymap-global-set "C-c n R" #'denote-rename-file-using-front-matter)
 
-;; Revert current buffer.
-(keymap-global-set "C-c r" #'revert-buffer)
-
 ;; Shell.
 (keymap-global-set "C-c s" #'shell)
 
