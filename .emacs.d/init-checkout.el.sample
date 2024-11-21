@@ -1,0 +1,2 @@
+;; Package.
+(add-to-list 'load-path "/path/to/package/lisp")

@@ -1,5 +1,13 @@
 ;;; Initial package setup.
 
+;;;; Packages from repository checkout.
+
+;; If it exists and it is readable, this file is loaded at the very
+;; beginning of the init file, before any other package is autoloaded.
+(let ((init-checkout-file (concat user-emacs-directory "init-checkout.el")))
+  (when (file-readable-p init-checkout-file)
+    (load init-checkout-file)))
+
 ;;;; Custom file.
 
 ;; Set custom file location.
@@ -433,6 +441,6 @@
 
 ;; If it exists and it is readable, this file is loaded at the very
 ;; end of the init file, after all other initializations and settings.
-(let ((local-init-file (concat user-emacs-directory "init-local.el")))
-  (when (file-readable-p local-init-file)
-    (load local-init-file)))
+(let ((init-local-file (concat user-emacs-directory "init-local.el")))
+  (when (file-readable-p init-local-file)
+    (load init-local-file)))
