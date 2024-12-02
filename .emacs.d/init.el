@@ -300,7 +300,9 @@
 (customize-set-variable 'c-default-style '((java-mode . "java")
 					   (awk-mode . "awk")
 					   (other . "linux")))
-(add-hook 'c-mode-hook #'eglot-ensure)
+;; Eglot is not started automatically with c-mode due to clangd
+;; consuming too much memory when working on some projects.
+;; (add-hook 'c-mode-hook #'eglot-ensure)
 
 ;; Go.
 ;; Requires: go install golang.org/x/tools/gopls@latest
