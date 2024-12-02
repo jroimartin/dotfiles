@@ -300,7 +300,7 @@
 (customize-set-variable 'c-default-style '((java-mode . "java")
 					   (awk-mode . "awk")
 					   (other . "linux")))
-;; Eglot is not started automatically with c-mode due to clangd
+;; Eglot cannot be started automatically with c-mode due to clangd
 ;; consuming too much memory when working on some projects.
 ;; (add-hook 'c-mode-hook #'eglot-ensure)
 
