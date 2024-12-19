@@ -406,9 +406,6 @@
 
 ;;;; Key bindings.
 
-;; Windmove.
-(windmove-default-keybindings)
-
 ;; Ibuffer.
 (keymap-global-set "C-x C-b" #'ibuffer)
 
