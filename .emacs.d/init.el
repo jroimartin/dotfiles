@@ -108,7 +108,7 @@
 ;;;; Dynamic abbreviation.
 
 ;; Case sensitive search.
-(customize-set-variable 'dabbrev-case-replace nil)
+(customize-set-variable 'dabbrev-case-fold-search nil)
 
 ;;;; Disabled commands.
 
