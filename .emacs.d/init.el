@@ -251,7 +251,7 @@
   (add-to-list 'mm-body-charset-encoding-alist '(utf-8 . 8bit)))
 
 ;; Use msmtp for sending mails.
-(customize-set-variable 'message-send-mail-function #'message-send-mail-with-sendmail)
+(customize-set-variable 'send-mail-function #'sendmail-send-it)
 (customize-set-variable 'message-sendmail-envelope-from 'header)
 (customize-set-variable 'sendmail-program (executable-find "msmtp"))
 
