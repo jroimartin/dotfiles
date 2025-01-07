@@ -150,11 +150,13 @@
 ;; Add capture templates.
 (with-eval-after-load 'org-capture
   (add-to-list 'org-capture-templates
-	       '("t" "Task with annotation" entry (file+headline "" "Tasks")
-		 "* TODO %?\n  %u\n  %a"))
+	       '("t" "Task + annotation" entry (file+headline "" "Tasks")
+		 "* TODO %?\n  %u\n  %a"
+		 :empty-lines 1))
   (add-to-list 'org-capture-templates
 	       '("T" "Task" entry (file+headline "" "Tasks")
-		 "* TODO %?\n  %u")))
+		 "* TODO %?\n  %u"
+		 :empty-lines 1)))
 
 ;; Configure export backends.
 (with-eval-after-load 'org
