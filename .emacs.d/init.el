@@ -150,11 +150,11 @@
 ;; Add capture templates.
 (with-eval-after-load 'org-capture
   (add-to-list 'org-capture-templates
-	       '("t" "Task + annotation" entry (file+headline "" "Tasks")
+	       '("t" "Task + annotation" entry (file+headline "" "Inbox")
 		 "* TODO %?\n  %u\n  %a"
 		 :empty-lines 1))
   (add-to-list 'org-capture-templates
-	       '("T" "Task" entry (file+headline "" "Tasks")
+	       '("T" "Task" entry (file+headline "" "Inbox")
 		 "* TODO %?\n  %u"
 		 :empty-lines 1)))
 

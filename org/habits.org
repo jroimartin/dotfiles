@@ -3,7 +3,7 @@
 
 * Habits
 
-** TODO Example
+** TODO Example habit
 SCHEDULED: <2024-11-09 Sun ++1d>
 :PROPERTIES:
 :STYLE: habit

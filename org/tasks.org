@@ -1,0 +1,6 @@
+#+TODO: TODO(t) NEXT(n) WAITING(w) IN_PROGRESS(p) | DONE(d)
+#+TAGS: @office(o) @home(h)
+
+* Example category
+
+** TODO Example task
