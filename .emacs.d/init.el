@@ -280,6 +280,11 @@
 ;; Bury the buffer created when receiving a new private message.
 (customize-set-variable 'erc-auto-query 'bury)
 
+;;;; Calendar.
+
+;; Make weeks begin on Monday.
+(customize-set-variable 'calendar-week-start-day 1)
+
 ;;;; Project.
 
 ;; Try to use the root of a VCS repository as the root of the project.
@@ -347,12 +352,10 @@
 (add-hook 'zig-mode-hook #'eglot-ensure)
 
 ;; Scheme.
-;; Requires: dnf install chez-scheme guile30
 (customize-set-variable 'geiser-default-implementation 'chez)
 (customize-set-variable 'geiser-guile-binary "guile3.0")
 
 ;; Racket.
-;; Requires: dnf install racket
 (with-eval-after-load 'racket-custom
   (set-face-attribute 'racket-xp-unused-face nil :strike-through nil))
 (add-hook 'racket-mode-hook #'racket-xp-mode)
