@@ -430,10 +430,10 @@
 (keymap-global-set "C-c m" #'notmuch)
 
 ;; Org.
-(keymap-global-set "C-c n c" #'org-capture)
-(keymap-global-set "C-c n a" #'org-agenda)
+(keymap-global-set "C-c o c" #'org-capture)
+(keymap-global-set "C-c o a" #'org-agenda)
 (with-eval-after-load 'ol
-  (keymap-global-set "C-c n l" #'org-store-link))
+  (keymap-global-set "C-c o l" #'org-store-link))
 
 ;; Denote.
 (keymap-global-set "C-c n n" #'denote-region)
