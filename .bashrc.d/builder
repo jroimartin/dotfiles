@@ -1,1 +1,0 @@
-alias gb='flatpak run org.gnome.Builder -e'
