@@ -26,9 +26,3 @@
 ;; Add IRC accounts.
 (customize-set-variable 'jroi-erc-accounts-alist
 			'((lc . (:server "irc.libera.chat" :port 6697 :nick "nick" :user "nick" :auth "Libera.Chat-nick"))))
-
-;;;; Elfeed.
-
-;; Add RSS feeds.
-(customize-set-variable 'elfeed-feeds
-			'(("https://example.com/feed.atom" first-tag second-tag)))
