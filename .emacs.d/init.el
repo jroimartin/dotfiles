@@ -160,7 +160,8 @@
 
 ;; Configure export backends.
 (with-eval-after-load 'org
-  (add-to-list 'org-export-backends 'md))
+  (add-to-list 'org-export-backends 'md)
+  (add-to-list 'org-export-backends 'texinfo))
 
 ;; Enable Babel languages.
 (customize-set-variable 'org-babel-load-languages '((emacs-lisp . t)
