@@ -4,14 +4,14 @@
 
 ;; If it exists and it is readable, this file is loaded at the very
 ;; beginning of the init file, before any other package is autoloaded.
-(let ((init-checkout-file (concat user-emacs-directory "init-checkout.el")))
+(let ((init-checkout-file (file-name-concat user-emacs-directory "init-checkout.el")))
   (when (file-readable-p init-checkout-file)
     (load init-checkout-file)))
 
 ;;;; Custom file.
 
 ;; Set custom file location.
-(setq custom-file (concat user-emacs-directory "custom.el"))
+(setq custom-file (file-name-concat user-emacs-directory "custom.el"))
 
 ;; Load custom file.
 (load custom-file)
@@ -19,7 +19,7 @@
 ;;;; User libraries.
 
 ;; Add user lisp directory to load-path.
-(add-to-list 'load-path (concat user-emacs-directory "lisp/"))
+(add-to-list 'load-path (file-name-concat user-emacs-directory "lisp/"))
 
 ;; Load libraries.
 (load "jroi-erc")
@@ -144,8 +144,8 @@
 
 ;; Set the default target file for storing notes.
 (customize-set-variable 'org-directory "~/org/")
-(customize-set-variable 'org-default-notes-file (concat org-directory "/inbox.org"))
-(customize-set-variable 'org-agenda-files (concat org-directory "/agenda-files"))
+(customize-set-variable 'org-default-notes-file (file-name-concat org-directory "inbox.org"))
+(customize-set-variable 'org-agenda-files `(,org-directory))
 
 ;; Add capture templates.
 (with-eval-after-load 'org-capture
@@ -450,6 +450,6 @@
 
 ;; If it exists and it is readable, this file is loaded at the very
 ;; end of the init file, after all other initializations and settings.
-(let ((init-local-file (concat user-emacs-directory "init-local.el")))
+(let ((init-local-file (file-name-concat user-emacs-directory "init-local.el")))
   (when (file-readable-p init-local-file)
     (load init-local-file)))
