@@ -286,6 +286,11 @@
 ;; Make weeks begin on Monday.
 (customize-set-variable 'calendar-week-start-day 1)
 
+;;;; Radio.
+
+;; Show radio status in the mode line.
+(radio-line-mode)
+
 ;;;; Project.
 
 ;; Try to use the root of a VCS repository as the root of the project.
