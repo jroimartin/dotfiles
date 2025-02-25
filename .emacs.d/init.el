@@ -268,16 +268,6 @@
 
 ;;;; ERC.
 
-;; Enable SASL module.
-(with-eval-after-load 'erc
-  (add-to-list 'erc-modules 'sasl))
-
-;; Call `erc-auth-source-search' with `erc-sasl-password' as `:host'.
-;; It allows to use an auth source to store the credentials of
-;; multiple user accounts within the same IRC network.
-(customize-set-variable 'erc-sasl-auth-source-function
-			#'erc-sasl-auth-source-password-as-host)
-
 ;; Bury the buffer created when receiving a new private message.
 (customize-set-variable 'erc-auto-query 'bury)
 
