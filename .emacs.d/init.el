@@ -54,9 +54,9 @@
 	(cpp . ("https://github.com/tree-sitter/tree-sitter-cpp.git" "v0.23.4"))))
 
 ;; Install missing grammars.
-(mapc #'(lambda (lang)
-	  (unless (treesit-language-available-p lang)
-	    (treesit-install-language-grammar lang)))
+(mapc (lambda (lang)
+	(unless (treesit-language-available-p lang)
+	  (treesit-install-language-grammar lang)))
       (mapcar #'car treesit-language-source-alist))
 
 ;;; Emacs setup.
@@ -312,23 +312,23 @@
 (add-to-list 'auto-mode-alist `(,(rx ".go" string-end) . go-ts-mode))
 (add-to-list 'auto-mode-alist `(,(rx "/go.mod" string-end) . go-mod-ts-mode))
 (add-hook 'go-ts-mode-hook
-	  #'(lambda ()
-	      (eglot-ensure)
-	      (add-hook 'before-save-hook
-			#'(lambda ()
-			    (call-interactively #'eglot-code-action-organize-imports))
-			nil
-			t)
-	      (add-hook 'before-save-hook #'eglot-format-buffer nil t)))
+	  (lambda ()
+	    (eglot-ensure)
+	    (add-hook 'before-save-hook
+		      (lambda ()
+			(call-interactively #'eglot-code-action-organize-imports))
+		      nil
+		      t)
+	    (add-hook 'before-save-hook #'eglot-format-buffer nil t)))
 
 ;; Look for the nearest parent go.mod file as the project root.
 (cl-defmethod project-root ((project (head go-module)))
   (cdr project))
 
 (add-hook 'project-find-functions
-	  #'(lambda (dir)
-	      (when-let ((root (locate-dominating-file dir "go.mod")))
-		(cons 'go-module root))))
+	  (lambda (dir)
+	    (when-let ((root (locate-dominating-file dir "go.mod")))
+	      (cons 'go-module root))))
 
 ;; Rust.
 ;; Requires: rustup [+toolchain] component add rust-analyzer
@@ -336,12 +336,12 @@
 (add-to-list 'auto-mode-alist `(,(rx ".rs" string-end) . rust-ts-mode))
 (customize-set-variable 'rust-indent-offset 4)
 (add-hook 'rust-ts-mode-hook
-	  #'(lambda ()
-	      (setq indent-tabs-mode nil)))
+	  (lambda ()
+	    (setq indent-tabs-mode nil)))
 (add-hook 'rust-ts-mode-hook
-	  #'(lambda ()
-	      (eglot-ensure)
-	      (add-hook 'before-save-hook #'eglot-format-buffer nil t)))
+	  (lambda ()
+	    (eglot-ensure)
+	    (add-hook 'before-save-hook #'eglot-format-buffer nil t)))
 
 ;; Zig.
 ;; Requires: https://github.com/zigtools/zls
@@ -364,8 +364,8 @@
 ;; Indentation: 2 spaces
 (customize-set-variable 'js-indent-level 2)
 (add-hook 'js-mode-hook
-	  #'(lambda ()
-	      (setq indent-tabs-mode nil)))
+	  (lambda ()
+	    (setq indent-tabs-mode nil)))
 
 ;; Shell.
 ;; Indentation: tabs
@@ -376,15 +376,15 @@
 ;; Indentation: 2 spaces
 (customize-set-variable 'sgml-basic-offset 2)
 (add-hook 'sgml-mode-hook
-	  #'(lambda ()
-	      (setq indent-tabs-mode nil)))
+	  (lambda ()
+	    (setq indent-tabs-mode nil)))
 
 ;; CSS.
 ;; Indentation: 2 spaces
 (customize-set-variable 'css-indent-offset 2)
 (add-hook 'css-mode-hook
-	  #'(lambda ()
-	      (setq indent-tabs-mode nil)))
+	  (lambda ()
+	    (setq indent-tabs-mode nil)))
 
 ;; Dockerfile.
 (add-to-list 'auto-mode-alist
@@ -402,8 +402,8 @@
 (add-to-list 'auto-mode-alist `(,(rx ".wgsl" string-end) . wgsl-mode))
 (customize-set-variable 'wgsl-mode-basic-offset 4)
 (add-hook 'wgsl-mode-hook
-	  #'(lambda ()
-	      (setq indent-tabs-mode nil)))
+	  (lambda ()
+	    (setq indent-tabs-mode nil)))
 
 ;;;; Key bindings.
 
