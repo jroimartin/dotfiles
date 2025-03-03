@@ -245,7 +245,8 @@
 ;;;; Reading mail.
 
 ;; Only inline plain text, HTML and images.
-(customize-set-variable 'mm-inlined-types '("text/plain" "text/html" "image/.*"))
+(customize-set-variable 'mm-inlined-types
+			'("text/plain" "text/html" "text/x-patch" "image/.*"))
 
 ;;;; Sending mail.
 
