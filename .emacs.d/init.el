@@ -223,7 +223,7 @@
 
 ;;;; Notmuch.
 
-;; Requires: dnf install notmuch emacs-notmuch
+;; Requires: dnf install notmuch
 
 ;; Autoload notmuch.
 (autoload 'notmuch "notmuch" "notmuch mail" t)
