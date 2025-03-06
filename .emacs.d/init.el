@@ -328,7 +328,7 @@
 
 (add-hook 'project-find-functions
 	  (lambda (dir)
-	    (when-let ((root (locate-dominating-file dir "go.mod")))
+	    (when-let* ((root (locate-dominating-file dir "go.mod")))
 	      (cons 'go-module root))))
 
 ;; Rust.
