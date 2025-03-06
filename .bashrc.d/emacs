@@ -1,1 +1,10 @@
+if [[ -d "$HOME/opt/emacs" ]]
+then
+    if ! [[ "$PATH" =~ "$HOME/opt/emacs/bin:" ]]
+    then
+	PATH="$HOME/opt/emacs/bin:$PATH"
+    fi
+    export PATH
+fi
+
 alias ec='emacsclient -n'
