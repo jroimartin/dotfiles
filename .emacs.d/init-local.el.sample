@@ -2,6 +2,17 @@
 
 ;;;; Notmuch.
 
+;; Configure list of saved searches.
+(customize-set-variable 'notmuch-saved-searches
+			'((:name "inbox" :query "tag:inbox" :key "i")
+			  (:name "unread" :query "tag:unread" :key "u")
+			  (:name "inbox+unread" :query "tag:inbox and tag:unread" :key "I")
+			  (:name "flagged" :query "tag:flagged" :key "f")
+			  (:name "sent" :query "tag:sent" :key "t")
+			  (:name "drafts" :query "tag:draft" :key "d")
+			  (:name "me" :query "tag:me" :key "m")
+			  (:name "all mail" :query "*" :key "a")))
+
 ;; Do not add an FCC header.  Some mail servers save their own copy of
 ;; sent mails.
 (customize-set-variable 'notmuch-fcc-dirs nil)
