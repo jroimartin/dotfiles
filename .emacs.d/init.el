@@ -25,7 +25,6 @@
 (load "jroi-erc")
 (load "jroi-rg")
 (load "jroi-rmail")
-(load "jroi-semlf")
 (load "jroi-sexp")
 
 ;;;; Packages.
