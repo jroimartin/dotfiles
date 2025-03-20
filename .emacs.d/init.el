@@ -289,6 +289,11 @@
 ;; Try to use the root of a VCS repository as the root of the project.
 (add-hook 'project-find-functions #'project-try-vc)
 
+;;;; GDB
+
+;; Restore window configuration as of before GDB started.
+(customize-set-variable 'gdb-restore-window-configuration-after-quit t)
+
 ;;;; Eglot.
 
 ;; Disable inlay hints.
@@ -306,8 +311,8 @@
 (customize-set-variable 'c-default-style '((java-mode . "java")
 					   (awk-mode . "awk")
 					   (other . "linux")))
-;; Eglot cannot be started automatically with c-mode due to clangd
-;; consuming too much memory when working on some projects.
+;; Do not start Eglot with c-mode because clangd consumes too much
+;; memory with some projects.
 ;; (add-hook 'c-mode-hook #'eglot-ensure)
 
 ;; Go.
