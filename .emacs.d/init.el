@@ -289,7 +289,7 @@
 ;; Try to use the root of a VCS repository as the root of the project.
 (add-hook 'project-find-functions #'project-try-vc)
 
-;;;; GDB
+;;;; GDB.
 
 ;; Restore window configuration as of before GDB started.
 (customize-set-variable 'gdb-restore-window-configuration-after-quit t)
