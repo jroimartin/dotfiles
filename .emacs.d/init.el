@@ -49,7 +49,7 @@
 	(rust . ("https://github.com/tree-sitter/tree-sitter-rust.git" "v0.23.2"))
 	(dockerfile . ("https://github.com/camdencheek/tree-sitter-dockerfile.git" "v0.2.0"))
 	(yaml . ("https://github.com/ikatyang/tree-sitter-yaml.git" "v0.5.0"))
-	(c . ("https://github.com/tree-sitter/tree-sitter-c.git" "v0.23.2"))
+	(c . ("https://github.com/tree-sitter/tree-sitter-c.git" "v0.23.5"))
 	(cpp . ("https://github.com/tree-sitter/tree-sitter-cpp.git" "v0.23.4"))))
 
 ;; Install missing grammars.
@@ -302,18 +302,19 @@
 
 ;;;; Programming languages.
 
+;; Set default tab width.
+(customize-set-variable 'tab-width 8)
+
 ;; Enable paren mode.
 (show-paren-mode t)
 (customize-set-variable 'show-paren-delay 0)
 
 ;; C.
-;; Requires: dnf install clang-tools-extra
-(customize-set-variable 'c-default-style '((java-mode . "java")
-					   (awk-mode . "awk")
-					   (other . "linux")))
-;; Do not start Eglot with c-mode because clangd consumes too much
-;; memory with some projects.
-;; (add-hook 'c-mode-hook #'eglot-ensure)
+(add-to-list 'major-mode-remap-alist '(c-mode . c-ts-mode))
+(add-to-list 'major-mode-remap-alist '(c++-mode . c++-ts-mode))
+(add-to-list 'major-mode-remap-alist '(c-or-c++-mode . c-or-c++-ts-mode))
+(customize-set-variable 'c-ts-mode-indent-style 'linux)
+(customize-set-variable 'c-ts-mode-indent-offset tab-width)
 
 ;; Go.
 ;; Requires: go install golang.org/x/tools/gopls@latest
