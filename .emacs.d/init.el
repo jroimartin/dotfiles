@@ -48,9 +48,7 @@
 	(gomod . ("https://github.com/camdencheek/tree-sitter-go-mod.git" "v1.1.0"))
 	(rust . ("https://github.com/tree-sitter/tree-sitter-rust.git" "v0.23.2"))
 	(dockerfile . ("https://github.com/camdencheek/tree-sitter-dockerfile.git" "v0.2.0"))
-	(yaml . ("https://github.com/ikatyang/tree-sitter-yaml.git" "v0.5.0"))
-	(c . ("https://github.com/tree-sitter/tree-sitter-c.git" "v0.23.5"))
-	(cpp . ("https://github.com/tree-sitter/tree-sitter-cpp.git" "v0.23.4"))))
+	(yaml . ("https://github.com/ikatyang/tree-sitter-yaml.git" "v0.5.0"))))
 
 ;; Install missing grammars.
 (mapc (lambda (lang)
@@ -68,13 +66,13 @@
 ;;;; User interface.
 
 ;; Disable tool bar.
-(tool-bar-mode 0)
+(tool-bar-mode -1)
 
 ;; Disable menu bar.
-(menu-bar-mode 0)
+(menu-bar-mode -1)
 
 ;; Disable scroll bar.
-(scroll-bar-mode 0)
+(scroll-bar-mode -1)
 
 ;; Disable startup screen.
 (customize-set-variable 'inhibit-startup-screen t)
@@ -306,15 +304,17 @@
 (customize-set-variable 'tab-width 8)
 
 ;; Enable paren mode.
-(show-paren-mode t)
+(show-paren-mode)
 (customize-set-variable 'show-paren-delay 0)
 
 ;; C.
-(add-to-list 'major-mode-remap-alist '(c-mode . c-ts-mode))
-(add-to-list 'major-mode-remap-alist '(c++-mode . c++-ts-mode))
-(add-to-list 'major-mode-remap-alist '(c-or-c++-mode . c-or-c++-ts-mode))
-(customize-set-variable 'c-ts-mode-indent-style 'linux)
-(customize-set-variable 'c-ts-mode-indent-offset tab-width)
+;; Requires: dnf install clang-tools-extra
+(customize-set-variable 'c-default-style '((java-mode . "java")
+					   (awk-mode . "awk")
+					   (other . "linux")))
+;; Do not start Eglot with c-mode because clangd consumes too much
+;; memory with some projects.
+;; (add-hook 'c-mode-hook #'eglot-ensure)
 
 ;; Go.
 ;; Requires: go install golang.org/x/tools/gopls@latest
