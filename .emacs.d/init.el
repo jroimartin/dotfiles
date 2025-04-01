@@ -425,8 +425,9 @@
   (keymap-set flymake-mode-map "M-p" #'flymake-goto-prev-error))
 
 ;; Eglot.
-(keymap-global-set "C-c e r" #'eglot-rename)
-(keymap-global-set "C-c e a" #'eglot-code-actions)
+(with-eval-after-load 'eglot
+  (keymap-global-set "C-c e r" #'eglot-rename)
+  (keymap-global-set "C-c e a" #'eglot-code-actions))
 
 ;; Select sexp.
 (keymap-global-set "C-c i" #'jroi-sexp-select)
@@ -438,7 +439,8 @@
 (keymap-global-set "C-c o c" #'org-capture)
 (keymap-global-set "C-c o a" #'org-agenda)
 (with-eval-after-load 'ol
-  (keymap-global-set "C-c o l" #'org-store-link))
+  (keymap-global-set "C-c o l" #'org-store-link)
+  (keymap-global-set "C-c o t" #'org-toggle-link-display))
 
 ;; Denote.
 (keymap-global-set "C-c n n" #'denote-region)
