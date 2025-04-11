@@ -3,7 +3,7 @@
 ;; Copyright (C) 2024 Roi Martin
 ;; Copyright (C) 2022-2023 Anthony Cowley
 
-;; Authors: 2024- Roi Martin
+;; Authors: 2024 Roi Martin
 ;;	    2022-2023 Anthony Cowley
 ;; Keywords: wgsl
 ;; Version: 1.0.0

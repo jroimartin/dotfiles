@@ -1,6 +1,33 @@
-;;; Initial package setup.
+;;; init.el --- Init file -*- lexical-binding: t -*-
 
-;;;; Packages from repository checkout.
+;; Copyright (C) 2025 Roi Martin
+
+;; Author: Roi Martin <jroi.martin@gmail.com>
+
+;; This file is NOT part of GNU Emacs.
+
+;; This program is free software: you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation, either version 3 of the License, or
+;; (at your option) any later version.
+
+;; This program is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+
+;; You should have received a copy of the GNU General Public License
+;; along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+;;; Commentary:
+
+;; Init file loaded by GNU Emacs on startup.
+
+;;; Code:
+
+;;;; Initial package setup.
+
+;;;;; Packages from repository checkout.
 
 ;; If it exists and it is readable, this file is loaded at the very
 ;; beginning of the init file, before any other package is autoloaded.
@@ -8,7 +35,7 @@
   (when (file-readable-p init-checkout-file)
     (load init-checkout-file)))
 
-;;;; Custom file.
+;;;;; Custom file.
 
 ;; Set custom file location.
 (setq custom-file (file-name-concat user-emacs-directory "custom.el"))
@@ -16,7 +43,7 @@
 ;; Load custom file.
 (load custom-file)
 
-;;;; User libraries.
+;;;;; User libraries.
 
 ;; Add user lisp directory to load-path.
 (add-to-list 'load-path (file-name-concat user-emacs-directory "lisp/"))
@@ -27,7 +54,7 @@
 (load "jroi-rmail")
 (load "jroi-sexp")
 
-;;;; Packages.
+;;;;; Packages.
 
 (require 'package)
 
@@ -39,7 +66,7 @@
   (package-refresh-contents)
   (package-install-selected-packages))
 
-;;; Initial tree-sitter setup.
+;;;; Initial tree-sitter setup.
 
 ;; Add configuration for downloading and installing tree-sitter
 ;; language grammars.
@@ -56,14 +83,14 @@
 	  (treesit-install-language-grammar lang)))
       (mapcar #'car treesit-language-source-alist))
 
-;;; Emacs setup.
+;;;; Emacs setup.
 
-;;;; Environment.
+;;;;; Environment.
 
 ;; Disable pager.
 (setenv "PAGER" "")
 
-;;;; User interface.
+;;;;; User interface.
 
 ;; Disable tool bar.
 (tool-bar-mode -1)
@@ -86,28 +113,28 @@
 ;; Do not split windows vertically if possible.
 (customize-set-variable 'split-height-threshold nil)
 
-;;;; Faces.
+;;;;; Faces.
 
 ;; Customize fixed-pitch-serif face.
 (set-face-attribute 'fixed-pitch-serif nil :family "Go Mono")
 
-;;;; Completion.
+;;;;; Completion.
 
 ;; Switch to the *Completions* window when `completion-at-point' is
 ;; called twice.
 (customize-set-variable 'completion-auto-select 'second-tab)
 
-;;;; Minibuffer completion.
+;;;;; Minibuffer completion.
 
 ;; Enable Fido mode.
 (fido-mode)
 
-;;;; Dynamic abbreviation.
+;;;;; Dynamic abbreviation.
 
 ;; Case sensitive search.
 (customize-set-variable 'dabbrev-case-fold-search nil)
 
-;;;; Disabled commands.
+;;;;; Disabled commands.
 
 ;; Convert region to upper and lower case.
 (put 'upcase-region 'disabled nil)
@@ -117,7 +144,7 @@
 (put 'narrow-to-region 'disabled nil)
 (put 'narrow-to-page 'disabled nil)
 
-;;;; Dired.
+;;;;; Dired.
 
 ;; If there is a Dired buffer displayed in some window, use its
 ;; current directory, instead of Dired buffer's current directory.
@@ -126,18 +153,18 @@
 ;; Show hidden files and human-readable sizes.
 (customize-set-variable 'dired-listing-switches "-lah")
 
-;;;; Compilation.
+;;;;; Compilation.
 
 ;; Try to translate SGR control sequences into text properties.
 (customize-set-variable 'ansi-color-for-compilation-mode t)
 (add-hook 'compilation-filter-hook #'ansi-color-compilation-filter)
 
-;;;; ElDoc.
+;;;;; ElDoc.
 
 ;; Do not allow long ElDoc doc strings to resize echo area display.
 (customize-set-variable 'eldoc-echo-area-use-multiline-p nil)
 
-;;;; Org.
+;;;;; Org.
 
 ;; Set the default target file for storing notes.
 (customize-set-variable 'org-directory "~/org/")
@@ -179,7 +206,7 @@
 (with-eval-after-load 'org
   (add-to-list 'org-modules 'org-habit))
 
-;;;; Denote.
+;;;;; Denote.
 
 ;; Set default notes directory.
 (customize-set-variable 'denote-directory (expand-file-name "~/notes/"))
@@ -197,7 +224,7 @@
 ;; Fontify all Denote-style file names in dired.
 (add-hook 'dired-mode-hook #'denote-dired-mode)
 
-;;;; Magit.
+;;;;; Magit.
 
 ;; Enable forge.
 (with-eval-after-load 'magit
@@ -218,7 +245,7 @@
 (with-eval-after-load 'magit
   (remove-hook 'magit-status-headers-hook 'magit-insert-tags-header))
 
-;;;; Notmuch.
+;;;;; Notmuch.
 
 ;; Requires: dnf install notmuch
 
@@ -239,7 +266,7 @@
 ;; Show the newest mail first when searching.
 (customize-set-variable 'notmuch-search-oldest-first nil)
 
-;;;; Reading mail.
+;;;;; Reading mail.
 
 ;; Only inline plain text, HTML and images.
 (customize-set-variable 'mm-inlined-types '("text/plain"
@@ -248,7 +275,7 @@
 					    "text/x-diff"
 					    "image/.*"))
 
-;;;; Sending mail.
+;;;;; Sending mail.
 
 ;; Dot not encode utf-8 as base64.
 (with-eval-after-load 'mm-bodies
@@ -259,7 +286,7 @@
 (customize-set-variable 'message-sendmail-envelope-from 'header)
 (customize-set-variable 'sendmail-program (executable-find "msmtp"))
 
-;;;; EWW.
+;;;;; EWW.
 
 ;; Open URLs in EWW by default.
 (customize-set-variable 'browse-url-browser-function #'eww-browse-url)
@@ -267,38 +294,38 @@
 ;; Set search engine to DuckDuckGo Lite.
 (customize-set-variable 'eww-search-prefix "https://duckduckgo.com/lite/?q=")
 
-;;;; ERC.
+;;;;; ERC.
 
 ;; Bury the buffer created when receiving a new private message.
 (customize-set-variable 'erc-auto-query 'bury)
 
-;;;; Calendar.
+;;;;; Calendar.
 
 ;; Make weeks begin on Monday.
 (customize-set-variable 'calendar-week-start-day 1)
 
-;;;; Radio.
+;;;;; Radio.
 
 ;; Show radio status in the mode line.
 (radio-line-mode)
 
-;;;; Project.
+;;;;; Project.
 
 ;; Try to use the root of a VCS repository as the root of the project.
 (add-hook 'project-find-functions #'project-try-vc)
 
-;;;; GDB.
+;;;;; GDB.
 
 ;; Restore window configuration as of before GDB started.
 (customize-set-variable 'gdb-restore-window-configuration-after-quit t)
 
-;;;; Eglot.
+;;;;; Eglot.
 
 ;; Disable inlay hints.
 (customize-set-variable 'eglot-ignored-server-capabilities '(:inlayHintProvider
 							     :documentOnTypeFormattingProvider))
 
-;;;; Programming languages.
+;;;;; Programming languages.
 
 ;; Set default tab width.
 (customize-set-variable 'tab-width 8)
@@ -414,7 +441,7 @@
 	  (lambda ()
 	    (setq indent-tabs-mode nil)))
 
-;;;; Key bindings.
+;;;;; Key bindings.
 
 ;; Ibuffer.
 (keymap-global-set "C-x C-b" #'ibuffer)
@@ -452,10 +479,12 @@
 ;; Shell.
 (keymap-global-set "C-c s" #'shell)
 
-;;;; Local settings file.
+;;;;; Local settings file.
 
 ;; If it exists and it is readable, this file is loaded at the very
 ;; end of the init file, after all other initializations and settings.
 (let ((init-local-file (file-name-concat user-emacs-directory "init-local.el")))
   (when (file-readable-p init-local-file)
     (load init-local-file)))
+
+;;; init.el ends here
