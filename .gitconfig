@@ -1,6 +1,8 @@
 [alias]
 	lg = log --graph --format=format:'%C(bold blue)%h%C(reset) %C(green)(%ar)%C(reset)%C(auto)%d%C(reset) %C(auto)%s%C(reset) %C(yellow)%ae%C(reset)'
 	wt = worktree
+	refd = show -s --pretty=tformat:'%cd "%s"' --date=short
+	refh = show -s --pretty=tformat:'%h (\"%s\")'
 [core]
 	excludesFile = ~/.gitignore
 	abbrev = 12
@@ -10,9 +12,6 @@
 	path = ~/.gitconfig-local
 [init]
 	defaultBranch = main
-[pretty]
-        hs = %h (\"%s\")
-        fixes = Fixes: %h (\"%s\")
 [pull]
 	ff = only
 [push]
