@@ -118,6 +118,11 @@
 ;; Customize fixed-pitch-serif face.
 (set-face-attribute 'fixed-pitch-serif nil :family "Go Mono")
 
+;;;;; Editor.
+
+;; A period followed by one space ends a sentence.
+(customize-set-variable 'sentence-end-double-space nil)
+
 ;;;;; Completion.
 
 ;; Switch to the *Completions* window when `completion-at-point' is
