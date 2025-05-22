@@ -271,6 +271,7 @@
 ;; Only inline plain text, HTML and images.
 (customize-set-variable 'mm-inlined-types '("text/plain"
 					    "text/html"
+					    "text/patch"
 					    "text/x-patch"
 					    "text/x-diff"
 					    "image/.*"))
