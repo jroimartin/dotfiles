@@ -252,10 +252,6 @@
 ;; Autoload notmuch.
 (autoload 'notmuch "notmuch" "notmuch mail" t)
 
-;; Enable ol-notmuch.
-(with-eval-after-load 'notmuch
-  (require 'ol-notmuch))
-
 ;; Sections for notmuch-hello.
 (customize-set-variable 'notmuch-hello-sections '(notmuch-hello-insert-saved-searches
 						  notmuch-hello-insert-alltags))

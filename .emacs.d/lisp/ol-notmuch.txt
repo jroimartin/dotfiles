@@ -1,2 +1,0 @@
-Version: 2.0.3
-Website: https://github.com/tarsius/ol-notmuch
