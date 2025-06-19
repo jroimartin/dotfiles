@@ -1,5 +1,0 @@
-if ! [[ "$PATH" =~ "$HOME/zig:" ]]
-then
-    PATH="$HOME/zig:$PATH"
-fi
-export PATH

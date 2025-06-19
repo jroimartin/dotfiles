@@ -376,10 +376,6 @@
 	    (eglot-ensure)
 	    (add-hook 'before-save-hook #'eglot-format-buffer nil t)))
 
-;; Zig.
-;; Requires: https://github.com/zigtools/zls
-(add-hook 'zig-mode-hook #'eglot-ensure)
-
 ;; Scheme.
 (customize-set-variable 'geiser-default-implementation 'chez)
 (customize-set-variable 'geiser-guile-binary "guile3.0")

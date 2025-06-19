@@ -33,7 +33,7 @@
  '(package-selected-packages
    '(denote elfeed forge geiser-chez geiser-guile htmlize magit
 	    markdown-mode notmuch ol-notmuch package-lint racket-mode
-	    radio tmr zig-mode)))
+	    radio tmr)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
