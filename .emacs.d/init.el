@@ -85,11 +85,6 @@
 
 ;;;; Emacs setup.
 
-;;;;; Environment.
-
-;; Disable pager.
-(setenv "PAGER" "")
-
 ;;;;; User interface.
 
 ;; Disable tool bar.
