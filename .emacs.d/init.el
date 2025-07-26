@@ -269,10 +269,6 @@
 
 ;;;;; Sending mail.
 
-;; Dot not encode utf-8 as base64.
-(with-eval-after-load 'mm-bodies
-  (add-to-list 'mm-body-charset-encoding-alist '(utf-8 . 8bit)))
-
 ;; Use msmtp for sending mails.
 (customize-set-variable 'send-mail-function #'sendmail-send-it)
 (customize-set-variable 'message-sendmail-envelope-from 'header)
