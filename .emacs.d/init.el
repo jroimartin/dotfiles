@@ -85,6 +85,13 @@
 
 ;;;; Emacs setup.
 
+;;;;; Environment.
+
+;; Set PAGER to "cat", which is equivalent to not using a pager at
+;; all.
+(when (executable-find "cat")
+  (setenv "PAGER" "cat"))
+
 ;;;;; User interface.
 
 ;; Disable tool bar.
