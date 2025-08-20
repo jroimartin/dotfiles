@@ -470,6 +470,9 @@
 ;; Shell.
 (keymap-global-set "C-c s" #'shell)
 
+;; Semantic linefeeds.
+(keymap-global-set "C-c q" #'fill-paragraph-semlf)
+
 ;;;;; Local settings file.
 
 ;; If it exists and it is readable, this file is loaded at the very
