@@ -66,23 +66,6 @@
   (package-refresh-contents)
   (package-install-selected-packages))
 
-;;;; Initial tree-sitter setup.
-
-;; Add configuration for downloading and installing tree-sitter
-;; language grammars.
-(setq treesit-language-source-alist
-      '((go . ("https://github.com/tree-sitter/tree-sitter-go.git" "v0.23.4"))
-	(gomod . ("https://github.com/camdencheek/tree-sitter-go-mod.git" "v1.1.0"))
-	(rust . ("https://github.com/tree-sitter/tree-sitter-rust.git" "v0.24.0"))
-	(dockerfile . ("https://github.com/camdencheek/tree-sitter-dockerfile.git" "v0.2.0"))
-	(yaml . ("https://github.com/ikatyang/tree-sitter-yaml.git" "v0.5.0"))))
-
-;; Install missing grammars.
-(mapc (lambda (lang)
-	(unless (treesit-language-available-p lang)
-	  (treesit-install-language-grammar lang)))
-      (mapcar #'car treesit-language-source-alist))
-
 ;;;; Emacs setup.
 
 ;;;;; Environment.
@@ -104,16 +87,16 @@
 (scroll-bar-mode -1)
 
 ;; Disable startup screen.
-(customize-set-variable 'inhibit-startup-screen t)
+(setopt inhibit-startup-screen t)
 
 ;; Disable bell.
-(customize-set-variable 'ring-bell-function 'ignore)
+(setopt ring-bell-function 'ignore)
 
 ;; Show column number.
-(customize-set-variable 'column-number-mode t)
+(setopt column-number-mode t)
 
 ;; Do not split windows vertically if possible.
-(customize-set-variable 'split-height-threshold nil)
+(setopt split-height-threshold nil)
 
 ;;;;; Faces.
 
@@ -124,7 +107,7 @@
 
 ;; Switch to the *Completions* window when `completion-at-point' is
 ;; called twice.
-(customize-set-variable 'completion-auto-select 'second-tab)
+(setopt completion-auto-select 'second-tab)
 
 ;;;;; Minibuffer completion.
 
@@ -134,7 +117,7 @@
 ;;;;; Dynamic abbreviation.
 
 ;; Case sensitive search.
-(customize-set-variable 'dabbrev-case-fold-search nil)
+(setopt dabbrev-case-fold-search nil)
 
 ;;;;; Disabled commands.
 
@@ -150,28 +133,28 @@
 
 ;; If there is a Dired buffer displayed in some window, use its
 ;; current directory, instead of Dired buffer's current directory.
-(customize-set-variable 'dired-dwim-target t)
+(setopt dired-dwim-target t)
 
 ;; Show hidden files and human-readable sizes.
-(customize-set-variable 'dired-listing-switches "-lah")
+(setopt dired-listing-switches "-lah")
 
 ;;;;; Compilation.
 
 ;; Try to translate SGR control sequences into text properties.
-(customize-set-variable 'ansi-color-for-compilation-mode t)
+(setopt ansi-color-for-compilation-mode t)
 (add-hook 'compilation-filter-hook #'ansi-color-compilation-filter)
 
 ;;;;; ElDoc.
 
 ;; Do not allow long ElDoc doc strings to resize echo area display.
-(customize-set-variable 'eldoc-echo-area-use-multiline-p nil)
+(setopt eldoc-echo-area-use-multiline-p nil)
 
 ;;;;; Org.
 
 ;; Set the default target file for storing notes.
-(customize-set-variable 'org-directory "~/org/")
-(customize-set-variable 'org-default-notes-file (file-name-concat org-directory "inbox.org"))
-(customize-set-variable 'org-agenda-files `(,org-directory))
+(setopt org-directory "~/org/")
+(setopt org-default-notes-file (file-name-concat org-directory "inbox.org"))
+(setopt org-agenda-files `(,org-directory))
 
 ;; Add capture templates.
 (with-eval-after-load 'org-capture
@@ -190,11 +173,11 @@
   (add-to-list 'org-export-backends 'texinfo))
 
 ;; Enable Babel languages.
-(customize-set-variable 'org-babel-load-languages '((emacs-lisp . t)
-						    (scheme . t)))
+(setopt org-babel-load-languages '((emacs-lisp . t)
+				   (scheme . t)))
 
 ;; Do not show repeated entries in the future part of the agenda.
-(customize-set-variable 'org-agenda-show-future-repeats nil)
+(setopt org-agenda-show-future-repeats nil)
 
 ;; Filter out "someday" and "habit" entries in "Agenda and TODOs"
 ;; view.
@@ -211,10 +194,10 @@
 ;;;;; Denote.
 
 ;; Set default notes directory.
-(customize-set-variable 'denote-directory (expand-file-name "~/notes/"))
+(setopt denote-directory (expand-file-name "~/notes/"))
 
 ;; Empty keywords list.
-(customize-set-variable 'denote-known-keywords nil)
+(setopt denote-known-keywords nil)
 
 ;; Add denote template to org-capture.
 (with-eval-after-load 'org-capture
@@ -233,15 +216,15 @@
   (require 'forge))
 
 ;; Hide closed topics in forge.
-(customize-set-variable 'forge-topic-list-limit '(60 . -5))
+(setopt forge-topic-list-limit '(60 . -5))
 
 ;; Show word-granularity differences within diff hunks.
-(customize-set-variable 'magit-diff-refine-hunk t)
+(setopt magit-diff-refine-hunk t)
 
 ;; Performance tweaks for big repositories.
 
 ;; Do not show related branches in revision buffers.
-(customize-set-variable 'magit-revision-insert-related-refs nil)
+(setopt magit-revision-insert-related-refs nil)
 
 ;; Do not show tags header in status buffer.
 (with-eval-after-load 'magit
@@ -255,49 +238,49 @@
 (autoload 'notmuch "notmuch" "notmuch mail" t)
 
 ;; Sections for notmuch-hello.
-(customize-set-variable 'notmuch-hello-sections '(notmuch-hello-insert-saved-searches
-						  notmuch-hello-insert-alltags))
+(setopt notmuch-hello-sections '(notmuch-hello-insert-saved-searches
+				 notmuch-hello-insert-alltags))
 
 ;; Show all tags in notmuch-hello.
-(customize-set-variable 'notmuch-show-all-tags-list t)
+(setopt notmuch-show-all-tags-list t)
 
 ;; Show the newest mail first when searching.
-(customize-set-variable 'notmuch-search-oldest-first nil)
+(setopt notmuch-search-oldest-first nil)
 
 ;;;;; Reading mail.
 
 ;; Only inline plain text, HTML and images.
-(customize-set-variable 'mm-inlined-types '("text/plain"
-					    "text/html"
-					    "text/patch"
-					    "text/x-patch"
-					    "text/x-diff"
-					    "image/.*"))
+(setopt mm-inlined-types '("text/plain"
+			   "text/html"
+			   "text/patch"
+			   "text/x-patch"
+			   "text/x-diff"
+			   "image/.*"))
 
 ;;;;; Sending mail.
 
 ;; Use msmtp for sending mails.
-(customize-set-variable 'send-mail-function #'sendmail-send-it)
-(customize-set-variable 'message-sendmail-envelope-from 'header)
-(customize-set-variable 'sendmail-program (executable-find "msmtp"))
+(setopt send-mail-function #'sendmail-send-it)
+(setopt message-sendmail-envelope-from 'header)
+(setopt sendmail-program (executable-find "msmtp"))
 
 ;;;;; EWW.
 
 ;; Open URLs in EWW by default.
-(customize-set-variable 'browse-url-browser-function #'eww-browse-url)
+(setopt browse-url-browser-function #'eww-browse-url)
 
 ;; Set search engine to DuckDuckGo Lite.
-(customize-set-variable 'eww-search-prefix "https://duckduckgo.com/lite/?q=")
+(setopt eww-search-prefix "https://duckduckgo.com/lite/?q=")
 
 ;;;;; ERC.
 
 ;; Bury the buffer created when receiving a new private message.
-(customize-set-variable 'erc-auto-query 'bury)
+(setopt erc-auto-query 'bury)
 
 ;;;;; Calendar.
 
 ;; Make weeks begin on Monday.
-(customize-set-variable 'calendar-week-start-day 1)
+(setopt calendar-week-start-day 1)
 
 ;;;;; Radio.
 
@@ -312,36 +295,42 @@
 ;;;;; GDB.
 
 ;; Restore window configuration as of before GDB started.
-(customize-set-variable 'gdb-restore-window-configuration-after-quit t)
+(setopt gdb-restore-window-configuration-after-quit t)
 
 ;;;;; Eglot.
 
 ;; Disable inlay hints.
-(customize-set-variable 'eglot-ignored-server-capabilities '(:inlayHintProvider
-							     :documentOnTypeFormattingProvider))
+(setopt eglot-ignored-server-capabilities '(:inlayHintProvider
+					    :documentOnTypeFormattingProvider))
 
 ;;;;; Programming languages.
 
+;; Enable tree-sitter modes.
+(setopt treesit-enabled-modes '(go-ts-mode
+				go-mod-ts-mode
+				go-work-ts-mode
+				rust-ts-mode
+				dockerfile-ts-mode
+				yaml-ts-mode))
+
 ;; Set default tab width.
-(customize-set-variable 'tab-width 8)
+(setopt tab-width 8)
 
 ;; Enable paren mode.
 (show-paren-mode)
-(customize-set-variable 'show-paren-delay 0)
+(setopt show-paren-delay 0)
 
 ;; C.
 ;; Requires: dnf install clang-tools-extra
-(customize-set-variable 'c-default-style '((java-mode . "java")
-					   (awk-mode . "awk")
-					   (other . "linux")))
+(setopt c-default-style '((java-mode . "java")
+			  (awk-mode . "awk")
+			  (other . "linux")))
 ;; Do not start Eglot with c-mode because clangd consumes too much
 ;; memory with some projects.
 ;; (add-hook 'c-mode-hook #'eglot-ensure)
 
 ;; Go.
 ;; Requires: go install golang.org/x/tools/gopls@latest
-(add-to-list 'auto-mode-alist `(,(rx ".go" string-end) . go-ts-mode))
-(add-to-list 'auto-mode-alist `(,(rx "/go.mod" string-end) . go-mod-ts-mode))
 (add-hook 'go-ts-mode-hook
 	  (lambda ()
 	    (eglot-ensure)
@@ -364,8 +353,7 @@
 ;; Rust.
 ;; Requires: rustup [+toolchain] component add rust-analyzer
 ;; Indentation: 4 spaces
-(add-to-list 'auto-mode-alist `(,(rx ".rs" string-end) . rust-ts-mode))
-(customize-set-variable 'rust-indent-offset 4)
+(setopt rust-indent-offset 4)
 (add-hook 'rust-ts-mode-hook
 	  (lambda ()
 	    (setq indent-tabs-mode nil)))
@@ -375,8 +363,8 @@
 	    (add-hook 'before-save-hook #'eglot-format-buffer nil t)))
 
 ;; Scheme.
-(customize-set-variable 'geiser-default-implementation 'chez)
-(customize-set-variable 'geiser-guile-binary "guile3.0")
+(setopt geiser-default-implementation 'chez)
+(setopt geiser-guile-binary "guile3.0")
 
 ;; Racket.
 (with-eval-after-load 'racket-custom
@@ -389,45 +377,35 @@
 
 ;; JavaScript.
 ;; Indentation: 2 spaces
-(customize-set-variable 'js-indent-level 2)
+(setopt js-indent-level 2)
 (add-hook 'js-mode-hook
 	  (lambda ()
 	    (setq indent-tabs-mode nil)))
 
 ;; Shell.
 ;; Indentation: tabs
-(customize-set-variable 'sh-basic-offset tab-width)
+(setopt sh-basic-offset tab-width)
 
 ;; SGML.  SGML standard general markup language, which includes HTML
 ;; hypertext markup language.
 ;; Indentation: 2 spaces
-(customize-set-variable 'sgml-basic-offset 2)
+(setopt sgml-basic-offset 2)
 (add-hook 'sgml-mode-hook
 	  (lambda ()
 	    (setq indent-tabs-mode nil)))
 
 ;; CSS.
 ;; Indentation: 2 spaces
-(customize-set-variable 'css-indent-offset 2)
+(setopt css-indent-offset 2)
 (add-hook 'css-mode-hook
 	  (lambda ()
 	    (setq indent-tabs-mode nil)))
-
-;; Dockerfile.
-(add-to-list 'auto-mode-alist
-	     `(,(rx (or (seq "Dockerfile" (? "." (* not-newline)))
-			(seq "." (any "Dd") "ockerfile"))
-		    string-end)
-	       . dockerfile-ts-mode))
-
-;; YAML.
-(add-to-list 'auto-mode-alist `(,(rx ".y" (? "a") "ml" string-end) . yaml-ts-mode))
 
 ;; WGSL.
 ;; Indentation: 4 spaces
 (autoload 'wgsl-mode "wgsl-mode" "Major mode for editing WGSL code." t)
 (add-to-list 'auto-mode-alist `(,(rx ".wgsl" string-end) . wgsl-mode))
-(customize-set-variable 'wgsl-mode-basic-offset 4)
+(setopt wgsl-mode-basic-offset 4)
 (add-hook 'wgsl-mode-hook
 	  (lambda ()
 	    (setq indent-tabs-mode nil)))
