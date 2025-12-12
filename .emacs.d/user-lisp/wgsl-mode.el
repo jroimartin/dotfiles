@@ -190,6 +190,7 @@
     (indent-line-to (* wgsl-mode-basic-offset (min bol-depth eol-depth)))
     (when (> offset 0) (forward-char offset))))
 
+;;;###autoload
 (define-derived-mode wgsl-mode prog-mode "WGSL"
   "Major mode for editing WGSL code."
   (font-lock-add-keywords nil wgsl-mode--font-lock-keywords)
@@ -200,6 +201,9 @@
   (setq-local comment-multi-line t)
   (setq-local electric-indent-chars
 	      (append "{}()" electric-indent-chars)))
+
+;;;###autoload
+(add-to-list 'auto-mode-alist `(,(rx ".wgsl" string-end) . wgsl-mode))
 
 (provide 'wgsl-mode)
 ;;; wgsl-mode.el ends here

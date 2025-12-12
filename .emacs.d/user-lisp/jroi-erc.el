@@ -41,8 +41,24 @@ NICK    is the nick name used to connect to the IRC server.
 USER    is the user name used to connect to the IRC server.
 MACHINE is the machine field of the corresponding entry in the
         auth-source file (e.g. ~/.authinfo.gpg)."
+  :tag "ERC Accounts"
+  :type '(alist :tag "Account"
+		:key-type (symbol
+			   :tag "Name")
+		:value-type (list :tag "Configuration"
+				  (const :server)
+                                  (string :tag "IRC Server")
+                                  (const :port)
+                                  (integer :tag "Port Number")
+                                  (const :nick)
+                                  (string :tag "Nickname")
+                                  (const :user)
+                                  (string :tag "Username")
+                                  (const :auth)
+                                  (string :tag "Machine")))
   :group 'jroi-erc)
 
+;;;###autoload
 (defun jroi-erc (account)
   "Creates a new ERC session with the parameters of the provided
 account.  SASL is used for authentication and credentials are

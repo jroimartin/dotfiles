@@ -43,17 +43,6 @@
 ;; Load custom file.
 (load custom-file)
 
-;;;;; User libraries.
-
-;; Add user lisp directory to load-path.
-(add-to-list 'load-path (file-name-concat user-emacs-directory "lisp/"))
-
-;; Load libraries.
-(load "jroi-erc")
-(load "jroi-rg")
-(load "jroi-rmail")
-(load "jroi-sexp")
-
 ;;;;; Packages.
 
 (require 'package)
@@ -403,8 +392,6 @@
 
 ;; WGSL.
 ;; Indentation: 4 spaces
-(autoload 'wgsl-mode "wgsl-mode" "Major mode for editing WGSL code." t)
-(add-to-list 'auto-mode-alist `(,(rx ".wgsl" string-end) . wgsl-mode))
 (setopt wgsl-mode-basic-offset 4)
 (add-hook 'wgsl-mode-hook
 	  (lambda ()

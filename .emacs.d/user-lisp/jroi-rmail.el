@@ -1,4 +1,4 @@
-;;; jroi-rg.el --- Ripgrep integration -*- lexical-binding: t -*-
+;;; jroi-rmail.el --- Rmail utility functions -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2025 Roi Martin
 
@@ -21,18 +21,16 @@
 
 ;;; Commentary:
 
-;; Ripgrep integration. Requires 'dnf install ripgrep'.
+;; Rmail utility functions.
 
 ;;; Code:
 
-(defun rg (command-args)
-  "Run ripgrep with user-specified COMMAND-ARGS.
-The output from the command goes to the \"*grep*\" buffer."
-  (interactive
-   (list (read-shell-command
-          "Run ripgrep (like this): "
-          "rg -nH --no-heading -e "
-          'rg-history)))
-  (compilation-start command-args #'grep-mode))
+;;;###autoload
+(defun jroi-rmail-url (url)
+  "Run Rmail on URL."
+  (interactive "sRun rmail on URL: ")
+  (let ((filename (make-temp-file "url" nil (url-file-extension url))))
+    (url-copy-file url filename 'ok-if-already-exists)
+    (rmail-input filename)))
 
-;;; jroi-rg.el ends here
+;;; jroi-rmail.el ends here
