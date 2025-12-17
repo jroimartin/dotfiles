@@ -221,11 +221,6 @@
 
 ;;;;; Notmuch.
 
-;; Requires: dnf install notmuch
-
-;; Autoload notmuch.
-(autoload 'notmuch "notmuch" "notmuch mail" t)
-
 ;; Sections for notmuch-hello.
 (setopt notmuch-hello-sections '(notmuch-hello-insert-saved-searches
 				 notmuch-hello-insert-alltags))
