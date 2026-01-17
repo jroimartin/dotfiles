@@ -1,5 +1,12 @@
-#+TODO: TODO(t) NEXT(n) WAITING(w) IN_PROGRESS(p) | DONE(d)
+#+TODO: TODO(t) IN_PROGRESS(p) | DONE(d)
 
-* Example category
+* Inbox                                                               :inbox:
 
-** TODO Example task
+* Next Actions                                                         :next:
+
+* Waiting For                                                       :waiting:
+
+* Someday/Maybe                                               :someday_maybe:
+
+* Projects                                                          :project:
+

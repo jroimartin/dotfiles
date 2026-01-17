@@ -142,8 +142,8 @@
 
 ;; Set the default target file for storing notes.
 (setopt org-directory "~/org/")
-(setopt org-default-notes-file (file-name-concat org-directory "inbox.org"))
-(setopt org-agenda-files `(,org-directory))
+(setopt org-default-notes-file (file-name-concat org-directory "tasks.org"))
+(setopt org-agenda-files (list org-directory))
 
 ;; Add capture templates.
 (with-eval-after-load 'org-capture
@@ -168,17 +168,16 @@
 ;; Do not show repeated entries in the future part of the agenda.
 (setopt org-agenda-show-future-repeats nil)
 
-;; Filter out "someday" and "habit" entries in "Agenda and TODOs"
-;; view.
+;; Add GTD view to org-agenda.
 (with-eval-after-load 'org-agenda
   (add-to-list 'org-agenda-custom-commands
-	       '("N" "Agenda and TODOs"
+	       '("g" "GTD"
 		 ((agenda "")
-		  (tags-todo "-someday-habit")))))
-
-;; Enable habits module.
-(with-eval-after-load 'org
-  (add-to-list 'org-modules 'org-habit))
+		  (tags-todo "inbox" ((org-agenda-overriding-header "Inbox:")))
+		  (tags-todo "next" ((org-agenda-overriding-header "Next Actions:")))
+		  (tags-todo "waiting" ((org-agenda-overriding-header "Waiting For:")))
+		  (tags-todo "someday_maybe" ((org-agenda-overriding-header "Someday/Maybe:")))
+		  (tags-todo "project" ((org-agenda-overriding-header "Projects:")))))))
 
 ;;;;; Denote.
 

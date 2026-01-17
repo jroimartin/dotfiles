@@ -1,4 +1,0 @@
-#+TODO: TODO(t) | DONE(d)
-#+FILETAGS: :inbox:
-
-* Inbox

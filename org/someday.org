@@ -1,6 +1,0 @@
-#+TODO: TODO(t) | DONE(d)
-#+FILETAGS: :someday:
-
-* Example category
-
-** TODO Example task
