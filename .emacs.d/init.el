@@ -396,6 +396,9 @@
 ;; Ibuffer.
 (keymap-global-set "C-x C-b" #'ibuffer)
 
+;; Hippie-expand.
+(keymap-global-set "M-/" #'hippie-expand)
+
 ;; Flymake.
 (with-eval-after-load 'flymake
   (keymap-set flymake-mode-map "M-n" #'flymake-goto-next-error)
