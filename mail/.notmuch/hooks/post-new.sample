@@ -13,6 +13,7 @@ notmuch tag +me +inbox -- 'tag:new and to:user@example.com'
 
 # Tag mailing list messages.
 notmuch tag +ml -- 'tag:new and to:ml@example.com'
+notmuch tag +ml +inbox -- 'tag:new and to:imp-ml@example.com'  # Important mailing list.
 
 # Remove "new" tag.
 notmuch tag -new -- 'tag:new'
