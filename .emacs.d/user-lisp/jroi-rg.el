@@ -21,19 +21,19 @@
 
 ;;; Commentary:
 
-;; Ripgrep integration. Requires 'dnf install ripgrep'.
+;; Ripgrep integration.  Requires 'dnf install ripgrep'.
 
 ;;; Code:
 
 ;;;###autoload
 (defun rg (command-args)
   "Run ripgrep with user-specified COMMAND-ARGS.
-The output from the command goes to the \"*grep*\" buffer."
+The output from the command goes to the \"*rg*\" buffer."
   (interactive
    (list (read-shell-command
           "Run ripgrep (like this): "
           "rg -nH --no-heading -e "
           'rg-history)))
-  (compilation-start command-args #'grep-mode))
+  (compilation-start command-args #'grep-mode (lambda (_x) "*rg*")))
 
 ;;; jroi-rg.el ends here
