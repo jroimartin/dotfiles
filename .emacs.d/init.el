@@ -286,6 +286,13 @@
 (setopt eglot-ignored-server-capabilities '(:inlayHintProvider
 					    :documentOnTypeFormattingProvider))
 
+;; Disable eldoc code action suggestions.
+(add-hook 'eglot-managed-mode-hook
+          (lambda ()
+            (remove-hook 'eldoc-documentation-functions
+                         'eglot-code-action-suggestion
+                         t)))
+
 ;;;;; Programming languages.
 
 ;; Enable tree-sitter modes.
