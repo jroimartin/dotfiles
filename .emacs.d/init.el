@@ -92,6 +92,11 @@
 ;; Customize fixed-pitch-serif face.
 (set-face-attribute 'fixed-pitch-serif nil :family "Go Mono")
 
+;;;;; Text input.
+
+;; Set the default input method for multilingual text.
+(setopt default-input-method "spanish-prefix")
+
 ;;;;; Completion.
 
 ;; Switch to the *Completions* window when `completion-at-point' is
