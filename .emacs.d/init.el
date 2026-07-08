@@ -31,14 +31,14 @@
 
 ;; If it exists and it is readable, this file is loaded at the very
 ;; beginning of the init file, before any other package is autoloaded.
-(let ((init-checkout-file (file-name-concat user-emacs-directory "init-checkout.el")))
+(let ((init-checkout-file (expand-file-name "init-checkout.el" user-emacs-directory)))
   (when (file-readable-p init-checkout-file)
     (load init-checkout-file)))
 
 ;;;;; Custom file.
 
 ;; Set custom file location.
-(setq custom-file (file-name-concat user-emacs-directory "custom.el"))
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 
 ;; Load custom file.
 (load custom-file)
@@ -147,7 +147,7 @@
 
 ;; Set the default target file for storing notes.
 (setopt org-directory "~/org/")
-(setopt org-default-notes-file (file-name-concat org-directory "tasks.org"))
+(setopt org-default-notes-file (expand-file-name "tasks.org" org-directory))
 (setopt org-agenda-files (list org-directory))
 
 ;; Add capture templates.
@@ -451,7 +451,7 @@
 
 ;; If it exists and it is readable, this file is loaded at the very
 ;; end of the init file, after all other initializations and settings.
-(let ((init-local-file (file-name-concat user-emacs-directory "init-local.el")))
+(let ((init-local-file (expand-file-name "init-local.el" user-emacs-directory)))
   (when (file-readable-p init-local-file)
     (load init-local-file)))
 
