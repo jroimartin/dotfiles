@@ -31,6 +31,6 @@
   (interactive "sRun rmail on URL: ")
   (let ((filename (make-temp-file "url" nil (url-file-extension url))))
     (url-copy-file url filename 'ok-if-already-exists)
-    (rmail-input filename)))
+    (rmail filename)))
 
 ;;; jroi-rmail.el ends here
