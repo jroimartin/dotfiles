@@ -47,8 +47,8 @@
 
 (require 'package)
 
-;; Add melpa repository.
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+;; Add MELPA Snapshots channel.
+(add-to-list 'package-archives '("melpa-snapshots" . "https://snapshots.melpa.org/packages/") t)
 
 ;; Install selected packages if any is missing.
 (unless (seq-every-p #'package-installed-p package-selected-packages)
