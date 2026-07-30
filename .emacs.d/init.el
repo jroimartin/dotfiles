@@ -347,11 +347,6 @@
 
 ;; Rust.
 ;; Requires: rustup [+toolchain] component add rust-analyzer
-;; Indentation: 4 spaces
-(setopt rust-indent-offset 4)
-(add-hook 'rust-ts-mode-hook
-	  (lambda ()
-	    (setq indent-tabs-mode nil)))
 (add-hook 'rust-ts-mode-hook
 	  (lambda ()
 	    (eglot-ensure)
