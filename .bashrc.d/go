@@ -3,5 +3,3 @@ then
     PATH="$HOME/go/bin:$HOME/goroot/bin:$PATH"
 fi
 export PATH
-
-alias gotip="$HOME/gotip/bin/go"
