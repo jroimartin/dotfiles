@@ -328,12 +328,18 @@
 ;; Requires: go install golang.org/x/tools/gopls@latest
 (add-hook 'go-ts-mode-hook
 	  (lambda ()
+	    (setq-local outline-occur-regexp
+			(rx (or "const "
+				"func "
+				"import "
+				"package "
+				"type "
+				"var ")))
 	    (eglot-ensure)
 	    (add-hook 'before-save-hook
 		      (lambda ()
 			(call-interactively #'eglot-code-action-organize-imports))
-		      nil
-		      t)
+		      nil t)
 	    (add-hook 'before-save-hook #'eglot-format-buffer nil t)))
 
 ;; Look for the nearest parent go.mod file as the project root.
@@ -441,6 +447,9 @@
 
 ;; Semantic linefeeds.
 (keymap-global-set "C-c q" #'fill-paragraph-semlf)
+
+;; Outline-occur.
+(keymap-set search-map "M-o" #'outline-occur)
 
 ;;;;; Local settings file.
 
