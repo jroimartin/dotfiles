@@ -99,14 +99,34 @@
 
 ;;;;; Completion.
 
-;; Switch to the *Completions* window when `completion-at-point' is
-;; called twice.
+;; Display the *Completions* buffer eagerly.
+(setopt completion-eager-display t)
+
+;; Update the *Completions* buffer as you type.
+(setopt completion-eager-update t)
+
+;; Display the *Completions* buffer whenever completion is requested
+;; but cannot be done.
+(setopt completion-auto-help t)
+
+;; Switch to the *Completions* buffer when completion is requested
+;; twice.
 (setopt completion-auto-select 'second-tab)
 
-;;;;; Minibuffer completion.
+;; Also complete "foo" as the glob "*f*o*o*".
+(with-eval-after-load 'minibuffer
+  (add-to-list 'completion-styles 'flex t))
 
-;; Enable Fido mode.
-(fido-mode)
+;; Ignore case.
+(setopt completion-ignore-case t)
+(setopt read-file-name-completion-ignore-case t)
+(setopt read-buffer-completion-ignore-case t)
+
+;; Limit the height of the *Completions* buffer.
+(setopt completions-max-height 10)
+
+;; Do not show help message in the *Completions* buffer.
+(setopt completion-show-help nil)
 
 ;;;;; Dynamic abbreviation.
 
