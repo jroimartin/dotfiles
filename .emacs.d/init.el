@@ -348,13 +348,6 @@
 ;; Requires: go install golang.org/x/tools/gopls@latest
 (add-hook 'go-ts-mode-hook
 	  (lambda ()
-	    (setq-local outline-occur-regexp
-			(rx (or "const "
-				"func "
-				"import "
-				"package "
-				"type "
-				"var ")))
 	    (eglot-ensure)
 	    (add-hook 'before-save-hook
 		      (lambda ()
@@ -468,8 +461,8 @@
 ;; Semantic linefeeds.
 (keymap-global-set "C-c q" #'fill-paragraph-semlf)
 
-;; Outline-occur.
-(keymap-set search-map "M-o" #'outline-occur)
+;; Outline-xref.
+(keymap-set search-map "M-o" #'outline-xref)
 
 ;;;;; Local settings file.
 
