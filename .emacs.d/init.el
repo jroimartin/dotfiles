@@ -122,9 +122,6 @@
 (setopt read-file-name-completion-ignore-case t)
 (setopt read-buffer-completion-ignore-case t)
 
-;; Limit the height of the *Completions* buffer.
-(setopt completions-max-height 10)
-
 ;; Do not show help message in the *Completions* buffer.
 (setopt completion-show-help nil)
 
