@@ -41,7 +41,8 @@
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 
 ;; Load custom file.
-(load custom-file)
+(when (file-readable-p custom-file)
+  (load custom-file))
 
 ;;;;; Packages.
 
