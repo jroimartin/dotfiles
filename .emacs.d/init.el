@@ -100,6 +100,12 @@
 
 ;;;;; Completion.
 
+;; Disable eager *Completions* display.
+(setopt completion-eager-display nil)
+
+;; Never update the *Completions* buffer as you type.
+(setopt completion-eager-update nil)
+
 ;; Display the *Completions* buffer whenever completion is requested
 ;; but cannot be done.
 (setopt completion-auto-help t)
