@@ -100,12 +100,6 @@
 
 ;;;;; Completion.
 
-;; Display the *Completions* buffer eagerly.
-(setopt completion-eager-display t)
-
-;; Update the *Completions* buffer as you type.
-(setopt completion-eager-update t)
-
 ;; Display the *Completions* buffer whenever completion is requested
 ;; but cannot be done.
 (setopt completion-auto-help t)
