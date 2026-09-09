@@ -462,8 +462,8 @@
 ;; Semantic linefeeds.
 (keymap-global-set "C-c q" #'fill-paragraph-semlf)
 
-;; Outline-xref.
-(keymap-set search-map "M-o" #'outline-xref)
+;; Outline-find-headings.
+(keymap-set search-map "M-o" #'outline-find-headings)
 
 ;;;;; Local settings file.
 
