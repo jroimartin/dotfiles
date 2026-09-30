@@ -30,18 +30,22 @@
   (replace-regexp-in-string "[^a-z0-9]" "-" (downcase (string-trim headline))))
 
 ;;;###autoload
-(defun jroi-org-insert-date-custom-id ()
-  "Insert the current date and set the headline's CUSTOM_ID property.
-Insert the current date at point formatted as /YYYY-MM-DD/, and set the
-current headline's CUSTOM_ID property to YYYYMMDD-headline-text."
-  (interactive)
+(defun jroi-org-insert-date-custom-id (time)
+  "Insert date for TIME at point and set headline's CUSTOM_ID property.
+Insert TIME at point formatted as /YYYY-MM-DD/, and set the current
+headline's CUSTOM_ID property to YYYYMMDD-headline-text.
+
+When called interactively, insert the current date.  With prefix
+argument, prompt for a date."
+  (interactive (list (if current-prefix-arg
+			 (org-read-date nil t)
+		       (current-time))))
   (when (org-before-first-heading-p)
     (user-error "Point must be after a heading."))
-  (let ((now (current-time)))
-    (org-set-property "CUSTOM_ID"
-		      (concat (format-time-string "%Y%m%d" now) "-"
-			      (jroi-org--sanitize-headline (org-get-heading t t t t))))
-    (insert (format-time-string "/%Y-%m-%d/" now))))
+  (org-set-property "CUSTOM_ID"
+		    (concat (format-time-string "%Y%m%d" time) "-"
+			    (jroi-org--sanitize-headline (org-get-heading t t t t))))
+  (insert (format-time-string "/%Y-%m-%d/" time)))
 
 (provide 'jroi-org)
 ;;; jroi-org.el ends here
