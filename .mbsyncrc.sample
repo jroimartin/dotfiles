@@ -2,7 +2,6 @@ IMAPAccount user_example_com
 Host imap.example.com
 Port 993
 SSLType IMAPS
-CertificateFile /etc/ssl/certs/ca-certificates.crt
 AuthMechs PLAIN
 User user@example.com
 PassCmd "gpg --quiet --for-your-eyes-only --no-tty --decrypt ~/secret.gpg"
