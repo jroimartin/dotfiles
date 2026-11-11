@@ -83,7 +83,7 @@
 (setopt ring-bell-function 'ignore)
 
 ;; Show column number.
-(setopt column-number-mode t)
+(column-number-mode)
 
 ;; Do not split windows vertically if possible.
 (setopt split-height-threshold nil)
