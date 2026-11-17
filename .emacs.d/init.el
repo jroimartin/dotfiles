@@ -336,6 +336,11 @@
 (show-paren-mode)
 (setopt show-paren-delay 0)
 
+;; Emacs Lisp.
+(add-hook 'emacs-lisp-mode-hook
+	  (lambda ()
+	    (setq indent-tabs-mode nil)))
+
 ;; C.
 ;; Requires: dnf install clang-tools-extra
 (setopt c-default-style '((java-mode . "java")
